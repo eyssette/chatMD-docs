@@ -38,9 +38,6 @@ pages:
     # Supprimer les modules nodes dans public
     - rm -r node_modules
 
-    # Supprimer les dossiers qui ne sont plus nécessaires
-    - rm -r .build
-
     # Compresser les fichiers spécifiés
     - |
       echo "Compressing files with extensions: $FILES_TO_COMPRESS"
