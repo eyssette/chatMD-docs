@@ -15,22 +15,31 @@ pages:
   script:
     # Installer les outils de compression
     - apk add --no-cache gzip brotli
+
+    # Récupérer tous les fichiers du dépôt, de manière récursive dans un dossier temporaire .public
+    - mkdir .public
+    - cp -r * .public
     
     # Créer le dossier public et récupérer l'application
     - mkdir -p public
     - wget https://forge.apps.education.fr/$APP_NAME/$APP_NAME.forge.apps.education.fr/-/archive/main/$APP_NAME.forge.apps.education.fr-main.tar.bz2
     - tar -xjf $APP_NAME.forge.apps.education.fr-main.tar.bz2 --strip-components=1 -C public
 
-    # Copier de tous les fichiers Markdown dans public
-    - cp *.md public/
+    # Copie de tous les fichiers du dépôt dans public/
+    # Attention : ces fichiers écrasent les fichiers présents dans le dépôt de Markpage
+    - cp -r .public/* public/
+    - rm -r .public
    
     # Construire l'application
     - cd public
     - npm ci --cache ../.npm --prefer-offline --no-audit
     - npm run build
 
-    # Supprimer les éléments inutiles dans public
-    - rm -r node_modules 
+    # Supprimer les modules nodes dans public
+    - rm -r node_modules
+
+    # Supprimer les dossiers qui ne sont plus nécessaires
+    - rm -r .build
 
     # Compresser les fichiers spécifiés
     - |
