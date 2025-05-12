@@ -46,7 +46,7 @@ C'est très simple !
 
 
 <label for="redirect">Collez ici l'URL de votre fichier et cliquez sur “OK” pour accéder à votre chatbot :</label>
-<input type="url" id="redirect" placeholder="Votre URL" role="textbox" title="Votre URL" style="width:75%" data-redirect="chatmd.forge.apps.education.fr"> <button id="ok-redirect" type="button">OK</button>
+<input type="url" id="redirect" class="redirect-input" placeholder="Votre URL" role="textbox" title="Votre URL" style="width:75%" data-base-url="chatmd.forge.apps.education.fr"> <button class="redirect-button" data-input-id="redirect" type="button">OK</button>
 
 
 
