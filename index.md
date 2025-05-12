@@ -112,12 +112,18 @@ La syntaxe pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.educa
 
 ```
 # Titre du chatbot
+
 Message initial
+
 1. [Premier choix](Réponse 1)
 2. [Deuxième choix](Réponse 2)
 
-## Réponse 1- déclencheur 2 (optionnel)
+## Réponse 1
+- déclencheur 1 (optionnel)
+- déclencheur 2 (optionnel)
+
 Contenu de la réponse
+
 1. [Proposition 1](Titre Proposition 1)
 2. [Proposition 2](Titre Proposition 2)
 ```
@@ -125,6 +131,13 @@ Contenu de la réponse
 Dans le message initial et le contenu de chaque réponse, **on peut utiliser toute la syntaxe Markdown** : intégrer des images, des vidéos, des iframes, et même utiliser des balises HTML.
 
 Les **titres de niveau 2** servent à identifier les réponses possibles du chatbot.
+Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit exactement identique au texte de la réponse. Il est donc conseillé de faire des copier-coller pour être sûr de ne pas faire d'erreurs.
+
+#### Retour au message initial
+
+Si on ne met pas de cible, le lien renverra alors vers le message initial.
+
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe "unique" (voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg))
 
 #### Méthodes pour déclencher une réponse
 
