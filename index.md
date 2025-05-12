@@ -195,15 +195,46 @@ On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clé
 
 ### Apparence
 
-Pour personnaliser l'apparence du chatbot, vous pouvez utiliser ces paramètres dans l'en-tête YAML :
+Pour personnaliser l'apparence du chatbot, vous pouvez utiliser différents paramètres dans l'en-tête YAML.
 
-- `style: a{color:red}` : permet d'ajouter des styles CSS personnalisés.
+#### Avatar et favicon
+
 - `avatar: URL` : permet de changer l'avatar du chatbot (il faut mettre l'url de son image à la place de URL)
 - `avatarCercle: true` : permet d'avoir un avatar en forme de cercle
 - `favicon: URL` : permet de changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de URL)
+
+#### Footer
+
 - `footer: false` : permet de supprimer le pied de page
 - `footer: 'Mon footer'` : permet de customiser ce qui apparaît dans le pied de page
+
+#### Thème et styles CSSS
+
 - `theme: bubbles` : permet d'utiliser un thème CSS particulier (ici le thème "bubbles")
+- `style: ` : permet d'ajouter des styles CSS personnalisés.
+
+Pour les styles, il est recommandé de commencer ainsi ```style: |```
+et de mettre ensuite dessous ses styles CSS personnalisés, ligne par ligne.
+
+Par exemple : 
+```yaml
+style: |
+	a{color:red}
+	p{text-align:center}
+```
+
+
+Vous pouvez définir des classes CSS personnalisées et les utiliser ainsi :
+- Pour une ligne : ajouter ` {.maClasse}` à la fin de la ligne
+- Pour plusieurs lignes :
+  ```
+  <div markdown class="maClasse">
+  Bloc de texte Markdown multiligne
+  </div>
+  ```
+
+#### Effet “machine à écrire” et clavier
+
 - `typewriter: false` : désactive l'effet "machine à écrire"
 - `clavier: false` : désactive le champ d'entrée clavier si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse.
 
@@ -214,14 +245,6 @@ Pour contrôler le clavier et l'effet typewriter au niveau des réponses individ
   - Pour un passage : `` \`texte sans effet typewriter\` ``
   - Pour tout un message : `!Typewriter: false` ou `!Typewriter: true`
 
-Vous pouvez définir des classes CSS personnalisées et les utiliser ainsi :
-- Pour une ligne : ajouter ` {.maClasse}` à la fin de la ligne
-- Pour plusieurs lignes :
-  ```
-  <div markdown class="maClasse">
-  Bloc de texte Markdown multiligne
-  </div>
-  ```
 
 ### Contenus spéciaux
 
