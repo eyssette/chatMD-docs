@@ -337,7 +337,7 @@ Un chatbot sert souvent à répondre à des questions, mais ChatMD peut aussi ê
 Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A).
 
 2. **Réponses par clic** :
-   - Utilisez `obfuscate: true` dans le YAML pour cacher le titre des liens, afin d'éviter de donner un indice en survolant un lien (voir cet [exemple](https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ?both)
+   - Utilisez `obfuscate: true` dans le YAML pour cacher le titre des liens, afin d'éviter de donner un indice en survolant un lien (voir cet [exemple](https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr#https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ)
    - Combinez avec l'aléatoire pour varier les questions
 
 ### Aléatoire
