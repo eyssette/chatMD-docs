@@ -15,7 +15,7 @@ style: h1 aside {font-weight:normal}
 
 **Simplicité**
 - Créez un chatbot en quelques minutes grâce à une syntaxe facile à apprendre
-- Utilisation directe en ligne — aucune installation serveur nécessaire
+- Utilisation directe en ligne : aucune installation serveur nécessaire
 
 **Personnalisation et flexibilité**
 - Interface entièrement configurable
@@ -23,18 +23,22 @@ style: h1 aside {font-weight:normal}
 
 **Intégration possible de l'IA**
 - Pas d'IA par défaut, mais possibilité de l'intégrer de manière sobre et ciblée
-- Prise en charge du RAG (Retrieval-Augmented Generation) pour que les réponses de l'IA intègrent une base de connaissances personnalisée.
+- Prise en charge du RAG (_Retrieval-Augmented Generation_) pour que les réponses de l'IA intègrent une base de connaissances personnalisée
 
 **Compatibilité RGPD**
-- Pas de compte à créer
-- Aucune collecte de données personnelles
+- Dans le mode sans IA (par défaut) ou avec une IA en local :
+	- Pas de compte à créer
+	- Aucune collecte de données personnelles
+- Avec IA en ligne :
+	- Le créateur du chatbot doit créer un compte pour avoir une clé API (mais pas l'utilisateur)
+	- ⚠️ Collecte possible de données personnelles de l'utilisateur selon le fournisseur de LLM utilisé
 
 **Code optimisé et écoresponsable**
 - Code très léger, rapide et à faible empreinte carbone (note A+)
 - 100 % sur tous les indicateurs Lighthouse
 - 100 % de réussite aux tests automatisés d’accessibilité (en attente pour un audit complet)
 :::
-    
+
 ## Principe général
 
 #### Principe de fonctionnement
