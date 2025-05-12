@@ -245,6 +245,12 @@ Pour contrôler le clavier et l'effet typewriter au niveau des réponses individ
   - Pour un passage : `` \`texte sans effet typewriter\` ``
   - Pour tout un message : `!Typewriter: false` ou `!Typewriter: true`
 
+### Liens internes
+
+Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais qui ne sont pas à la fin du message :
+
+1. Écrivez les options avec du code HTML directement (voir cet [exemple](https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ))
+2. Utilisez `[intitulé du lien](#titre de la réponse)` pour créer des liens sans générer de boutons
 
 ### Contenus spéciaux
 
@@ -315,10 +321,6 @@ Pour les chatbots avec beaucoup de contenu, vous pouvez répartir la source entr
     - Modifiez `js/config.mjs`
 
 #### Structuration du document
-
-Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais qui ne sont pas à la fin du message :
-1. Écrivez les options avec du code HTML directement (voir cet [exemple](https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ))
-2. Utilisez `[intitulé du lien](#titre de la réponse)` pour créer des liens sans générer de boutons
 
 Si vous souhaitez utiliser les titres 2 ou d'autres niveaux de titres pour structurer votre chatbot, et définir les identifiants de réponse avec d'autres niveaux de titre :
 4. Utilisez par exemple `titresRéponses: ["### ", "#### "]` dans le YAML pour utiliser les titres de niveaux 3 et 4 comme définition des réponses possibles du chatbot
