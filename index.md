@@ -9,7 +9,7 @@ style: h1 aside {font-weight:normal}
 
 ![](https://chatmd.forge.apps.education.fr/logo.svg =150x) {.center}
 
-ChatMD est un outil libre et gratuit qui permet de créer facilement un chatbot personnalisé à partir d'un simple fichier en Markdown.
+[ChatMD](https://chatmd.forge.apps.education.fr/) est un outil libre et gratuit qui permet de créer facilement un chatbot personnalisé à partir d'un simple fichier en Markdown.
 
 :::info ✨ Les Fonctionnalités clés
 
@@ -62,7 +62,7 @@ On peut imaginer de nombreux usages :
 - Escape games …
 
 
-La syntaxe de base est simple, mais ChatMD peut être configuré pour des **usages plus complexes** : personnalisation de l'interface, utilisation de variables, de choix aléatoires, intégration avec un LLM, possibilité de faire du RAG…
+La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education.fr/) peut être configuré pour des **usages plus complexes** : personnalisation de l'interface, utilisation de variables, de choix aléatoires, intégration avec un LLM, possibilité de faire du RAG…
 
 ## Exemples
 
@@ -108,7 +108,7 @@ Si vous êtes prof en France et que vous souhaitez utiliser la forge, rejoignez 
 
 ## Syntaxe de base
 
-La syntaxe pour écrire un chatbot avec ChatMD est la suivante :
+La syntaxe pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/) est la suivante :
 
 ```
 # Titre du chatbot
@@ -363,7 +363,7 @@ Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both)
 
 #### Principe
 
-ChatMD peut se connecter à un LLM en ligne ou en local :
+[ChatMD](https://chatmd.forge.apps.education.fr/) peut se connecter à un LLM en ligne ou en local :
 
 - Configuration complète : modèle, préprompt, nombre de tokens, etc.
 - Mode d'utilisation flexible : réponse entièrement par LLM ou enrichissement ponctuel
@@ -400,7 +400,7 @@ Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme param�
 
 ## À propos
 
-ChatMD a été créé par Cédric Eyssette, professeur de philosophie et chargé de projet à la DRANE à Lyon.
+[ChatMD](https://chatmd.forge.apps.education.fr/) a été créé par Cédric Eyssette, professeur de philosophie et chargé de projet à la DRANE à Lyon.
 
 C'est un logiciel libre sous licence MIT. Les sources sont disponibles sur [la Forge des Communs Numériques Éducatifs](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr).
 
@@ -420,7 +420,7 @@ Vous pouvez :
 
 #### Soutiens et remerciements
 
-ChatMD n'aurait pas pu exister sans :
+[ChatMD](https://chatmd.forge.apps.education.fr/) n'aurait pas pu exister sans :
 - Le soutien institutionnel de la DRANE Lyon et de la DNE
 - L'aide de l'[Incubateur de l'Éducation Nationale](https://incubateur.education.gouv.fr/) et particulièrement Thomas Sanson
 - Les suggestions de Perrine Douhéret, Laetitia Allegrini, Romain Estampes, Charlie Rollo, Mélanie Fenaert, Jean-Marc Viglino
