@@ -239,15 +239,27 @@ Vous pouvez définir des classes CSS personnalisées et les utiliser ainsi :
 
 #### Effet “machine à écrire” et clavier
 
-- `typewriter: false` : désactive l'effet "machine à écrire"
-- `clavier: false` : désactive le champ d'entrée clavier si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse.
+- `typewriter: false` dans le YAML désactive l'effet "machine à écrire"
 
-Pour contrôler le clavier et l'effet typewriter au niveau des réponses individuelles :
+Pour désactiver l'effet typewriter pour un passage seulement, on met `` `\ `` avant et après le passage à afficher d'un coup.
 
-- Pour activer/désactiver le clavier : `contenuDynamique: true` dans le YAML, puis ``` `@KEYBOARD = true` ``` ou ``` `@KEYBOARD = false` ``` dans le code markdown
-- Pour désactiver l'effet typewriter :
-  - Pour un passage : `` \`texte sans effet typewriter\` ``
-  - Pour tout un message : `!Typewriter: false` ou `!Typewriter: true`
+Exemple :
+```
+\`
+texte sans
+effet typewriter
+\`
+```
+Si on veut désactiver l'effet typewriter pour tout un message : on écrit `!Typewriter: false` ou `!Typewriter: true` dans le message (de préférence au début du message).
+
+#### Clavier
+
+- `clavier: false` dans le YAML désactive le champ d'entrée clavier si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse.
+
+Si on veut activer ou désactiver le clavier pour un message seulement, on écrit `!Keyboard: false` ou `!Keyboard: true` dans le message (de préférence au début du message).
+
+Si on veut activer ou désactiver le clavier à partir d'un message jusqu'à ce qu'on demande le contraire, il faut activer les variables dynamiques avec `contenuDynamique: true` dans le YAML, et on utilise ensuite ``` `@KEYBOARD = true` ``` ou ``` `@KEYBOARD = false` ``` dans son message.
+
 
 ### Liens internes
 
