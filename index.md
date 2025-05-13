@@ -258,8 +258,6 @@ Si on veut désactiver l'effet typewriter pour tout un message : on écrit `!Typ
 
 Si on veut activer ou désactiver le clavier pour un message seulement, on écrit `!Keyboard: false` ou `!Keyboard: true` dans le message (de préférence au début du message).
 
-Si on veut activer ou désactiver le clavier à partir d'un message jusqu'à ce qu'on demande le contraire, il faut activer les variables dynamiques avec `contenuDynamique: true` dans le YAML, et on utilise ensuite ``` `@KEYBOARD = true` ``` ou ``` `@KEYBOARD = false` ``` dans son message.
-
 
 ### Liens internes
 
