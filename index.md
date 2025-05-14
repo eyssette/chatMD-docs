@@ -57,13 +57,15 @@ C'est très simple !
 #### Cas d'usages
 
 On peut imaginer de nombreux usages :
-- Outil interactif pour pouvoir répondre à des questions fréquentes (FAQ)
+- Réponse à des questions fréquentes (FAQ)
 - Tutoriel pour un outil informatique
+- Aide à la décision ou à la création
 - Guide méthodologique
 - Révision de connaissances, quiz interactif
+- Outil de formation, d'aide méthodologique ou de découverte d'un sujet
 - Discussion avec un personnage historique
 - Histoire dont vous êtes le héros
-- Escape games …
+- Escape game, enquête …
 
 
 La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education.fr/) peut être configuré pour des **usages plus complexes** : personnalisation de l'interface, utilisation de variables, de choix aléatoires, intégration avec un LLM, possibilité de faire du RAG…
