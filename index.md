@@ -76,9 +76,9 @@ La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education
 
 #### Exemples de chatbots
 
-N'hésitez pas à partager vos exemples de chatbot !
+N'hésitez pas à partager vos exemples de chatbot sur le [salon Tchap dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) ou par [mail](mailto:forge-apps+guichet+chatmd-chatmd-forge-apps-education-fr-1072-issue-@phm.education.gouv.fr) !
 
-Contact : [Mastodon](https://scholar.social/@eyssette)
+Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.apps.education.fr/)
 
 ##### Tutoriel pour un logiciel ou un outil
 - [Tutoriel pour l'application _Ma Carte_ de l'IGN](https://ignf-ma-carte.github.io/chatbot/)
