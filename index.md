@@ -7,6 +7,7 @@ style: |
    li{margin-top:0.5em}
    pre{padding-top:3em}
    .admonition{margin:1.25em auto}
+   .admonitionTitle{margin-top:0.5em}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -47,8 +48,7 @@ style: |
 ## Principe général
 
 #### Principe de fonctionnement
-:::info
-C'est très simple !
+:::info C'est très simple !
 1. Créez un fichier en Markdown accessible en ligne.
 2. Respectez la syntaxe de ChatMD pour définir votre chatbot.
 3. Votre chatbot est alors accessible à l'adresse suivante : `https://chatmd.forge.apps.education.fr/#URL`
@@ -84,9 +84,12 @@ La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education
 
 #### Exemples de chatbots
 
+:::success Partagez vos chatbots !
 N'hésitez pas à partager vos exemples de chatbot sur le [salon Tchap dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) ou par [mail](mailto:forge-apps+guichet+chatmd-chatmd-forge-apps-education-fr-1072-issue-@phm.education.gouv.fr) !
 
 Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.apps.education.fr/)
+:::
+
 
 ##### Tutoriel pour un logiciel ou un outil
 - [Tutoriel pour l'application _Ma Carte_ de l'IGN](https://ignf-ma-carte.github.io/chatbot/)
