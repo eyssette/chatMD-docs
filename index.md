@@ -440,9 +440,13 @@ Vous pouvez aussi utiliser :
 
 #### Formules mathématiques (LaTeX)
 
-Pour utiliser LaTeX pour les mathématiques :
-1. Ajoutez `maths: true` dans le YAML
-2. Utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) ou `$$Latex$$` (pour un paragraphe à part)
+Pour utiliser LaTeX pour les mathématiques, il faut ajouter dans le YAML :
+
+```
+maths: true
+```
+
+Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) ou `$$Latex$$` (pour un paragraphe à part)
 
 #### Schémas et graphiques
 
