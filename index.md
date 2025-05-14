@@ -87,8 +87,8 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Utilisation d'un microscope](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/xGNHIJSeTVCk6FHas-_71g)
 - [Aider à l’utilisation de Codabloc en classe de CM2](https://primabord.eduscol.education.fr/un-chatbot-d-aide)
 - [Ele@Bot, un chatbot pour accompagner dans la création de parcours Éléa](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/uhjFSgThz)
-- [Guide Technique d'Utilisation d'AnalookW 4 pour l'Analyse des Sons de Chauves-Souris](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/guillaumarchais/ChatMD/refs/heads/main/Analook-tuto)
-- [Tutoriel pour le logiciel open Evidence of Absence](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/EoA2-tuto-FR)
+- [Guide technique d'utilisation d'AnalookW 4 pour l'analyse des sons de chauves-souris](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/guillaumarchais/ChatMD/refs/heads/main/Analook-tuto)
+- [Tutoriel pour le logiciel “Evidence of Absence”](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/EoA2-tuto-FR)
 
 
 ##### FAQ
@@ -106,11 +106,11 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [BoBot : un chatbot pour accompagner un parcours de formation sur “Enseigner avec les chatbots”](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/g7sQ4xUa5)
 - [Scénariser sa formation avec la méthode ABC Learning Design](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/VmyzDYolTauP9wRwLnK84g)
 
-##### Outil d'aide à la décision ou à la création de quelque chose
+##### Outil d'aide à la décision ou à la création
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
 - [Arbre de décision pour choisir le bon “commit” quand on a fait une modification d'un code source](https://chatmd.forge.apps.education.fr/#https://pad.numerique.gouv.fr/FurkP8BzRY6lcZLqP5avqw%23)
 
-##### Outil de révision de connaissances, outil d'aide méthodologique ou de découverte
+##### Outil de révision de connaissances, d'aide méthodologique ou de découverte sur un sujet
 - [Méthode de la dissertation en philosophie](https://chatmd.forge.apps.education.fr/#https://eyssette.forge.apps.education.fr/chatbot/dissertation-philosophie.md)
 - [ViTa : un chatbot, à destination d’élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
 - [GRISMS’Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
@@ -123,7 +123,7 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Chirobot-sons: Petit guide sur les sons émis par les chauves-souris](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/chirobot-sons)
 - [Accompagnement pour des défis avec Scratch](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/ZK8abNVmSNWhZXzXzzs6Sw)
 
-##### Escape Games, aventures, enquêtes
+##### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
 - [ Le chat enquêteur (ionBOT) :  une enquête fictive visant à identifier un suspect à partir d’indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
 
@@ -283,7 +283,7 @@ Vous pouvez définir des classes CSS personnalisées et les utiliser ainsi :
   </div>
   ```
 
-#### Effet “machine à écrire” et clavier
+#### Effet “machine à écrire”
 
 - `typewriter: false` dans le YAML désactive l'effet "machine à écrire"
 
@@ -520,9 +520,11 @@ Vous pouvez :
 
 [ChatMD](https://chatmd.forge.apps.education.fr/) n'aurait pas pu exister sans :
 - Le soutien institutionnel de la DRANE Lyon et de la DNE
-- L'aide de l'[Incubateur de l'Éducation Nationale](https://incubateur.education.gouv.fr/) et particulièrement Thomas Sanson
-- Les suggestions de Perrine Douhéret, Laetitia Allegrini, Romain Estampes, Charlie Rollo, Mélanie Fenaert, Jean-Marc Viglino
-- Les retours de tous les testeurs
+- L'aide de l'[Incubateur de l'Éducation Nationale](https://incubateur.education.gouv.fr/) et particulièrement de Thomas Sanson
+- Les suggestions de Perrine Douhéret, Laetitia Allegrini, Romain Estampes, Charlie Rollo, Mélanie Fenaert, Jean-Marc Viglino …
+- Les retours de toutes les personnes qui ont testé l'application !
+
+Merci beaucoup !
 
 #### Technologies utilisées
 
@@ -534,4 +536,4 @@ ChatMD repose sur plusieurs logiciels libres :
 - [katex](https://katex.org/) pour la gestion des mathématiques en Latex
 - [textFit](https://github.com/STRML/textFit) pour la gestion du redimensionnement automatique
 
-Pour découvrir d'autres outils du créateur : [son site personnel](https://eyssette.forge.apps.education.fr)
+Pour découvrir d'autres outils du créateur de ChatMD : [son site personnel](https://eyssette.forge.apps.education.fr)
