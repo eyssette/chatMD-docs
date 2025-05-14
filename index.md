@@ -6,6 +6,7 @@ style: |
    h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
    li{margin-top:0.5em}
    pre{padding-top:3em}
+   .admonition{margin:1.25em auto}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -46,7 +47,7 @@ style: |
 ## Principe général
 
 #### Principe de fonctionnement
-
+:::info
 C'est très simple !
 1. Créez un fichier en Markdown accessible en ligne.
 2. Respectez la syntaxe de ChatMD pour définir votre chatbot.
@@ -56,6 +57,7 @@ C'est très simple !
 <label for="redirect">Collez ici l'URL de votre fichier et cliquez sur “OK” pour accéder à votre chatbot :</label>
 <input type="url" id="redirect" class="redirect-input" placeholder="Votre URL" role="textbox" title="Votre URL" style="width:75%" data-base-url="chatmd.forge.apps.education.fr"> <button class="redirect-button" data-input-id="redirect" type="button">OK</button>
 
+:::
 
 
 #### Cas d'usages
@@ -623,6 +625,10 @@ Insérez ce code en bas de page dans l'élément `body` :
 ```js
 <script id="chatmdWidgetScript" src="https://chatmd.forge.apps.education.fr/widget.min.js" data-chatbot="URL_SOURCE_CHATBOT"></script>
 ```
+
+:::warning Attention
+Il faudra changer `URL_SOURCE_CHATBOT` par l'URL de votre fichier en Markdown, qui doit correspondre à l'URL directe de votre fichier (par exemple du fichier CodiMD), et non pas l'URL du chatbot.
+:::
 
 Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme paramètre.
 
