@@ -114,7 +114,7 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [GRISMS’Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
 - [EdBot : un assistant pour guider dans l'automatisation de la résolution d’une équation différentielle du 1er ordre](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/89_9jQXNRga1mbGgXOUuJw?both#)
 - [Une collection de chatbots en Technologie sur sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
-- [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q?view)
+- [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q)
 - [Découverte de l'intelligence artificielle avec des collégiens](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/F2Pd3ZfDREa1afghO57TrA)
 - [Le calcul littéral en 4e](https://auxmaths.fr/chatMD/index_calclitte.html)
 - [RadcliffeBot : assistance en SVT](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RadcliffeBot.md)
@@ -185,7 +185,7 @@ Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit 
 
 Si on ne met pas de cible, le lien renverra alors vers le message initial.
 
-Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe "unique" (voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg))
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe "unique" (voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg))
 
 #### Méthodes pour déclencher une réponse
 
