@@ -1,7 +1,11 @@
 ---
 addOns: copycode
 theme: colors
-style: h1 aside {font-weight:normal}
+style: |
+   h1 aside{font-weight:normal}
+   h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
+   li{margin-top:0.5em}
+   pre{padding-top:3em}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -225,7 +229,7 @@ Cet en-tête doit se trouver au tout début du fichier. Il faut commencer et ter
 
 Voici un exemple d'en-tête YAML :
 
-```
+```yaml
 ---
 gestionGrosMots: true
 ---
@@ -235,13 +239,45 @@ gestionGrosMots: true
 
 Pour améliorer l'algorithme de choix d'une réponse, vous pouvez utiliser ces paramètres dans l'en-tête YAML : 
 
-- `rechercheContenu: true` : l'algorithme ne se contente pas de comparer le message de l'utilisateur avec le titre de la réponse et les déclencheurs, mais il compare aussi ce message avec le contenu entier de la réponse.
-- `gestionGrosMots: true` : permet de détecter les gros mots et les insultes envoyés par l'utilisateur et de formuler une réponse adéquate.
-- `messageParDéfaut: ["message 1", "message 2", "message 3"]` : permet de modifier le message par défaut qui s'affiche aléatoirement quand le chatbot n'a pas trouvé de réponse pertinente.
+##### Recherche dans le contenu des réponses
 
-On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clés ou des expressions qui ne doivent pas se trouver dans la question de l'utilisateur :
 
-`- ! déclencheur négatif`
+```yaml
+rechercheContenu: true
+```
+L'algorithme ne se contente pas de comparer le message de l'utilisateur avec le titre de la réponse et les déclencheurs, mais il compare aussi ce message avec le contenu entier de la réponse.
+
+
+##### Gestion des gros mots
+
+```yaml
+gestionGrosMots: true
+``` 
+Permet de détecter les gros mots et les insultes envoyés par l'utilisateur et de formuler une réponse adéquate.
+
+##### Messages qui s'affichent si aucune réponse n'est trouvée
+
+```yaml
+messageParDéfaut: ["message 1", "message 2", "message 3"]
+```
+
+Permet de modifier le message par défaut qui s'affiche aléatoirement quand le chatbot n'a pas trouvé de réponse pertinente.
+
+Cette liste écrase la [liste définie par défaut](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/blob/main/app/js/config.mjs#L10).
+
+##### Déclencheurs négatifs
+
+On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clés ou des expressions qui ne doivent pas se trouver dans la question de l'utilisateur.
+
+On commence dans ce cas le mot-clé avec `! `
+
+```
+## Introduction
+- intro
+- introduire
+- ! introuvable
+- ! introspection
+```
 
 ### Apparence
 
@@ -249,43 +285,75 @@ Pour personnaliser l'apparence du chatbot, vous pouvez utiliser différents para
 
 #### Avatar et favicon
 
-- `avatar: URL` : permet de changer l'avatar du chatbot (il faut mettre l'url de son image à la place de URL)
-- `avatarCercle: true` : permet d'avoir un avatar en forme de cercle
-- `favicon: URL` : permet de changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de URL)
 
-#### Footer
-
-- `footer: false` : permet de supprimer le pied de page
-- `footer: 'Mon footer'` : permet de customiser ce qui apparaît dans le pied de page
-
-#### Thème et styles CSSS
-
-- `theme: bubbles` : permet d'utiliser un thème CSS particulier (ici le thème "bubbles")
-- `style: ` : permet d'ajouter des styles CSS personnalisés.
-
-Pour les styles, il est recommandé de commencer ainsi ```style: |```
-et de mettre ensuite dessous ses styles CSS personnalisés, ligne par ligne.
-
-Par exemple : 
+Pour changer l'avatar du chatbot (il faut mettre l'url de son image à la place de URL) :
 ```yaml
-style: |
-	a{color:red}
-	p{text-align:center}
+avatar: URL
+```
+
+Pour que l'avatar soit en forme de cercle :
+```yaml
+avatarCercle: true
+```
+
+Pour changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de URL)
+```yaml
+favicon: URL
 ```
 
 
-Vous pouvez définir des classes CSS personnalisées et les utiliser ainsi :
-- Pour une ligne : ajouter ` {.maClasse}` à la fin de la ligne
-- Pour plusieurs lignes :
-  ```
-  <div markdown class="maClasse">
-  Bloc de texte Markdown multiligne
-  </div>
-  ```
+
+#### Footer
+
+Pour supprimer le pied de page :
+```yaml
+footer: false
+```
+
+Pour customiser ce qui apparaît dans le pied de page (il vaut mieux ne pas mettre un texte très long) :
+```yaml
+footer: 'Mon footer'
+```
+
+
+#### Thème et styles CSSS
+
+Pour utiliser un thème CSS particulier :
+```yaml
+theme: bubbles
+```
+Pour le moment, seul le thème _bubbles_ est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
+
+
+Pour ajouter des styles CSS personnalisés.
+```yaml
+style: |
+    a{color:red}
+    p{text-align:center}
+```
+
+
+#### Attributs génériques (classes CSS personnalisées)
+
+Si vous ajoutez ` {.maClasse}` à la fin de la ligne, cette ligne aura la classe `.maClasse`, et vous pouvez utiliser cette classe pour personnaliser l'apparence de cette ligne.
+
+Vous pouvez bien sûr aussi utiliser du HTML dans votre Markdown, pour des mises en page plus complexe.
+Si vous souhaitez utiliser de la syntaxe Markdown dans une balise HTML, il faut ajouter l'attribut `markdown`
+
+Exemple :
+
+```htmlmixed=
+<div markdown class="maClasse">
+Bloc de texte **Markdown** multiligne
+</div>
+```
 
 #### Effet “machine à écrire”
 
-- `typewriter: false` dans le YAML désactive l'effet "machine à écrire"
+Pour désactiver l'effet “machine à écrire” pour tout son chatbot (peut être pratique notamment au moment de la conception du chatbot, pour éviter d'attendre l'affichage des réponses), on met dans le YAML :
+```yaml
+typewriter: false
+```
 
 Pour désactiver l'effet typewriter pour un passage seulement, on met `` `\ `` avant et après le passage à afficher d'un coup.
 
@@ -300,7 +368,12 @@ Si on veut désactiver l'effet typewriter pour tout un message : on écrit `!Typ
 
 #### Clavier
 
-- `clavier: false` dans le YAML désactive le champ d'entrée clavier si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse.
+Pour désactiver le champ d'entrée clavier (si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse), on ajoute dans le YAML :
+
+```yaml
+clavier: false
+```
+
 
 Si on veut activer ou désactiver le clavier pour un message seulement, on écrit `!Keyboard: false` ou `!Keyboard: true` dans le message (de préférence au début du message).
 
@@ -320,9 +393,32 @@ Dans le contenu Markdown, vous pouvez utiliser des admonitions, c'est-à-dire de
 
 ```
 :::info
-contenu
+Bloc de texte
+en markdown
+sur plusieurs lignes
 :::
 ```
+
+On peut mettre un titre
+
+```
+:::warning Attention !
+Bloc de texte
+en markdown
+sur plusieurs lignes
+:::
+```
+
+Ou avoir un élément qui se déplie
+
+```
+:::success collapsible En savoir plus
+Bloc de texte
+en markdown
+sur plusieurs lignes
+:::
+```
+
 
 Plusieurs types d'admonitions sont disponibles : [exemple](https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q?both) et [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q)
 
