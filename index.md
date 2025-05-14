@@ -432,13 +432,24 @@ sur plusieurs lignes
 
 Plusieurs types d'admonitions sont disponibles : [exemple](https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q?both) et [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q)
 
-#### Contenus multimédias
+#### Iframes
 
-Vous pouvez aussi utiliser :
-1. Des iframes pour intégrer des contenus interactifs comme H5P (placez-les en fin de réponse pour éviter les problèmes d'affichage ou bien désactivez l'effet typewriter pour les messages qui contiennent des iframes)
-2. La directive `!Audio : URLduFichierAudio` pour jouer automatiquement un son lors du déclenchement d'une réponse (voir cet [exemple](https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg)).
+Vous pouvez utiliser ces iframes pour intégrer des contenus interactifs comme H5P ou des vidéos.
+
+Il est conseillé de placer les iframes en fin de réponse pour éviter les problèmes d'affichage ou bien de désactiver l'effet typewriter pour chaque message qui contient un iframe. 
+
+#### Sons
+
+Pour jouer automatiquement un son lors du déclenchement d'une réponse, utiliser la directive suivante dans votre réponse :
+
+```
+!Audio : URLduFichierAudio
+```
+
+Voir cet [exemple](https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg)
 
 #### Formules mathématiques (LaTeX)
+
 
 Pour utiliser LaTeX pour les mathématiques, il faut ajouter dans le YAML :
 
@@ -450,9 +461,15 @@ Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) 
 
 #### Schémas et graphiques
 
-Pour générer des schémas et graphiques via Kroki :
-1. Ajoutez `plugins: kroki` dans le YAML
-2. Utilisez la syntaxe appropriée pour Tikz, GraphViz, Mermaid, PlantUML, Excalidraw, Vega ou Vegalite (voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg))
+Pour générer des schémas et graphiques via Kroki, ajoutez dans le YAML :
+
+```
+plugins: kroki
+```
+
+Utilisez ensuite la syntaxe appropriée pour Tikz, GraphViz, Mermaid, PlantUML, Excalidraw, Vega ou Vegalite.
+
+Voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg)
 
 ### Chatbots très longs
 
