@@ -509,8 +509,13 @@ Pour les chatbots avec beaucoup de contenu, vous pouvez répartir la source entr
 
 #### Structuration du document
 
-Si vous souhaitez utiliser les titres 2 ou d'autres niveaux de titres pour structurer votre chatbot, et définir les identifiants de réponse avec d'autres niveaux de titre :
-4. Utilisez par exemple `titresRéponses: ["### ", "#### "]` dans le YAML pour utiliser les titres de niveaux 3 et 4 comme définition des réponses possibles du chatbot
+Si vous souhaitez utiliser les titres 2 ou d'autres niveaux de titres pour structurer votre chatbot, et définir les identifiants de réponse avec d'autres niveaux de titre, vous pouvez indiquer dans le YAML :
+
+```yaml
+titresRéponses: ["### ", "#### "]
+```
+
+Dans cet exemple, cela signifie qu'on décide d'utiliser les titres de niveaux 3 et 4 comme définition des réponses possibles du chatbot. Cela permettra de garder les titres 2 pour structurer les différents types de réponse dans son chatbot (côté créateur du bot, car cela ne changera rien pour l'utilisateur)
 
 ### Quiz
 
