@@ -1,5 +1,5 @@
 ---
-addOns: copycode
+addOns: copycode, lightbox
 theme: colors
 style: |
    h1 aside{font-weight:normal}
@@ -322,7 +322,9 @@ Pour utiliser un thème CSS particulier :
 ```yaml
 theme: bubbles
 ```
-Pour le moment, seul le thème _bubbles_ est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
+Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/zQTZQgJVRhy8SP0Gr1AQTQ) est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
+
+![](https://minio.apps.education.fr/codimd-prod/uploads/71de238fd9d9e28e5a52575fc.png)
 
 
 Pour ajouter des styles CSS personnalisés.
