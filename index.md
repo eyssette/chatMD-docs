@@ -125,18 +125,22 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
 - [Arbre de décision pour choisir le bon “commit” quand on a fait une modification d'un code source](https://chatmd.forge.apps.education.fr/#https://pad.numerique.gouv.fr/FurkP8BzRY6lcZLqP5avqw%23)
 
-##### Outil de révision de connaissances, d'aide méthodologique ou de découverte sur un sujet
+##### Outil de révision de connaissances ou d'aide méthodologique
 - [Méthode de la dissertation en philosophie](https://chatmd.forge.apps.education.fr/#https://eyssette.forge.apps.education.fr/chatbot/dissertation-philosophie.md)
 - [ViTa : un chatbot, à destination d’élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
 - [GRISMS’Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
 - [EdBot : un assistant pour guider dans l'automatisation de la résolution d’une équation différentielle du 1er ordre](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/89_9jQXNRga1mbGgXOUuJw?both#)
 - [Une collection de chatbots en Technologie sur sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
 - [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q)
-- [Découverte de l'intelligence artificielle avec des collégiens](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/F2Pd3ZfDREa1afghO57TrA)
 - [Le calcul littéral en 4e](https://auxmaths.fr/chatMD/index_calclitte.html)
 - [RadcliffeBot : assistance en SVT](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RadcliffeBot.md)
-- [Chirobot-sons: Petit guide sur les sons émis par les chauves-souris](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/chirobot-sons)
 - [Accompagnement pour des défis avec Scratch](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/ZK8abNVmSNWhZXzXzzs6Sw)
+
+##### Guide de découverte ou d'exploration d'un sujet
+
+- [Etibot, un guide pour explorer les enjeux éthiques liés à l'intelligence artificielle.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/eFYRHyEiQhWw6B1aWxpayA?view)
+- [Découverte de l'intelligence artificielle avec des collégiens](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/F2Pd3ZfDREa1afghO57TrA)
+- [Chirobot-sons: petit guide sur les sons émis par les chauves-souris](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/chirobot-sons)
 
 ##### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
