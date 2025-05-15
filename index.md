@@ -131,7 +131,7 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Méthode de la dissertation en philosophie](https://chatmd.forge.apps.education.fr/#https://eyssette.forge.apps.education.fr/chatbot/dissertation-philosophie.md)
 - [ViTa : un chatbot, à destination d’élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
 - [GRISMS’Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
-- [EdBot : un assistant pour guider dans l'automatisation de la résolution d’une équation différentielle du 1er ordre](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/89_9jQXNRga1mbGgXOUuJw?both#)
+- [EdBot : un assistant pour aider à résoudre les équations différentielles du programme de Physique-Chimie de Terminale](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bO2VCgMkSSWeET_oEKsZ2A)
 - [Une collection de chatbots en Technologie sur sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
 - [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q)
 - [Le calcul littéral en 4e](https://auxmaths.fr/chatMD/index_calclitte.html)
