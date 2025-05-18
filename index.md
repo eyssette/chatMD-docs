@@ -540,18 +540,68 @@ Dans cet exemple, cela signifie qu'on décide d'utiliser les titres de niveaux 3
 
 ### Quiz
 
-Un chatbot sert souvent à répondre à des questions, mais ChatMD peut aussi être utilisé pour poser des questions :
+Un chatbot sert souvent à répondre à des questions, mais ChatMD peut aussi être utilisé pour poser des questions.
 
-1. **Réponses par clavier** :
-   - Utilisez `!Next: Titreréponse` pour forcer la redirection vers une réponse spécifique
-   - Le message de l'utilisateur est comparé aux déclencheurs ou même au contenu entier de la réponse si on a ajouté `rechercheContenu: true` dans le YAML.
-   - Après 3 erreurs, un bouton vers la bonne réponse s'affiche (sauf si on ajouté `!loop` après le titre de la réponse)
+#### QCM
+
+On peut poser une question et préparer ensuite des réponses possibles : l'utilisateur doit cliquer sur la bonne réponse.
+
+```markdown
+## Question cheval blanc
+
+Quelle est la couleur du cheval blanc d'Henri IV ?
+
+1. [rouge](question cheval blanc - erreur)
+2. [bleu](question cheval blanc - erreur)
+3. [blanc](question cheval blanc - bonne réponse)
+
+## question cheval blanc - erreur
+Ce n'était pas la bonne couleur ! Essaie encore !
+
+## question cheval blanc - bonne réponse
+Bravo ! C'était la bonne réponse
+```
+
+Si on utilise cette solution, on peut voir par défaut vers quoi renvoie un bouton de réponse en survolant ce bouton avec la souris, ce qui peut donner un indice sur la bonne réponse.
+
+Si on veut éviter cela, on ajoute dans le YAML :
+
+```yaml
+obfuscate: true
+```
+
+Cela permet d'obscurcir le titre des liens afin qu'ils ne donnent pas un indice sur la bonne réponse.
+
+Voir cet [exemple](https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr#https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ).
+
+On peut choisir d'utiliser aussi de l'aléatoire pour que la bonne réponse ne soit pas toujours à la même place dans l'ordre des propositions possibles (voir l'onglet sur l'aléatoire).
+
+#### Question à réponse courte
+
+On peut aussi poser une question et attendre une réponse que l'utilisateur doit taper au clavier.
+
+Dans ce cas, on utilise une directive `!Next: BonneRéponse` qui va évaluer la réponse de la personne en comparant la réponse aux déclencheurs utilisés dans `BonneRéponse`.
+
+Exemple :
+
+```markdown
+## Question 1
+Quelle est la couleur du cheval blanc d'Henri IV
+
+!Next: Réponse couleur cheval Henri IV
+
+## Réponse couleur cheval Henri IV
+- blanc
+
+Oui, le blanc est bien la couleur du cheval blanc d'Henri IV !
+```
+
+Après 3 erreurs, un bouton vers la bonne réponse s'affiche.
+Si on veut reposer la question tant que l'utilisateur n'a pas trouvé la bonne réponse, on ajoute le paramètre `!loop` après le titre de la bonne réponse.
 
 Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A).
 
-2. **Réponses par clic** :
-   - Utilisez `obfuscate: true` dans le YAML pour cacher le titre des liens, afin d'éviter de donner un indice en survolant un lien (voir cet [exemple](https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr#https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ)
-   - Combinez avec l'aléatoire pour varier les questions
+
 
 ### Aléatoire
 
