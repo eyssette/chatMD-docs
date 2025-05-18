@@ -260,7 +260,7 @@ gestionGrosMots: true
 
 Pour améliorer l'algorithme de choix d'une réponse, vous pouvez utiliser ces paramètres dans l'en-tête YAML : 
 
-##### Recherche dans le contenu des réponses
+#### Recherche dans le contenu des réponses
 
 
 ```yaml
@@ -269,14 +269,14 @@ rechercheContenu: true
 L'algorithme ne se contente pas de comparer le message de l'utilisateur avec le titre de la réponse et les déclencheurs, mais il compare aussi ce message avec le contenu entier de la réponse.
 
 
-##### Gestion des gros mots
+#### Gestion des gros mots
 
 ```yaml
 gestionGrosMots: true
 ``` 
 Permet de détecter les gros mots et les insultes envoyés par l'utilisateur et de formuler une réponse adéquate.
 
-##### Messages qui s'affichent si aucune réponse n'est trouvée
+#### Messages qui s'affichent si aucune réponse n'est trouvée
 
 ```yaml
 messageParDéfaut: ["message 1", "message 2", "message 3"]
@@ -286,7 +286,7 @@ Permet de modifier le message par défaut qui s'affiche aléatoirement quand le 
 
 Cette liste écrase la [liste définie par défaut](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/blob/main/app/js/config.mjs#L10).
 
-##### Déclencheurs négatifs
+#### Déclencheurs négatifs
 
 On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clés ou des expressions qui ne doivent pas se trouver dans la question de l'utilisateur.
 
