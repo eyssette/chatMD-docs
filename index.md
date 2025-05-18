@@ -605,14 +605,85 @@ Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both)
 
 ### Aléatoire
 
-Pour diversifier les réponses :
 
-1. Versions multiples d'une réponse : séparez-les dans votre message par `---`. Le chatbot sélectionnera aléatoirement l'une de ces versions.
-2. Ordre aléatoire des propositions : utilisez `1)` au lieu de `1.` dans la numérotation pour que ChatMD choisisse l'ordre d'apparition de cette proposition.
-3. Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)).
-4. Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg))
+#### Choix aléatoire d'un message
 
-On peut utiliser de l'aléatoire également dans les variables fixes ou dans les variables dynamiques.
+Pour introduire de la variété dans les messages envoyés par le chatbot, vous pouvez proposer plusieurs formulations d’un même message, séparées par `---`.
+
+```markdown
+## Proposition d'aide
+
+Bonjour ! Comment puis-je vous aider aujourd’hui ?  
+1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
+2. [J'ai un problème avec l'ordinateur](Aide ordi)
+
+---  
+
+Quel est votre problème ? 
+1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
+2. [J'ai un problème avec l'ordinateur](Aide ordi)
+```
+
+Pour éviter d'avoir à remettre à chaque fois les mêmes boutons de réponse, on peut définir de l'aléatoire dans des variables (voir l'onglet sur les variables)
+
+#### Ordre aléatoire des boutons de réponse
+
+Si vous voulez que certains boutons de réponse apparaissent dans un ordre différent à chaque affichage, utilisez `1)` au lieu de `1.` pour numéroter les éléments. 
+
+```markdown
+1. [Cette proposition s'affichera toujours en première position](prop1)
+2) [cette proposition s'affichera en 2e ou en 3e position](prop2)
+3) [cette proposition s'affichera en 2e ou en 3e position](prop3)
+```
+
+#### Tirer au hasard une ou plusieurs questions à poser à l'utilisateur, 
+
+Il est possible d’afficher aléatoirement un nombre défini de boutons cliquables en fin de message à partir d’une liste plus longue.
+
+C'est surtout utile si les boutons cliquables représentent une liste de questions possibles : cela permet de tirer au hasard une ou plusieurs questions à poser à l'utilisateur, parmi une liste de questions différentes.
+
+Pour cela, on utilise la directive `!Select: x` juste avant la liste, où `x` est le nombre de boutons que l’on souhaite afficher à chaque fois.
+
+```markdown
+## Prochain exercice
+
+Choisis un sujet de dissertation pour t'entraîner
+
+!Select: 2
+1. [Le bonheur est-il une quête de soi ?](Sujet bonheur)
+2. [La liberté consiste-t-elle à faire tout ce qui me plaît ?](Sujet liberté)
+3. [Être juste, est-ce traiter tout le monde de la même manière ?](Sujet justice)
+4. [Peut-on juger une œuvre d'art d'un point de vue moral ?](Sujet art)
+```
+
+<!-- Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)). -->
+
+#### Redirection aléatoire vers un autre message
+
+On peut créer un message qui redirige automatiquement l’utilisateur vers un autre message choisi au hasard dans une liste, ce qui permet de varier les parcours possibles de l'utilisateur.
+
+```markdown
+## Choix de l'exercice
+
+Sur quel thème veux-tu un exercice ?
+
+1. [La poésie lyrique](Exercices - poésie lyrique)
+2. [Le fantastique](Exercices - nouvelles fantastique)
+
+## Exercices - poésie lyrique
+
+!SelectNext: exo PL 1 / exo PL 2 / exo PL 1
+
+## Exercices - nouvelles fantastique
+
+!SelectNext: exo Fantastique 1 / exo Fantastique 2 / exo Fantastique 3
+```
+
+<!-- Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg)) -->
+
+#### Aléatoire dans les variables
+
+On peut utiliser de l'aléatoire également dans les variables fixes (voir l'onglet : “Chatbots très longs”) ou dans les variables dynamiques (voir le prochain onglet).
 
 ### Variables dynamiques
 
