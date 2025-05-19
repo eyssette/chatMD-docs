@@ -5,10 +5,10 @@ style: |
    h1 aside{font-weight:normal}
    h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
    li{margin-top:0.5em}
-   pre{padding-top:3em}
+   pre{padding-top:3em; min-width:60%}
    .admonition{margin:1.25em auto}
    .admonitionTitle{margin-top:0.5em}
-   .hljs{background:white}
+   .hljs{background:white; text-wrap:auto}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -835,25 +835,30 @@ Vous habitez probablement près de : Lyon !
 
 ### Plusieurs bots
 
-Pour gérer plusieurs personnages de chatbot dans un même projet :
+Pour gérer plusieurs personnages de chatbot dans un même projet, il faut d'abord déclarer les bots dans le YAML :
+```yaml
+bots:
+   nomBot1:
+      avatar: URLimageBot1
+      cssAvatar: "CSS particulier pour l'avatar du Bot1"
+      cssMessage: "CSS particulier pour les messages du Bot1"
+   nomBot2:
+      avatar: URLimageBot2
+      cssAvatar: "CSS particulier pour l'avatar du Bot2"
+      cssMessage: "CSS particulier pour les messages du Bot2"
+```
 
-1. Déclarez les bots dans le YAML :
-   ```yaml
-   bots:
-     nomBot1:
-       avatar: URLimageBot1
-       cssAvatar: "CSS particulier pour l'avatar du Bot1"
-       cssMessage: "CSS particulier pour les messages du Bot1"
-     nomBot2:
-       avatar: URLimageBot2
-       cssAvatar: "CSS particulier pour l'avatar du Bot2"
-       cssMessage: "CSS particulier pour les messages du Bot2"
-   ```
+On uilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
 
-2. Utilisez la directive `!Bot: botName` pour changer de bot dans les réponses
+On peut avoir plusieurs bots qui se répondent dans un même message.
 
+```markdown
+!Bot: Schopenhauer  
+Le désir nous conduit inévitablement à la souffrance.
 
-On peut avoir plusieurs bots qui se répondent dans un même message
+!Bot: Épicure  
+Il faut différencier les désirs ! Seuls les désirs vains nous éloignent du bonheur.
+```
 
 Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both) et [chatbot](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA)
 
