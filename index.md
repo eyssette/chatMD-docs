@@ -688,24 +688,150 @@ On peut utiliser de l'aléatoire également dans les variables fixes (voir l'ong
 
 ### Variables dynamiques
 
-Pour utiliser des variables dynamiques :
+#### Prérequis
 
-1. Ajoutez `contenuDynamique: true` dans le YAML
-2. Définissez des variables :
-   - Dans un bloc code : `` `@mavariable = contenu` ``
-   - Dans un bouton : `1. [intitulé @mavariable=contenu](titre réponse)`
-3. Pour l'aléatoire : `` `@mavariable = option1 /// option2 /// option3` ``
-4. Pour les conditions :
-   - Commencez avec `` `if @mavariable==valeur` ``
-   - Vous pouvez écrire des conditions complexes : `` `if (@var1==2 && @var2>3 || @var4!="oui")` ``
-   - Écrivez dessous le contenu qui doit être affiché si la condition est vérifiée, sautez une ligne
-   - Terminez avec `` `endif` ``
+Pour utiliser des variables dynamiques, il faut d'abord ajouter dans le YAML :
 
-Autres fonctionnalités des variables dynamiques :
-- Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw))
-- Calculs : `` `@mavariable = calc(@score+1)` `` (voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow))
-- La valeur des paramètres dans l'URL est disponible avec `@GETnomduparamètre`
-    - Assignation immédiate de la valeur d'un paramètre dans une variable dédiée : `` ` `@mavariable = calc(@GETnomduparamètre)` ``
+```yaml
+contenuDynamique: true
+```
+
+#### Définir la valeur d'une variable
+
+On peut définir la valeur d'une variable de deux manières.
+
+##### Dans un bloc code
+
+```markdown
+`@nomDeMaVariable = valeur de ma variable`
+```
+
+##### Dans un bouton cliquable
+
+```markdown
+Que préférez-vous manger ?
+1. [Des légumes @choixAliments=légumes](Analyse régime)
+2. [Des hamburgers @choixAliments=hamburgers](Analyse régime)
+```
+
+##### Utilisation de l'aléatoire
+
+On peut utiliser de l'aléatoire en donnant une liste de choix possibles pour définir la valeur d'une variable.
+
+ChatMD choisira au hasard une de ces possibilités.
+
+```markdown
+`@messageAccueil = Bonjour ! /// Salut ! /// Bienvenue !`
+```
+
+#### Variables dynamiques complexes
+
+Vous pouvez aussi définir la valeur d'une variable dynamique à partir de la valeur d'autres variables dynamiques.
+
+Pour cela, il faut utiliser `calc()` et mettre dans la parenthèse une opération de calcul.
+
+```markdown
+`@mavariable = calc(@score+1)`
+```
+
+Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow)
+
+
+:::info Par défaut, seules certaines opérations sont autorisées
+
+- Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
+- Comparaison :  `<=`, `>=`, `<`, `>`, `==`, `!=`,
+- Opérateurs logiques :  `&&`, `||`, `!`,
+- Parenthèses :  `(`, `)`,
+- Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `.trim()`, `encodeURI()`
+:::
+
+Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
+
+
+#### Bloc conditionnel
+
+Un bloc conditionnel vous permet d’afficher un contenu seulement si une condition est remplie.
+
+:::info Structure
+1. On commence un bloc conditionnel par `` `if CONDITION` ``
+2. On écrit ensuite le contenu qui doit être affiché si la condition est vérifée
+3. On termine le bloc conditionnel par `` `endif` ``
+:::
+
+Exemple :
+
+```markdown
+`if @score>=10`
+Bravo, vous avez atteint le niveau expert !
+`endif`
+```
+On peut mettre plusieurs blocs conditionnels, mais on ne peut pas les imbriquer.
+
+On peut écrire des conditions complexes en utilisant des opérateurs.
+
+La liste des opérateurs autorisés est la même que celle pour les variables dynamiques complexes ci-dessus.
+
+
+#### Variables prédéfinies
+
+##### Pour récupérer ce qu'a tapé un utilisateur
+
+On peut poser une question à l'utilisateur, récupérer le contenu de sa réponse, et aller directement à un autre message (dans lequel on pourra alors utiliser cette variable).
+
+On utilise la syntaxe suivante : `` `@mavariable = @INPUT : message suivant` `` 
+
+Par exemple :
+
+```markdown
+Bonjour ! Quel est ton nom ?
+`@nom = @INPUT : question matière préférée`
+
+## question matière préférée
+Bonjour `@nom`
+Quelle est ta matière préférée ?
+```
+
+Ici, on récupère la réponse de l'utilisateur dans la variable `@nom` et on va ensuite au message `question matière préférée`.
+
+<!-- 
+Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw)) -->
+
+
+##### Pour récupérer les paramètres dans l'URL
+
+La valeur des paramètres dans l'URL est disponible avec `@GETnomduparamètre`
+
+Si on utilise un lien qui contient le paramètre `?departement=69`, on pourra utiliser la variable `@GETdepartement` dans son chatbot.
+
+
+##### Pour utiliser la géolocalisation
+
+On peut récupérer la latitude, la longitude et le degré de précision de la position, afin de pouvoir afficher des messages différents selon le lieu de l'utilisateur.
+
+Pour cela, il faut écrire dans le yaml :
+
+```yaml
+geolocation: true
+contenuDynamique: true
+```
+
+On pourra ensuite utiliser les variables suivantes : `@LATITUDE` `@LONGITUDE` `@POSITION_ACCURACY`.
+
+
+```markdown
+`if @LATITUDE>41.0 && @LATITUDE<51.5 && @LONGITUDE>-5.0 && @LONGITUDE<9.5`
+Vous êtes probablement en France métropolitaine !
+`endif`
+```
+
+
+```markdown
+`if Math.abs(@LATITUDE - 45.7640)<0.5 && Math.abs(@LONGITUDE - 4.8357)<0.5`
+Vous habitez probablement près de : Lyon !
+`endif`
+```
+
 
 ### Plusieurs bots
 
