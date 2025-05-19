@@ -1,5 +1,5 @@
 ---
-addOns: copycode, lightbox
+addOns: copycode, lightbox, highlight
 theme: colors
 style: |
    h1 aside{font-weight:normal}
@@ -8,6 +8,7 @@ style: |
    pre{padding-top:3em}
    .admonition{margin:1.25em auto}
    .admonitionTitle{margin-top:0.5em}
+   .hljs{background:white}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -185,7 +186,7 @@ Si vous êtes prof en France et que vous souhaitez utiliser la forge, rejoignez 
 
 La syntaxe pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/) est la suivante :
 
-```
+```markdown
 # Titre du chatbot
 
 Message initial
@@ -292,7 +293,7 @@ On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clé
 
 On commence dans ce cas le mot-clé avec `! `
 
-```
+```markdown
 ## Introduction
 - intro
 - introduire
@@ -370,7 +371,7 @@ Si vous souhaitez utiliser de la syntaxe Markdown dans une balise HTML, il faut 
 
 Exemple :
 
-```htmlmixed=
+```html
 <div markdown class="maClasse">
 Bloc de texte **Markdown** multiligne
 </div>
@@ -386,7 +387,7 @@ typewriter: false
 Pour désactiver l'effet typewriter pour un passage seulement, on met `` `\ `` avant et après le passage à afficher d'un coup.
 
 Exemple :
-```
+```txt
 \`
 texte sans
 effet typewriter
@@ -410,7 +411,7 @@ Si on veut activer ou désactiver le clavier pour un message seulement, on écri
 
 Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais qui ne sont pas à la fin du message, vous pouvez tout simplement utiliser la syntaxe d'un lien interne en Markdown, avec la cible qui commence par `#`, immédiatement suivi du titre de la réponse :
 
-```
+```markdown
 [texte affiché](#titre de la réponse)
 ```
 
@@ -422,7 +423,7 @@ Mais si vous voulez un affichage avec des boutons comme pour les réponses en fi
 
 Dans le contenu Markdown, vous pouvez utiliser des admonitions, c'est-à-dire des encadrés pour mettre en valeur certains contenus :
 
-```
+```markdown
 :::info
 Bloc de texte
 en markdown
@@ -432,7 +433,7 @@ sur plusieurs lignes
 
 On peut mettre un titre
 
-```
+```markdown
 :::warning Attention !
 Bloc de texte
 en markdown
@@ -442,7 +443,7 @@ sur plusieurs lignes
 
 Ou avoir un élément qui se déplie
 
-```
+```markdown
 :::success collapsible En savoir plus
 Bloc de texte
 en markdown
@@ -463,7 +464,7 @@ Il est conseillé de placer les iframes en fin de réponse pour éviter les prob
 
 Pour jouer automatiquement un son lors du déclenchement d'une réponse, utiliser la directive suivante dans votre réponse :
 
-```
+```txt
 !Audio : URLduFichierAudio
 ```
 
@@ -474,7 +475,7 @@ Voir cet [exemple](https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg?both)
 
 Pour utiliser LaTeX pour les mathématiques, il faut ajouter dans le YAML :
 
-```
+```yaml
 maths: true
 ```
 
@@ -484,7 +485,7 @@ Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) 
 
 Pour générer des schémas et graphiques via Kroki, ajoutez dans le YAML :
 
-```
+```yaml
 plugins: kroki
 ```
 
@@ -498,7 +499,7 @@ Voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both)
 
 Pour les chatbots complexes, vous pouvez définir des variables fixes dans le YAML :
 
-```
+```yaml
 variables:
   maVariable1: "Ceci est ma variable 1"
   maVariable2: "Ceci est ma variable 2"
@@ -516,7 +517,7 @@ Voir cet [exemple](https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ?both)
 Pour les chatbots avec beaucoup de contenu, vous pouvez répartir la source entre plusieurs fichiers :
 
 1. Via le YAML :
-   ```
+   ```yaml
    include: ['URL fichier 1', 'URL fichier 2']
    ```
 
@@ -711,7 +712,7 @@ Autres fonctionnalités des variables dynamiques :
 Pour gérer plusieurs personnages de chatbot dans un même projet :
 
 1. Déclarez les bots dans le YAML :
-   ```
+   ```yaml
    bots:
      nomBot1:
        avatar: URLimageBot1
