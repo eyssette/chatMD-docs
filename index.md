@@ -9,6 +9,7 @@ style: |
    .admonition{margin:1.25em auto}
    .admonitionTitle{margin-top:0.5em}
    .hljs{background:white; text-wrap:auto}
+   .language-html .hljs-tag{background:none}
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
@@ -43,7 +44,7 @@ style: |
 **Code optimisé et écoresponsable**
 - Code très léger, rapide et à faible empreinte carbone (note A+)
 - 100 % sur tous les indicateurs Lighthouse
-- 100 % de réussite aux tests automatisés d’accessibilité (en attente pour un audit complet)
+- 100 % de réussite aux tests automatisés d'accessibilité (en attente pour un audit complet)
 :::
 
 ## Principe général
@@ -94,7 +95,7 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 
 ##### Tutoriel pour un logiciel
 - [Tutoriel pour l'application _Ma Carte_ de l'IGN](https://ignf-ma-carte.github.io/chatbot/)
-- [Aider à l’utilisation de Codabloc en classe de CM2](https://primabord.eduscol.education.fr/un-chatbot-d-aide)
+- [Aider à l'utilisation de Codabloc en classe de CM2](https://primabord.eduscol.education.fr/un-chatbot-d-aide)
 - [Ele@Bot, un chatbot pour accompagner dans la création de parcours Éléa](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/uhjFSgThz)
 - [Guide technique d'utilisation d'AnalookW 4 pour l'analyse des sons de chauves-souris](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/guillaumarchais/ChatMD/refs/heads/main/Analook-tuto)
 - [Tutoriel pour le logiciel “Evidence of Absence”](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/EoA2-tuto-FR)
@@ -132,8 +133,8 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 
 ##### Outil de révision de connaissances ou d'aide méthodologique
 - [Méthode de la dissertation en philosophie](https://chatmd.forge.apps.education.fr/#https://eyssette.forge.apps.education.fr/chatbot/dissertation-philosophie.md)
-- [ViTa : un chatbot, à destination d’élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
-- [GRISMS’Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
+- [ViTa : un chatbot, à destination d'élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
+- [GRISMS'Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
 - [EdBot : un assistant pour aider à résoudre les équations différentielles du programme de Physique-Chimie de Terminale](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bO2VCgMkSSWeET_oEKsZ2A)
 - [Une collection de chatbots en Technologie sur sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
 - [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q)
@@ -150,7 +151,7 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 
 ##### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
-- [ Le chat enquêteur (ionBOT) :  une enquête fictive visant à identifier un suspect à partir d’indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
+- [ Le chat enquêteur (ionBOT) :  une enquête fictive visant à identifier un suspect à partir d'indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
 
 ##### Discussion avec un personnage historique
 - [Discussion avec Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
@@ -673,12 +674,12 @@ Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both)
 
 #### Choix aléatoire d'un message
 
-Pour introduire de la variété dans les messages envoyés par le chatbot, vous pouvez proposer plusieurs formulations d’un même message, séparées par `---`.
+Pour introduire de la variété dans les messages envoyés par le chatbot, vous pouvez proposer plusieurs formulations d'un même message, séparées par `---`.
 
 ```markdown
 ## Proposition d'aide
 
-Bonjour ! Comment puis-je vous aider aujourd’hui ?  
+Bonjour ! Comment puis-je vous aider aujourd'hui ?  
 1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
 2. [J'ai un problème avec l'ordinateur](Aide ordi)
 
@@ -703,11 +704,11 @@ Si vous voulez que certains boutons de réponse apparaissent dans un ordre diff�
 
 #### Tirer au hasard une ou plusieurs questions à poser à l'utilisateur, 
 
-Il est possible d’afficher aléatoirement un nombre défini de boutons cliquables en fin de message à partir d’une liste plus longue.
+Il est possible d'afficher aléatoirement un nombre défini de boutons cliquables en fin de message à partir d'une liste plus longue.
 
 C'est surtout utile si les boutons cliquables représentent une liste de questions possibles : cela permet de tirer au hasard une ou plusieurs questions à poser à l'utilisateur, parmi une liste de questions différentes.
 
-Pour cela, on utilise la directive `!Select: x` juste avant la liste, où `x` est le nombre de boutons que l’on souhaite afficher à chaque fois.
+Pour cela, on utilise la directive `!Select: x` juste avant la liste, où `x` est le nombre de boutons que l'on souhaite afficher à chaque fois.
 
 ```markdown
 ## Prochain exercice
@@ -725,7 +726,7 @@ Choisis un sujet de dissertation pour t'entraîner
 
 #### Redirection aléatoire vers un autre message
 
-On peut créer un message qui redirige automatiquement l’utilisateur vers un autre message choisi au hasard dans une liste, ce qui permet de varier les parcours possibles de l'utilisateur.
+On peut créer un message qui redirige automatiquement l'utilisateur vers un autre message choisi au hasard dans une liste, ce qui permet de varier les parcours possibles de l'utilisateur.
 
 ```markdown
 ## Choix de l'exercice
@@ -815,7 +816,7 @@ Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.m
 
 #### Bloc conditionnel
 
-Un bloc conditionnel vous permet d’afficher un contenu seulement si une condition est remplie.
+Un bloc conditionnel vous permet d'afficher un contenu seulement si une condition est remplie.
 
 :::info Structure
 1. On commence un bloc conditionnel par `` `if CONDITION` ``
@@ -950,24 +951,63 @@ Exemples de configuration :
 
 ### Iframe
 
+Une _iframe_ permet d'intégrer directement votre chatbot dans une page web à l'aide d'une balise HTML.
+
+Cela affiche l'interface du chatbot dans un cadre intégré à votre site.
+
 ```html
 <iframe src="https://chatmd.forge.apps.education.fr/#URLDEVOTRECHATBOT" style="border:0; width:100%; height:700px"></iframe>
 ```
 
+:::info Explications
+- `src` : remplacez URLDEVOTRECHATBOT par l'URL de la source du chatbot que vous souhaitez intégrer.
+- `border:0` : pas de bordure autour de l'_iframe_.
+- `width:100%` : largeur de l'_iframe_ égale à 100% pour que l'_iframe_ prenne toute la largeur de son conteneur.
+- `height:700px` : hauteur fixe de 700px de l'_iframe_ (vous pouvez l'ajuster selon vos besoins)
+:::
+
 ### Widget
 
-Insérez ce code en bas de page dans l'élément `body` :
+Le widget permet d'ajouter un bouton flottant en bas à droite de la page.
 
-```js
+Lorsqu'on clique sur le bouton, le chatbot s'ouvre dans une fenêtre superposée juste au dessus du bouton.
+
+#### Code à insérer
+
+Placez ce script, de préférence en bas de page, dans l'élément `body` :
+
+```html
 <script id="chatmdWidgetScript" src="https://chatmd.forge.apps.education.fr/widget.min.js" data-chatbot="URL_SOURCE_CHATBOT"></script>
 ```
 
-:::warning Attention
-Il faudra changer `URL_SOURCE_CHATBOT` par l'URL de votre fichier en Markdown, qui doit correspondre à l'URL directe de votre fichier (par exemple du fichier CodiMD), et non pas l'URL du chatbot.
+:::info Explications
+- `id` : ne changez pas l'identifiant sinon le widget ne marchera pas
+- `src` : ne changez pas cette URL qui correspond à l'adresse du script qui permet d'afficher le widget
+- `data-chatbot` : remplacez `URL_SOURCE_CHATBOT` par l’URL directe de votre fichier Markdown (par exemple, un lien vers votre CodiMD).
 :::
+
+:::warning Attention
+`URL_SOURCE_CHATBOT` doit correspondre à l'URL directe de votre fichier source.
+
+Il est important de ne pas utiliser l’URL complète du chatbot lui-même, mais bien celle de votre source en Markdown.
+:::
+
+#### Personnalisation de l’image du widget
 
 Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme paramètre.
 
+```html
+<script
+  id="chatmdWidgetScript"
+  src="https://chatmd.forge.apps.education.fr/widget.min.js"
+  data-chatbot="URL_SOURCE_CHATBOT"
+  data-image="URL_IMAGE"
+></script>
+```
+
+Remplacez `URL_IMAGE` par le lien direct vers l’image que vous souhaitez utiliser (par exemple, un logo personnalisé).
+
+L’image doit idéalement être de petite taille pour un bon rendu.
 
 <!-- 
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
