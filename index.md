@@ -2,6 +2,7 @@
 addOns: copycode, lightbox, highlight
 theme: colors
 style: |
+   .displayHomepage .admonition{font-size:0.95em}
    h1 aside{font-weight:normal}
    h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
    li{margin-top:0.5em}
