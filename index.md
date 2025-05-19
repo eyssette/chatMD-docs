@@ -948,13 +948,13 @@ Exemples de configuration :
 
 ## Intégration dans un site web
 
-#### Intégration par iframe
+### Iframe
 
 ```html
 <iframe src="https://chatmd.forge.apps.education.fr/#URLDEVOTRECHATBOT" style="border:0; width:100%; height:700px"></iframe>
 ```
 
-#### Intégration comme widget
+### Widget
 
 Insérez ce code en bas de page dans l'élément `body` :
 
@@ -968,6 +968,10 @@ Il faudra changer `URL_SOURCE_CHATBOT` par l'URL de votre fichier en Markdown, q
 
 Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme paramètre.
 
+
+<!-- 
+Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
+-->
 
 
 ## À propos
