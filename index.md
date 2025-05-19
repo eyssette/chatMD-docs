@@ -3,6 +3,7 @@ addOns: copycode, lightbox, highlight
 theme: colors
 style: |
    .displayHomepage .admonition{font-size:0.95em}
+   .displayHomepage li{margin-top: 0.25em}
    h1 aside{font-weight:normal}
    h3 span {font-weight: normal; font-size: 0.8em; vertical-align: text-top;}
    h3 aside{font-weight:normal;font-size:0.9em!important}
