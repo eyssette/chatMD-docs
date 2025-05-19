@@ -4,6 +4,8 @@ theme: colors
 style: |
    .displayHomepage .admonition{font-size:0.95em}
    h1 aside{font-weight:normal}
+   h3 span {font-weight: normal; font-size: 0.8em; vertical-align: text-top;}
+   h3 aside{font-weight:normal;font-size:0.9em!important}
    h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
    li{margin-top:0.5em}
    pre{padding-top:3em; min-width:60%}
@@ -81,31 +83,27 @@ La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education
 
 ## Exemples
 
-#### Modèle de démarrage
+Merci à toutes les personnes qui ont accepté de partager leur chatbot ci-dessous !
 
-[Modèle à récupérer](https://codimd.apps.education.fr/mBGbHStJSVOSrlGfGb981A?both)
-
-#### Exemples de chatbots
-
-:::success Partagez vos chatbots !
-N'hésitez pas à partager vos exemples de chatbot sur le [salon Tchap dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) ou par [mail](mailto:forge-apps+guichet+chatmd-chatmd-forge-apps-education-fr-1072-issue-@phm.education.gouv.fr) !
-
-Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.apps.education.fr/)
+:::success
+N'hésitez pas à partager vous aussi vos exemples de chatbot :
+- sur le [salon Tchap dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) 
+- par [mail](mailto:forge-apps+guichet+chatmd-chatmd-forge-apps-education-fr-1072-issue-@phm.education.gouv.fr), ou via les [réseaux sociaux](http://eyssette.forge.apps.education.fr/) !
 :::
 
 
-##### Tutoriel pour un logiciel
+#### Tutoriel pour un logiciel
 - [Tutoriel pour l'application _Ma Carte_ de l'IGN](https://ignf-ma-carte.github.io/chatbot/)
 - [Aider à l'utilisation de Codabloc en classe de CM2](https://primabord.eduscol.education.fr/un-chatbot-d-aide)
 - [Ele@Bot, un chatbot pour accompagner dans la création de parcours Éléa](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/uhjFSgThz)
 - [Guide technique d'utilisation d'AnalookW 4 pour l'analyse des sons de chauves-souris](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/guillaumarchais/ChatMD/refs/heads/main/Analook-tuto)
 - [Tutoriel pour le logiciel “Evidence of Absence”](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/EoA2-tuto-FR)
 
-##### Guide d'utilisation d'un outil
+#### Guide d'utilisation d'un outil
 - [Utilisation d'un microscope](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/xGNHIJSeTVCk6FHas-_71g)
 - [Utilisation de la perceuse à colonne dans un atelier Métallerie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/j2c6hkpCRuua0almpXIMdA?both)
 
-##### FAQ
+#### FAQ
 - [Présentation du dispositif TED-i](https://drne.region-academique-bourgogne-franche-comte.fr/presentation-ted-i/)
 - [Besoin d'aide sur le GAR ?](https://drane.ac-lyon.fr/spip/GAR-Besoin-d-aide-utiliser-le)
 - [Gestion des avis sur une fiche établissement de Google Map](https://drane.ac-lyon.fr/spip/gestion-avis-google-map)
@@ -114,25 +112,25 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Foire Aux Questions pour les Directeurs en début d'année](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bGuIqvyBT1iTQnnFFhI5VQ?both)
 - [Num44Bot : un chatbot créé par une équipe numérique pour répondre aux questions courantes](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/FziWeluESheEBLZFXBrIvw)
 
-##### Guide pour les élèves, parents ou collègues d'un établissement
+#### Guide pour les élèves, parents ou collègues d'un établissement
 - [A-Lyc-IA : chatbot en widget sur le site d'un lycée pour répondre aux questions sur l'établissement](https://brossaud-blancho.paysdelaloire.e-lyco.fr/)
 - [Un assistant pour répondre à des questions concernant un collège et des outils numériques utilisés](https://chatmd.forge.apps.education.fr/#https://college-vincent-van-gogh-arles.forge.apps.education.fr/chatbot_assistance_vvg/chatbot.md)
 - [ChatBot d'aide de la cité scolaire Réaumur-Buron](https://reaumur-buron.paysdelaloire.e-lyco.fr/accueil/informations-pratiques/vie-de-leleve/chatbot-daide/)
 - [RiBascanIA : un assistant virtuel conversationnel pour accompagner l'utilisation du Règlement intérieur du lycée Louis-Bascan](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RiBascanIA.md)
 
-##### Outil de formation à destination de la communauté enseignante
+#### Outil de formation à destination de la communauté enseignante
 - [Rendre la compréhension d'une histoire accessible, par une enseignante en RASED](https://chatmd.forge.apps.education.fr/#https://horvathjulie.forge.apps.education.fr/bot/comprehension.md)
 - [BoBot : un chatbot pour accompagner un parcours de formation sur “Enseigner avec les chatbots”](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/g7sQ4xUa5)
 - [Scénariser sa formation avec la méthode ABC Learning Design](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/VmyzDYolTauP9wRwLnK84g)
 - [Chatbot pour accompagner les personnes formées au programme pHARe dans le milieu scolaire.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/HE5zk4vIE)
 - [Aide à la mise en œuvre d'un projet EMI autour de la webradio](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11266070/es/assistant-virtuel-emi-et-webradio)
 
-##### Outil d'aide à la décision ou à la création
+#### Outil d'aide à la décision ou à la création
 - [BTK-Bot : un assistant pour aider à trouver sa future formation après un BAC STL Biotechnologie](https://chatmd.forge.apps.education.fr/#https://biomicrobio.fr/images/BOT/BTKBot.md)
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
 - [Arbre de décision pour choisir le bon “commit” quand on a fait une modification d'un code source](https://chatmd.forge.apps.education.fr/#https://pad.numerique.gouv.fr/FurkP8BzRY6lcZLqP5avqw%23)
 
-##### Outil de révision de connaissances ou d'aide méthodologique
+#### Outil de révision de connaissances ou d'aide méthodologique
 - [Méthode de la dissertation en philosophie](https://chatmd.forge.apps.education.fr/#https://eyssette.forge.apps.education.fr/chatbot/dissertation-philosophie.md)
 - [ViTa : un chatbot, à destination d'élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
 - [GRISMS'Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
@@ -144,17 +142,17 @@ Vous pouvez aussi me contacter sur les [réseaux sociaux](http://eyssette.forge.
 - [Accompagnement pour des défis avec Scratch](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/ZK8abNVmSNWhZXzXzzs6Sw)
 - [Alpha, assistant pour les études de documents en SVT au collège, avec ou sans IA](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pCnPSO0CRDWn-Yq-f8D1Xg)
 
-##### Guide de découverte ou d'exploration d'un sujet
+#### Guide de découverte ou d'exploration d'un sujet
 
 - [Etibot, un guide pour explorer les enjeux éthiques liés à l'intelligence artificielle.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/eFYRHyEiQhWw6B1aWxpayA?view)
 - [Découverte de l'intelligence artificielle avec des collégiens](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/F2Pd3ZfDREa1afghO57TrA)
 - [Chirobot-sons: petit guide sur les sons émis par les chauves-souris](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/chirobot-sons)
 
-##### Escape Game, aventure, enquête
+#### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
 - [ Le chat enquêteur (ionBOT) :  une enquête fictive visant à identifier un suspect à partir d'indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
 
-##### Discussion avec un personnage historique
+#### Discussion avec un personnage historique
 - [Discussion avec Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
 - [Discussion avec Marie-Antoinette](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/foeWS9ONTDW2KEGsu8BaIA)
 
@@ -186,58 +184,51 @@ Si vous êtes prof en France et que vous souhaitez utiliser la forge, rejoignez 
 
 ## Syntaxe de base
 
-La syntaxe de base pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/) est la suivante :
+### Structure générale d’un chatbot
+
+Pour faire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/), il faut l'écrire en Markdown avec une structure simple :
 
 ```markdown
 # Titre du chatbot
 
 Message initial
 
-1. [Premier choix](Réponse 1)
-2. [Deuxième choix](Réponse 2)
+1. [Premier choix](choix 1)
+2. [Deuxième choix](choix 2)
 
-## Réponse 1
-- déclencheur 1 (optionnel)
-- déclencheur 2 (optionnel)
+## choix 1
+Message pour le choix 1
 
-Contenu de la réponse
+## choix 2
+- déclencheur 1
+- déclencheur 2
 
-1. [Proposition 1](Titre Proposition 1)
-2. [Proposition 2](Titre Proposition 2)
+Message pour le choix 2
+
+1. [Bouton cliquable 1](cible bouton 1)
+2. [Bouton cliquable 2](cible bouton 2)
 ```
 
-Dans le message initial et le contenu de chaque réponse, **on peut utiliser toute la syntaxe Markdown** : intégrer des images, des vidéos, des iframes, et même utiliser des balises HTML.
+:::info Points clés
+- Le message initial et le contenu des réponses peuvent inclure toute la syntaxe Markdown : images, vidéos, iframes, HTML, etc.
+- Les titres de niveau 2 (`## `) désignent les réponses possibles.
+- Pour chaque réponse, on peut associer des déclencheurs
+- À la fin de chaque message, on peut mettre des boutons cliquables
+:::
 
-Les **titres de niveau 2** servent à identifier les réponses possibles du chatbot.
-Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit exactement identique au texte de la réponse. Il est donc conseillé de faire des copier-coller pour être sûr de ne pas faire d'erreurs.
 
-#### Retour au message initial
+:::warning Attention
+Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit exactement identique au texte de la réponse.
 
-Si on ne met pas de cible, le lien renverra alors vers le message initial.
+Il est donc conseillé de faire des copier-coller pour être sûr de ne pas faire d'erreurs.
+:::
 
-Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe “unique”.
+Voici un [modèle à récupérer](https://codimd.apps.education.fr/mBGbHStJSVOSrlGfGb981A?both) si vous voulez construire votre premier chatbot !
 
-```markdown
-# Titre du chatbot
 
-<section class="unique">
-Ce passage n'apparaîtra qu'une fois
-</section>
+### Interaction <span>(1)</span> <aside>clics sur un bouton de réponse</aside>
 
-Message initial
-
-<section class="unique">
-Ce passage également n'apparaîtra qu'une fois
-</section>
-```
-
-Voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg).
-
-#### Méthodes pour déclencher une réponse
-
-Il existe deux manières principales pour déclencher une réponse dans ChatMD.
-
-##### L'utilisateur clique sur un bouton de réponse
+Si l'utilisateur clique sur un bouton de réponse, ChatMD cherche la réponse qui correspond à ce bouton et l'affiche.
 
 Pour créer des boutons qui déclenchent des réponses quand on clique dessus, il faut utiliser cette syntaxe :
 
@@ -271,7 +262,7 @@ Il faut respecter strictement la syntaxe.
 - Le texte de la cible du lien doit être exactement identique au titre de niveau 2 qui correspond à cette cible (en faisant aussi attention aux majuscules et minuscules) : il vaut mieux faire un copier-coller pour éviter les erreurs
 :::
 
-##### L'utilisateur pose une question
+### Interaction <span>(2)</span> <aside>saisie libre de l'utilisateur au clavier</aside>
 
 Si on a laissé le clavier disponible, l'utilisateur peut écrire librement sa question.
 
@@ -297,13 +288,53 @@ Pour éviter le hors-sujet dans une dissertation philosophique, il faut bien ana
 
 Si on laisse la possibilité de poser des questions libres, c'est tout de même recommandé de faire des propositions avec des boutons à cliquer pour guider plus facilement l'utilisateur.
 
-#### Fonctionnement de l'algorithme de recherche
+##### Fonctionnement de l'algorithme de recherche
 
 Si on utilise des déclencheurs, ChatMD calcule la réponse la plus adéquate.
 
 Ce n'est pas une simple recherche d'occurrences : le calcul intègre une décomposition en tokens et un calcul de distance lexicale.
 
 La décomposition en tokens permet de retrouver des racines communes et la distance lexicale permet de trouver une réponse malgré des fautes d'orthographe.
+
+### Retour au message initial
+
+Pour pouvoir revenir au message initial, on utilise un lien sans cible.
+
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe “unique”.
+
+```markdown
+# Faire un gâteau
+
+<section class="unique">
+Ce chatbot vous permet de choisir une recette. Laissez-vous guider par ce chatbot !
+</section>
+
+Quel gâteau voulez-vous faire ?
+
+<section class="unique">
+:::info
+Ce chatbot a été créé par M. Cuisine
+:::
+</section>
+
+1. [Un gâteau à la banane](Banane)
+2. [Un gâteau à la poire](Poire)
+
+## Banane
+
+La recette : …
+
+1. [Retour au menu initial]()
+
+## Poire
+
+La recette : …
+
+2. [Faire un autre gâteau !]()
+```
+
+Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Up0rojkgRaGtxolcQsbMdw).
+
 
 ## Configuration avancée
 
