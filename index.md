@@ -36,14 +36,14 @@ style: |
 
 **Intégration possible de l'IA**
 - Pas d'IA par défaut, mais possibilité de l'intégrer de manière sobre et ciblée
-- Prise en charge du RAG (_Retrieval-Augmented Generation_) pour que les réponses de l'IA intègrent une base de connaissances personnalisée
+- Support du <abbr title="Retrieval-Augmented Generation">RAG</abbr> : ajout de bases de connaissances pour des réponses IA plus précises
 
 **Compatibilité RGPD**
 - Mode sans IA (par défaut) ou avec IA en local :
 	- pas de compte à créer
 	- pas de collecte de données personnelles
 - Avec IA en ligne :
-	- nécessité de créer un compte pour le créateur du chatbot (accès à l'IA avec clé API)
+	- nécessité de créer un compte pour le créateur du chatbot : accès à l'IA avec <abbr title="mot de passe pour pouvoir interroger un LLM et obtenir une réponse">clé API</abbr>
 	- pas besoin de compte pour l'utilisateur
 	- ⚠️ collecte de données possible (selon le fournisseur du service IA)
 
@@ -348,7 +348,7 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 ### L'en-tête YAML
 
-L’en-tête YAML est une section spéciale située tout en haut du fichier Markdown.
+L’en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
 
 Elle permet de définir des propriétés qui configurent le comportement du chatbot.
 
