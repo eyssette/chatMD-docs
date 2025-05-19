@@ -3,6 +3,7 @@ addOns: copycode, lightbox, highlight
 theme: colors
 style: |
    .displayHomepage .admonition{font-size:0.95em}
+   .displayHomepage .admonition ul{padding-left: 1.75em;}
    .displayHomepage li{margin-top: 0.25em}
    h1 aside{font-weight:normal}
    h3 span {font-weight: normal; font-size: 0.8em; vertical-align: text-top;}
@@ -38,12 +39,13 @@ style: |
 - Prise en charge du RAG (_Retrieval-Augmented Generation_) pour que les réponses de l'IA intègrent une base de connaissances personnalisée
 
 **Compatibilité RGPD**
-- Dans le mode sans IA (par défaut) ou avec une IA en local :
-	- Pas de compte à créer
-	- Aucune collecte de données personnelles
+- Mode sans IA (par défaut) ou avec IA en local :
+	- pas de compte à créer
+	- pas de collecte de données personnelles
 - Avec IA en ligne :
-	- Le créateur du chatbot doit créer un compte pour avoir une clé API (mais pas l'utilisateur)
-	- ⚠️ Collecte possible de données personnelles de l'utilisateur selon le fournisseur de LLM utilisé
+	- nécessité de créer un compte pour le créateur du chatbot (accès à l'IA avec clé API)
+	- pas besoin de compte pour l'utilisateur
+	- ⚠️ collecte de données possible (selon le fournisseur du service IA)
 
 **Code optimisé et écoresponsable**
 - Code très léger, rapide et à faible empreinte carbone (note A+)
