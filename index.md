@@ -136,6 +136,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 #### Outil d'aide à la décision ou à la création
 - [BTK-Bot : un assistant pour aider à trouver sa future formation après un BAC STL Biotechnologie](https://chatmd.forge.apps.education.fr/#https://biomicrobio.fr/images/BOT/BTKBot.md)
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
+- [Aide à la préparation d'un interview pour une webradio](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/PXdIW56mQHOhtOwc6WfPoA?view)
 - [Arbre de décision pour choisir le bon “commit” quand on a fait une modification d'un code source](https://chatmd.forge.apps.education.fr/#https://pad.numerique.gouv.fr/FurkP8BzRY6lcZLqP5avqw%23)
 
 #### Outil de révision de connaissances ou d'aide méthodologique
