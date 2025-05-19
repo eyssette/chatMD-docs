@@ -14,6 +14,7 @@ style: |
    .admonition{margin:1.25em auto}
    .admonitionTitle{margin-top:0.5em}
    .hljs{background:white; text-wrap:auto}
+   .hljs-code{background:#eefff9d9}
    .language-html .hljs-tag{background:none}
 ---
 
@@ -972,18 +973,115 @@ Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both)
 
 ## Utilisation de l'IA
 
-#### Principe
+### Principe général
 
-[ChatMD](https://chatmd.forge.apps.education.fr/) peut se connecter à un LLM en ligne ou en local :
+ChatMD peut se connecter à un LLM en ligne ou en local.
 
-- Configuration complète : modèle, préprompt, nombre de tokens, etc.
-- Mode d'utilisation flexible : réponse entièrement par LLM ou enrichissement ponctuel
-- RAG simplifié : indication de sources d'information pour le LLM
+L'intérêt est que l'on peut alors utiliser l'IA de manière sobre et ciblée, au sein d'un parcours scénarisé dont on garde le contrôle.
 
-ChatMD permet également de faire du RAG de manière simplifiée : on peut indiquer des sources d'informations, qui seront utilisées par le LLM pour produire sa réponse.
+De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à votre chatbot : il faudra simplement lui communiquer un mot de passe.
+
+#### Appel à une IA : dans un bouton de réponse
+
+On peut faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
+
+Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'on a prévue, on utilise la directive `!useLLM` suivie de la question que l'on pose au LLM.
+
+```markdown
+1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
+```
+
+<!-- création automatique d'un bouton !useLLM si on ne trouve pas de réponse -->
+
+#### Appel à une IA : par l'utilisateur
+
+L'utilisateur lui-même peut faire appel à une IA en commençant sa question par `!useLLM`
+
+#### Appel à une IA : dans le corps d'une réponse
+
+```markdown
+## Ma réponse qui intègre de l'IA
+On peut utiliser un LLM dans une réponse, en utilisant la syntaxe suivante : 
+
+`!useLLM`
+Ceci est mon prompt.
+
+Le prompt peut être sur plusieurs lignes..
+`END !useLLM`
+
+On peut ajouter du texte en Markdown avant ou après, et même utiliser plusieurs fois un LLM dans sa réponse.
+```
+
+### Configuration initiale
+
+#### LLM en ligne
+
+Pour pouvoir accéder aux fonctionnalités IA, il faut avoir une clé API chez un fournisseur de LLM.
+
+On va ensuite chiffrer sa clé API afin d'éviter qu'elle soit diffusée publiquement dans le fichier source de son chatbot.
+
+On pourra alors configurer l'accès au LLM dans le YAML, en ajoutant :
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+```
+
+#### LLM en local
+
+Plusieurs logiciels permettent de faire tourner un LLM en local.
+
+Dans ce cas, on a simplement besoin d'indiquer dans le YAML l'URL du serveur local et le nom du modèle.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+```
+
+#### Options possibles
+
+```yaml
+useLLM:
+   maxTokens: nombre_de_tokens_maximum
+   systemPrompt: "Prompt système général",
+	preprompt: "Pré prompt, avant la demande",
+	postprompt: "Post prompt, après la demande",
+	maxProcessingTime: temps_d_attente_maximum_en_ms_de_la_réponse,
+```
+
+### RAG
+
+ChatMD permet également de faire du RAG de manière simplifiée.
+
+On peut ajouter une base de connaissances qui sera utilisée par le LLM pour produire sa réponse.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   informations: "URL_base_de_connaissance"
+```
+
+On peut mettre plusieurs URLs à récupérer pour constituer sa base de connaissance.
+
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   informations: ["URL1", "URL2", "URL3"]
+```
+
+#### Fonctionnement du RAG
+
 Ce RAG ne repose pas sur une vectorisation préalable de l'information. On pourrait le faire, mais l'intérêt est ici de ne pas multiplier les appels à une API externe, afin d'avoir un usage plus sobre de l'IA.
 
-#### Configuration
+### Exemples
 
 Exemples de configuration :
 - [Utiliser ChatMD avec un LLM en local](https://codimd.apps.education.fr/unR-D6xRSMOnvySa5-kCdg?both)
