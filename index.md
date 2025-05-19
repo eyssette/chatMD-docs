@@ -184,7 +184,7 @@ Si vous êtes prof en France et que vous souhaitez utiliser la forge, rejoignez 
 
 ## Syntaxe de base
 
-La syntaxe pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/) est la suivante :
+La syntaxe de base pour écrire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/) est la suivante :
 
 ```markdown
 # Titre du chatbot
@@ -213,23 +213,87 @@ Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit 
 
 Si on ne met pas de cible, le lien renverra alors vers le message initial.
 
-Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe "unique" (voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg))
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe “unique”.
+
+```markdown
+# Titre du chatbot
+
+<section class="unique">
+Ce passage n'apparaîtra qu'une fois
+</section>
+
+Message initial
+
+<section class="unique">
+Ce passage également n'apparaîtra qu'une fois
+</section>
+```
+
+Voir un [exemple](https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/XwV4qVY8RM6K65P9PylgGg).
 
 #### Méthodes pour déclencher une réponse
 
-Il existe deux manières principales pour déclencher une réponse dans ChatMD :
+Il existe deux manières principales pour déclencher une réponse dans ChatMD.
 
-1. **Avec la souris** : l'utilisateur clique sur une proposition
-   
-   Pour créer des boutons qui déclenchent des réponses quand on clique dessus, il faut utiliser une liste ordonnée en Markdown :
-   
-   `1. [intitulé de l'option qui s'affiche pour l'utilisateur](titre de la réponse correspondante dans le fichier en Markdown)`
+##### L'utilisateur clique sur un bouton de réponse
 
-2. **Avec le clavier** : l'utilisateur pose une question
-   
-   Pour permettre au chatbot de renvoyer la réponse la plus adéquate, on indique sous le titre de la réponse des déclencheurs (mots clés ou expressions) qui vont renforcer le choix de cette réponse. On utilise une liste non ordonnée en Markdown.
+Pour créer des boutons qui déclenchent des réponses quand on clique dessus, il faut utiliser cette syntaxe :
 
-Il est préférable de combiner ces 2 options pour être sûr que l'utilisateur trouve les réponses à ses questions !
+```markdown
+## Choix pilule
+
+Prenez-vous la pilule rouge ou la pilule bleue ?
+
+1. [La rouge](choix pilule rouge)
+2. [La bleue](choix pilule bleue)
+
+## choix pilule rouge
+Vous avez choisi la pilule rouge.
+
+## choix pilule bleue
+Vous avez choisi la pilule bleue.
+```
+
+On utilise donc une liste ordonnée avec pour chaque ligne :
+- un nombre
+- un point
+- une espace
+- entre crochets : le texte qui s'affiche
+- entre parenthèses : le nom de la réponse vers laquelle ChatMD va aller si on clique sur le bouton
+
+:::warning Attention à la syntaxe !
+Il faut respecter strictement la syntaxe.
+- Il ne faut pas mettre d'espace avant le nombre au début
+- Il ne faut pas oublier l'espace après le point avant les crochets
+- Il ne faut pas mettre d'espace entre les crochets et les parenthèses
+- Le texte de la cible du lien doit être exactement identique au titre de niveau 2 qui correspond à cette cible (en faisant aussi attention aux majuscules et minuscules) : il vaut mieux faire un copier-coller pour éviter les erreurs
+:::
+
+##### L'utilisateur pose une question
+
+Si on a laissé le clavier disponible, l'utilisateur peut écrire librement sa question.
+
+ChatMD va alors chercher la réponse la plus pertinente.
+
+Pour permettre à ChatMD de renvoyer la réponse la plus adéquate, on indique sous le titre de chaque réponse des déclencheurs (mots clés ou expressions) qui vont renforcer le choix de cette réponse.
+
+On utilise une liste non ordonnée en Markdown, qui suit immédiatement le titre de la réponse (sans ligne vide entre le titre et la liste)
+
+```markdown
+## Hors sujet
+- éviter le hors sujet
+- faire du hors sujet
+- rester dans le sujet
+- ne pas s'éloigner du sujet
+- ne pas s'éloigner de la question
+
+Pour éviter le hors-sujet dans une dissertation philosophique, il faut bien analyser le sujet lors du travail au brouillon et toujours vérifier le lien avec la question posée quand on rédige.
+
+1. [Comment bien analyser le sujet ?](Analyser le sujet)
+2. [Comment on rédige ?](Rédiger)
+```
+
+Si on laisse la possibilité de poser des questions libres, c'est tout de même recommandé de faire des propositions avec des boutons à cliquer pour guider plus facilement l'utilisateur.
 
 #### Fonctionnement de l'algorithme de recherche
 
