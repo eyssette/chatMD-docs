@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Chiffrer une clé API</title>
+</head>
+
+<body>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Encrypt/Decrypt API Key</title>
+
+
+	<h2>Chiffrer votre clé API</h2>
+
+	<label for="apiKey">Entrez votre clé API :</label>
+	<br><br>
+	<input type="text" id="apiKey" placeholder="Clé API" size="50">
+	<br><br>
+
+	<label for="password">Entrez votre mot de passe : </label>
+	<br><br>
+	<input type="text" id="password" placeholder="Mot de passe">
+	<br><br>
+	Clé chiffrée :
+	<br><br>
+	<textarea id="outputText" rows="1" cols="50" placeholder="Résultat"></textarea>
+
+
+	<script>
+		// Fonction de chiffrement/déchiffrement XOR
+		function xorEncryptDecrypt(input, password) {
+			let output = '';
+			for (let i = 0; i < input.length; i++) {
+				// XOR chaque caractère de l'entrée avec le caractère correspondant du mot de passe (ou un cycle de celui-ci)
+				output += String.fromCharCode(input.charCodeAt(i) ^ password.charCodeAt(i % password.length));
+			}
+			return output;
+		}
+
+		// Fonction pour chiffrer la clé API
+		function encrypt() {
+			const apiKey = document.getElementById("apiKey").value;
+			const password = document.getElementById("password").value;
+
+			if (!apiKey || !password) {
+				//alert("Veuillez entrer la clé API et le mot de passe.");
+				return;
+			}
+
+			// Chiffrer la clé API avec XOR
+			const encrypted = xorEncryptDecrypt(apiKey, password);
+
+			// Convertir le résultat chiffré en Base64 pour une sortie lisible
+			const encryptedBase64 = btoa(encrypted);
+
+			document.getElementById("outputText").value = encryptedBase64;
+		}
+
+		// Fonction pour déchiffrer la clé API
+		function decrypt() {
+			const encryptedText = document.getElementById("apiKey").value;
+			const password = document.getElementById("password").value;
+
+			if (!encryptedText || !password) {
+				alert("Veuillez entrer le texte chiffré et le mot de passe.");
+				return;
+			}
+
+			// Décoder le texte chiffré de Base64
+			const encrypted = atob(encryptedText);
+
+			// Déchiffrer la clé API avec XOR
+			const decrypted = xorEncryptDecrypt(encrypted, password);
+
+			document.getElementById("outputText").value = decrypted;
+		}
+		const inputs = document.querySelectorAll("input") 
+		inputs.forEach(input => input.addEventListener("keydown", encrypt))
+	</script>
+</body>
