@@ -348,11 +348,11 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 ### L'en-tête YAML
 
-La plupart des options reposent sur l'ajout de paramètres dans l'en-tête YAML du fichier Markdown.
+L’en-tête YAML est une section spéciale située tout en haut du fichier Markdown.
 
-Un en-tête YAML est une section spéciale dans laquelle on déclare certaines variables, qu'un programme comme ChatMD peut ensuite utiliser.
+Elle permet de définir des propriétés qui configurent le comportement du chatbot.
 
-Cet en-tête doit se trouver au tout début du fichier. Il faut commencer et terminer l'en-tête par trois tirets `---`.
+Cet en-tête doit impérativement commencer et se terminer par par une ligne contenant exactement trois tirets `---`, sans espaces avant ni après.
 
 Voici un exemple d'en-tête YAML :
 
