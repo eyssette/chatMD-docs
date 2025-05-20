@@ -931,14 +931,19 @@ On pourra ensuite utiliser les variables suivantes : `@LATITUDE` `@LONGITUDE` `@
 `if @LATITUDE>41.0 && @LATITUDE<51.5 && @LONGITUDE>-5.0 && @LONGITUDE<9.5`
 Vous êtes probablement en France métropolitaine !
 `endif`
-```
 
-
-```markdown
 `if Math.abs(@LATITUDE - 45.7640)<0.5 && Math.abs(@LONGITUDE - 4.8357)<0.5`
 Vous habitez probablement près de : Lyon !
 `endif`
+
+`if @LATITUDE==undefined`
+La géolocalisation n'a malheureusement pas fonctionné.
+Essayez de recliquer sur le bouton qui vous a mené ici, ou de reposer votre question.
+Si cela ne marche pas, essayez de réactualiser la page.
+`endif`
 ```
+
+
 
 
 ### Plusieurs bots
