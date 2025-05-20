@@ -353,11 +353,13 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 ## Configuration avancée
 
+
+### L'en-tête YAML
+
+
 <!-- TODO: ajouter un récapitulatif de l'ensemble des options disponibles dans le YAML et via les directives -->
 
 <!-- TODO: ajouter usages pour le plugin Lightbox ; voir autres plugins ?-->
-
-### L'en-tête YAML
 
 L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
 
