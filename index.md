@@ -106,6 +106,7 @@ Il faut concevoir son chatbot en suivant une syntaxe spécifique. Cette syntaxe 
 3. intégration possible de l'IA, mais de manière plus éthique et responsable
 4. customisation complète possible de votre chatbot
 5. code open-source, très léger et écoresponsable
+6. une communauté prête à vous aider et un développement à l'écoute de vos demandes d'évolution de l'outil
 
 ##### Pas de statistiques d'usage
 
