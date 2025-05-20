@@ -988,11 +988,9 @@ L'intérêt est que l'on peut alors utiliser l'IA de manière sobre et ciblée, 
 
 De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à votre chatbot : il faudra simplement lui communiquer un mot de passe.
 
-<!-- TODO: ajouter usages les plus intéressants pour le LLM
-ajouter combinaison avec récupération question utilisateur et LLM
-ajouter utilisation de questions en variables avec de l'aléatoire ? -->
+<!-- TODO: ajouter utilisation de questions en variables avec de l'aléatoire ? -->
 
-#### Appel à une IA : dans un bouton de réponse
+#### Appel à une IA : après un clic sur un bouton de réponse
 
 On peut faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
 
@@ -1004,24 +1002,80 @@ Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'
 
 Par défaut, si on a configuré l'utilisation d'un LLM, ChatMD ajoute automatiquement un bouton qui propose de poser sa question au LLM quand le chatbot n'a pas trouvé de réponse pertinente dans les réponses prédéfinies.
 
-#### Appel à une IA : par l'utilisateur
+#### Appel à une IA : par l'utilisateur dans son message
 
-L'utilisateur lui-même peut faire appel à une IA en commençant sa question par `!useLLM`
+L'utilisateur lui-même peut faire appel à une IA en commençant sa question par `!useLLM`.
 
-#### Appel à une IA : dans le corps d'une réponse
+Cette fonctionnalité est surtout utile si on a activé le RAG et défini une base de connaissances que l'utilisateur peut alors interroger de cette manière.
+
+#### Appel à une IA : dans un message du chatbot
+
+Il est également possible d'insérer, dans un message du chatbot, du contenu généré dynamiquement par l'IA.
+
+Pour cela, on écrit un bloc avec un prompt qui sera remplacé, au moment de l'affichage, par la réponse du LLM.
+
+
+:::info Structure d'un bloc prompt
+Le bloc prompt doit être écrit de la manière suivante :
+1. On commence le bloc par `` `!useLLM` ``
+2. On écrit son prompt
+3. On termine son bloc par `` `END !useLLM` ``
+:::
 
 ```markdown
-## Ma réponse qui intègre de l'IA
-On peut utiliser un LLM dans une réponse, en utilisant la syntaxe suivante : 
+## Dictée niveau quatrième
+Voici une dictée générée automatiquement  :
 
 `!useLLM`
-Ceci est mon prompt.
-
-Le prompt peut être sur plusieurs lignes..
+Rédige une dictée d’environ 80 à 100 mots, destinée à des élèves de quatrième.  
+Le texte doit être rédigé au passé simple et à l’imparfait, contenir au moins trois adjectifs accordés en genre et en nombre, ainsi qu’une proposition subordonnée relative.  
+Le vocabulaire doit rester accessible pour ce niveau, et le ton peut être narratif ou descriptif.
 `END !useLLM`
 
-On peut ajouter du texte en Markdown avant ou après, et même utiliser plusieurs fois un LLM dans sa réponse.
+📝 Conseil : lis d’abord la dictée une première fois en entier, puis fais-la à l’écrit sans te précipiter. Pense à bien accorder les adjectifs et les verbes, surtout à l’imparfait !
 ```
+
+Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une question à l'utilisateur, de récupérer sa réponse dans une variable dynamique et de demander à un LLM d'évaluer sa réponse d'après des critères qu'on définit dans le prompt.
+
+```markdown
+## Question sur les trois types de roche
+Quels sont les trois grands types de roche ?
+
+`@reponseTypesDeRoches = @INPUT : Réponse à la question sur les trois types de roche`
+
+## Réponse à la question sur les trois types de roche
+
+:::warning Attention
+La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critique !
+:::
+
+`!useLLM`
+J'ai pose à un élève la question suivante : quels sont les trois grands types de roche ?
+
+L'élève a répondu : `@reponseTypesDeRoches`
+
+Évalue la réponse de l'élève en lui donnant des conseils pour s'améliorer.
+
+Dans la réponse, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
+
+Vérifie la présénce de ces trois catégories.
+`END !useLLM`
+
+**Fin de la réponse générée par l'IA**
+
+1. [Question numéro 2](Composition du granite)
+
+```
+
+:::warning Attention
+Pour cet usage, il faut avoir activé les variables dynamiques dans le YAML
+
+```yaml
+contenuDynamique: true
+```
+
+:::
+
 
 ### Configuration initiale
 
