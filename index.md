@@ -1035,7 +1035,42 @@ Le vocabulaire doit rester accessible pour ce niveau, et le ton peut être narra
 📝 Conseil : lis d’abord la dictée une première fois en entier, puis fais-la à l’écrit sans te précipiter. Pense à bien accorder les adjectifs et les verbes, surtout à l’imparfait !
 ```
 
+
+##### Combiner variables dynamiques et appel à une IA
+
+On peut générer un prompt qui utilise le contenu de certaines variables dynamiques, ce qui permet d'adapter le prompt à la situation spécifique de l'utilisateur.
+
+:::warning Attention
+Si vous voulez utiliser les variables dynamiques, il faut avoir activé cette fonctionnalité dans le YAML
+:::
+
+```yaml
+contenuDynamique: true
+```
+
+Imaginons par exemple qu'on a demandé auparavant à l'utilisateur sa discipline, le niveau de ses élèves et le sujet précis actuellement étudié, on pourrait alors faire un prompt de création d'un exercice qui utilise les variables qui ont récupéré les informations en question.
+
+```markdown
+## Création d'un quiz
+Voici un exercice généré automatiquement par l'IA :
+
+`!useLLM`
+Tu es un enseignant en : `@discipline`
+Tes élèves sont en : `@niveauEleves`
+
+Crée un quiz sur ce sujet : `@sujetActuel`
+
+Ton quiz doit comporter trois questions de type QCM avec à chaque fois des distracteurs pertinents.
+`END !useLLM`
+```
+
+##### Évaluer la réponse de l'utilisateur par l'IA
+
 Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une question à l'utilisateur, de récupérer sa réponse dans une variable dynamique et de demander à un LLM d'évaluer sa réponse d'après des critères qu'on définit dans le prompt.
+
+:::warning Attention
+Cet usage suppose aussi d'avoir au préalable activé les variables dynamiques dans le YAML.
+:::
 
 ```markdown
 ## Question sur les trois types de roche
@@ -1067,14 +1102,8 @@ Vérifie la présénce de ces trois catégories.
 
 ```
 
-:::warning Attention
-Pour cet usage, il faut avoir activé les variables dynamiques dans le YAML
 
-```yaml
-contenuDynamique: true
-```
 
-:::
 
 
 ### Configuration initiale
