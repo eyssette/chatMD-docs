@@ -988,6 +988,10 @@ L'intérêt est que l'on peut alors utiliser l'IA de manière sobre et ciblée, 
 
 De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à votre chatbot : il faudra simplement lui communiquer un mot de passe.
 
+<!-- TODO: ajouter usages les plus intéressants pour le LLM
+ajouter combinaison avec récupération question utilisateur et LLM
+ajouter utilisation de questions en variables avec de l'aléatoire ? -->
+
 #### Appel à une IA : dans un bouton de réponse
 
 On peut faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
