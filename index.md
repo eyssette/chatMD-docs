@@ -765,7 +765,8 @@ Choisis un sujet de dissertation pour t'entraîner
 4. [Peut-on juger une œuvre d'art d'un point de vue moral ?](Sujet art)
 ```
 
-<!-- Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)). -->
+<!-- TODO: ajouter exemple de chatbot ?
+Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)). -->
 
 #### Redirection aléatoire vers un autre message
 
@@ -788,7 +789,8 @@ Sur quel thème veux-tu un exercice ?
 !SelectNext: exo Fantastique 1 / exo Fantastique 2 / exo Fantastique 3
 ```
 
-<!-- Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg)) -->
+<!-- TODO: ajouter exemple de chatbot
+Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg)) -->
 
 #### Aléatoire dans les variables
 
@@ -902,7 +904,7 @@ Quelle est ta matière préférée ?
 
 Ici, on récupère la réponse de l'utilisateur dans la variable `@nom` et on va ensuite au message `question matière préférée`.
 
-<!-- 
+<!-- TODO: ajouter exemple de chatbot
 Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw)) -->
 
 
@@ -996,7 +998,7 @@ Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'
 1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
 ```
 
-<!-- création automatique d'un bouton !useLLM si on ne trouve pas de réponse -->
+<!-- TODO: ajouter explication sur la création automatique d'un bouton !useLLM si on ne trouve pas de réponse -->
 
 #### Appel à une IA : par l'utilisateur
 
@@ -1036,6 +1038,8 @@ useLLM:
    encryptedAPIkey: clé_chiffrée
 ```
 
+<!-- TODO: ajouter page qui montre différents services pour accéder à une clé API -->
+
 #### LLM en local
 
 Plusieurs logiciels permettent de faire tourner un LLM en local.
@@ -1047,6 +1051,8 @@ useLLM:
    url: URL_API
    model: nom_du_modèle_de_langage
 ```
+
+<!-- TODO: Ajouter exemples de logiciels pour faire tourner un LLM en local -->
 
 #### Options possibles
 
@@ -1061,6 +1067,9 @@ useLLM:
 
 Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
 
+
+<!-- TODO: ajouter autres options de configuration :
+On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors mettre le paramètre `always: true` dans l'en-tête YAML -->
 
 ### RAG
 
@@ -1095,6 +1104,11 @@ useLLM:
 ```
 
 La base de connaissance doit être constituée de fichiers texte.
+
+<!-- TODO: ajouter autres options de configuration du RAG
+"useFile" pour utiliser le fichier RAG.js local
+On peut aussi mettre directement du texte
+ -->
 
 
 #### Fonctionnement du RAG
@@ -1147,12 +1161,6 @@ useLLM:
 
 ```
 
-
-### Exemples
-
-Exemples de configuration :
-- [Utiliser ChatMD avec un LLM en local](https://codimd.apps.education.fr/unR-D6xRSMOnvySa5-kCdg?both)
-- [Utiliser ChatMD avec un LLM en ligne](https://codimd.apps.education.fr/nVOl6sQKTfqq_OWAUmxcYg?both)
 
 ## Intégration dans un site web
 
@@ -1216,7 +1224,7 @@ Remplacez `URL_IMAGE` par le lien direct vers l'image que vous souhaitez utilise
 
 L'image doit idéalement être de petite taille pour un bon rendu.
 
-<!-- 
+<!-- TODO: ajouter autres possibilités d'intégration dans un site web
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
 -->
 
