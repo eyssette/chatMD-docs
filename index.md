@@ -623,15 +623,46 @@ Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) 
 
 #### Schémas et graphiques
 
-Pour générer des schémas et graphiques via Kroki, ajoutez dans le YAML :
+Pour générer des schémas et graphiques, on va utiliser le plugin _Kroki_, que l'on active en ajoutant `kroki` à la liste des plugins dans le YAML :
 
 ```yaml
-plugins: kroki
+plugins: plugin1 plugin2 kroki
 ```
 
-Utilisez ensuite la syntaxe appropriée pour Tikz, GraphViz, Mermaid, PlantUML, Excalidraw, Vega ou Vegalite.
+Vous pouvez ensuite utiliser la syntaxe des schémas Tikz, GraphViz, Mermaid, PlantUML, Excalidraw, Vega ou Vegalite dans votre chatbot.
 
 Voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg)
+
+#### Lightbox pour les images, les PDF et les liens
+
+:::info Qu'est-ce qu'une _lightbox_ ?
+Une _lightbox_ permet de voir en grand une image, un PDF ou de visualiser un lien externe, le tout sans quitter votre chatbot, mais en affichant ce contenu dans une fenêtre superposée qui s’ouvre au-dessus du contenu principal.
+:::
+
+Pour activer le plugin _lightbox_, on l'ajoute à la liste des plugins dans le YAML :
+
+```yaml
+plugins: plugin1 plugin2 lightbox
+```
+
+Si on veut désactiver l'effet de lightbox pour une image ou un PDF, on ajoute simplement `?nolightbox` à la fin de l'URL de l'image ou du PDF.
+
+```markdown
+Ce fichier s'affichera avec une lightbox :
+[](https://exemple.fr/monfichier.pdf)
+
+Ce fichier s'affichera sans lightbox :
+[](https://exemple.fr/monfichier.pdf?nolightbox)
+```
+
+Si on veut qu'un lien s'ouvre dans une iframe dans une lightbox, il faut que ce lien ait la classe ou soit dans un élément qui a la classe `iframe`
+
+```markdown
+Ce lien s'affichera dans une iframe dans une lightbox :
+[](https://monlien.fr) {.iframe}
+```
+
+
 
 ### Chatbots très longs
 
