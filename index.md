@@ -998,7 +998,7 @@ Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'
 1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
 ```
 
-<!-- TODO: ajouter explication sur la création automatique d'un bouton !useLLM si on ne trouve pas de réponse -->
+Par défaut, si on a configuré l'utilisation d'un LLM, ChatMD ajoute automatiquement un bouton qui propose de poser sa question au LLM quand le chatbot n'a pas trouvé de réponse pertinente dans les réponses prédéfinies.
 
 #### Appel à une IA : par l'utilisateur
 
