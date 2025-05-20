@@ -863,7 +863,7 @@ On peut utiliser de l'aléatoire également dans les variables fixes (voir l'ong
 Pour utiliser des variables dynamiques, il faut d'abord ajouter dans le YAML :
 
 ```yaml
-contenuDynamique: true
+variablesDynamiques: true
 ```
 
 #### Définir la valeur d'une variable
@@ -983,7 +983,7 @@ Pour cela, il faut écrire dans le yaml :
 
 ```yaml
 geolocation: true
-contenuDynamique: true
+variablesDynamiques: true
 ```
 
 On pourra ensuite utiliser les variables suivantes : `@LATITUDE` `@LONGITUDE` `@POSITION_ACCURACY`.
@@ -1106,7 +1106,7 @@ Si vous voulez utiliser les variables dynamiques, il faut avoir activé cette fo
 :::
 
 ```yaml
-contenuDynamique: true
+variablesDynamiques: true
 ```
 
 Imaginons par exemple qu'on a demandé auparavant à l'utilisateur sa discipline, le niveau de ses élèves et le sujet précis actuellement étudié, on pourrait alors faire un prompt de création d'un exercice qui utilise les variables qui ont récupéré les informations en question.

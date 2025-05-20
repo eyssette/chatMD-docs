@@ -30,7 +30,7 @@ variables:
 include: ['URL fichier 1', 'URL fichier 2']
 titresRéponses: ["### ", "#### "]
 obfuscate: true
-contenuDynamique: true
+variablesDynamiques: true
 bots:
    nomBot1:
       avatar: URLimageBot1
