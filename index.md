@@ -90,6 +90,9 @@ ChatMD peut même intégrer de la géolocalisation, ce qui permet d'autres usage
 
 La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education.fr/) peut être configuré pour des **usages plus complexes** : personnalisation de l'interface, utilisation de variables, de choix aléatoires, intégration avec un LLM, possibilité de faire du RAG…
 
+<!-- TODO: Ajouter limites ?
+pas d'enregistrement de statistiques, mais possibilité de partager un historique des conversations -->
+
 ## Exemples
 
 Merci à toutes les personnes qui ont accepté de partager leur chatbot ci-dessous !
@@ -349,6 +352,10 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 
 ## Configuration avancée
+
+<!-- TODO: ajouter un récapitulatif de l'ensemble des options disponibles dans le YAML et via les directives -->
+
+<!-- TODO: ajouter usages pour le plugin Lightbox ; voir autres plugins ?-->
 
 ### L'en-tête YAML
 
