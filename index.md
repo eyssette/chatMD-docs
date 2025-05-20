@@ -1088,13 +1088,11 @@ La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critiq
 `!useLLM`
 J'ai pose à un élève la question suivante : quels sont les trois grands types de roche ?
 
-L'élève a répondu : `@reponseTypesDeRoches`
+Voici la réponse de l'élève : `@reponseTypesDeRoches`
+
+Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
 
 Évalue la réponse de l'élève en lui donnant des conseils pour s'améliorer.
-
-Dans la réponse, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
-
-Vérifie la présénce de ces trois catégories.
 `END !useLLM`
 
 **Fin de la réponse générée par l'IA**
