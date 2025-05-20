@@ -195,7 +195,7 @@ Si vous êtes prof en France et que vous souhaitez utiliser la forge, rejoignez 
 
 ## Syntaxe de base
 
-### Structure générale d’un chatbot
+### Structure générale d'un chatbot
 
 Pour faire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/), il faut l'écrire en Markdown avec une structure simple :
 
@@ -351,7 +351,7 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 ### L'en-tête YAML
 
-L’en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
+L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
 
 Elle permet de définir des propriétés qui configurent le comportement du chatbot.
 
@@ -1064,9 +1064,17 @@ Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du 
 
 ### RAG
 
-ChatMD permet également de faire du RAG de manière simplifiée.
+:::info Qu'est-ce que le RAG ?
+Le RAG (_Retrieval-Augmented Generation_) consiste à demander à une IA générative de répondre, non pas seulement à partir des informations issues de son entraînement, mais à partir d'une base de connaissances qu'on lui a fournie.
 
-On peut ajouter une base de connaissances qui sera utilisée par le LLM pour produire sa réponse.
+On pourrait par exemple fournir une liste de définitions, de méthodes, de textes propres à sa discipline et son approche pédagogique.
+
+Le but est d'améliorer la pertinence du contenu généré et de forcer l'IA à répondre d'après le cadre qu'on lui donne.
+:::
+
+#### Configuration initiale du RAG
+
+Pour ajouter une base de connaissances qui sera utilisée par le LLM pour produire sa réponse, on ajoute dans le YAML :
 
 ```yaml
 useLLM:
@@ -1078,7 +1086,6 @@ useLLM:
 
 On peut mettre plusieurs URLs à récupérer pour constituer sa base de connaissance.
 
-
 ```yaml
 useLLM:
    url: URL_API
@@ -1087,9 +1094,29 @@ useLLM:
    informations: ["URL1", "URL2", "URL3"]
 ```
 
+La base de connaissance doit être constituée de fichiers texte.
+
+
 #### Fonctionnement du RAG
 
-Ce RAG ne repose pas sur une vectorisation préalable de l'information. On pourrait le faire, mais l'intérêt est ici de ne pas multiplier les appels à une API externe, afin d'avoir un usage plus sobre de l'IA.
+ChatMD utilise un système de RAG simplifié qui fonctionne ainsi :
+
+1. **Préparation de la base de connaissances :** ChatMD découpe en segments plus courts (_chunks_) la base de connaissances.
+2. **Recherche des passages pertinents lors d'une requête :** quand une question est posée, ChatMD fait un calcul de similarité entre la question et ces différents segments, afin d'identifier les passages les plus pertinents.
+3. **Construction du prompt enrichi :** ChatMD ajoute les passages les plus pertinents au prompt et demande au LLM de répondre en prenant en compte ces passages.
+
+:::info collapsible Aspects techniques
+Contrairement aux systèmes RAG classiques, ChatMD ne repose pas sur une vectorisation sémantique des documents à l'aide d'_embeddings_ stockés dans une base vectorielle.
+
+À la place, ChatMD effectue une vectorisation lexicale légère : les documents sont représentés sous forme de tokens, et la similarité entre une question et les documents est calculée à l’aide de méthodes classiques (similarité cosinus, calcul de distance lexicale, prise en compte de la taille et de la position des tokens …).
+
+Ce choix vise à :
+1. favoriser un usage sobre de l'intelligence artificielle, en évitant les appels à des services d’API pour la vectorisation ;
+2. simplifier le déploiement en supprimant la dépendance à une base de données externe ou à un moteur de recherche sémantique.
+
+Par ailleurs le parti-pris est que dans les cadres d'usages de ChatMD, notamment institutionnels ou pédagogiques, les documents utilisés pour la base de connaissance intègrent suffisamment de mots-clés pour pouvoir se passer de la vectorisation sémantique.
+:::
+
 
 ### Exemples
 
@@ -1133,16 +1160,16 @@ Placez ce script, de préférence en bas de page, dans l'élément `body` :
 :::info Explications
 - `id` : ne changez pas l'identifiant sinon le widget ne marchera pas
 - `src` : ne changez pas cette URL qui correspond à l'adresse du script qui permet d'afficher le widget
-- `data-chatbot` : remplacez `URL_SOURCE_CHATBOT` par l’URL directe de votre fichier Markdown (par exemple, un lien vers votre CodiMD).
+- `data-chatbot` : remplacez `URL_SOURCE_CHATBOT` par l'URL directe de votre fichier Markdown (par exemple, un lien vers votre CodiMD).
 :::
 
 :::warning Attention
 `URL_SOURCE_CHATBOT` doit correspondre à l'URL directe de votre fichier source.
 
-Il est important de ne pas utiliser l’URL complète du chatbot lui-même, mais bien celle de votre source en Markdown.
+Il est important de ne pas utiliser l'URL complète du chatbot lui-même, mais bien celle de votre source en Markdown.
 :::
 
-#### Personnalisation de l’image du widget
+#### Personnalisation de l'image du widget
 
 Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme paramètre.
 
@@ -1155,9 +1182,9 @@ Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme param�
 ></script>
 ```
 
-Remplacez `URL_IMAGE` par le lien direct vers l’image que vous souhaitez utiliser (par exemple, un logo personnalisé).
+Remplacez `URL_IMAGE` par le lien direct vers l'image que vous souhaitez utiliser (par exemple, un logo personnalisé).
 
-L’image doit idéalement être de petite taille pour un bon rendu.
+L'image doit idéalement être de petite taille pour un bon rendu.
 
 <!-- 
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
