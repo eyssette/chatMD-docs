@@ -1052,12 +1052,15 @@ useLLM:
 
 ```yaml
 useLLM:
-   maxTokens: nombre_de_tokens_maximum
+   maxTokens: nombre_maximum_de_tokens
    systemPrompt: "Prompt système général",
 	preprompt: "Pré prompt, avant la demande",
 	postprompt: "Post prompt, après la demande",
-	maxProcessingTime: temps_d_attente_maximum_en_ms_de_la_réponse,
+	maxProcessingTime: temps_d_attente_maximum,
 ```
+
+Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
+
 
 ### RAG
 
