@@ -1114,10 +1114,20 @@ useLLM:
 
 La base de connaissance doit être constituée de fichiers texte.
 
-<!-- TODO: ajouter autres options de configuration du RAG
-"useFile" pour utiliser le fichier RAG.js local
-On peut aussi mettre directement du texte
- -->
+On peut éventuellement mettre directement du texte, si la base de connaissances est très succinte.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: |
+      hédonisme : défense de la valeur du plaisir ; thèse selon laquelle le plaisir est un bien qu'il faut rechercher
+      aponie : absence de souffrance dans le corps
+      ataraxie: absence de trouble dans l'âme
+```
+
+Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/ai/rag/sources.mjs` pour définir un fichier RAG local et l'intégrer automatiquement à son chatbot au moment de la compilation de ChatMD. Dans ce cas, il faut mettre `RAGinformations: useFile` comme paramètre.
 
 
 #### Fonctionnement du RAG
