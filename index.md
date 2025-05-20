@@ -989,7 +989,8 @@ L'intérêt est que l'on peut alors utiliser l'IA de manière sobre et ciblée, 
 
 De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à votre chatbot : il faudra simplement lui communiquer un mot de passe.
 
-<!-- TODO: ajouter utilisation de questions en variables avec de l'aléatoire ? -->
+<!-- TODO: ajouter exemples de chatbots avec IA 
+Notamment : utilisation de questions en variables avec de l'aléatoire ? -->
 
 #### Appel à une IA : après un clic sur un bouton de réponse
 
