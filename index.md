@@ -381,8 +381,6 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 
 <!-- TODO: ajouter un récapitulatif de l'ensemble des options disponibles dans le YAML et via les directives -->
 
-<!-- TODO: ajouter usages pour le plugin Lightbox ; voir autres plugins ?-->
-
 L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
 
 Elle permet de définir des propriétés qui configurent le comportement du chatbot.
@@ -1218,9 +1216,9 @@ useLLM:
 useLLM:
    maxTokens: nombre_maximum_de_tokens
    systemPrompt: "Prompt système général",
-	preprompt: "Pré prompt, avant la demande",
-	postprompt: "Post prompt, après la demande",
-	maxProcessingTime: temps_d_attente_maximum,
+	preprompt: "Pré prompt, avant la demande"
+	postprompt: "Post prompt, après la demande"
+	maxProcessingTime: temps_d_attente_maximum
    always: false
 ```
 
@@ -1343,8 +1341,8 @@ useLLM:
    model: nom_du_modèle_de_langage
    encryptedAPIkey: clé_chiffrée
    RAGinformations: "URL_base_de_connaissance"
-   RAGseparator: "\n",
-   RAGmaxTopElements: 3,
+   RAGseparator: "\n"
+   RAGmaxTopElements: 3
    RAGprompt: |
       Voici ci-dessous le contexte à partir duquel tu dois prioritairement partir pour construire ta réponse, tu dois sélectionner dans ce contexte l'information qui est en lien avec la question et ne pas parler du reste. Si l'information n'est pas dans le contexte, indique-le et essaie de répondre malgré tout."
 ```
