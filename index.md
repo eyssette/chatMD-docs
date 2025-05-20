@@ -90,8 +90,30 @@ ChatMD peut même intégrer de la géolocalisation, ce qui permet d'autres usage
 
 La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education.fr/) peut être configuré pour des **usages plus complexes** : personnalisation de l'interface, utilisation de variables, de choix aléatoires, intégration avec un LLM, possibilité de faire du RAG…
 
-<!-- TODO: Ajouter limites ?
-pas d'enregistrement de statistiques, mais possibilité de partager un historique des conversations -->
+#### Utiliser ChatMD ?
+
+Par rapport à d'autres solutions qui proposent de créer, avec de l'IA, un chatbot en quelques clics, ChatMD propose une approche différente.
+
+##### Une prise en main qui demande un peu d’apprentissage
+
+Avec ChatMD, la création d’un chatbot ne se fait pas en important des documents ou via une interface graphique.
+
+Il faut concevoir son chatbot en suivant une syntaxe spécifique. Cette syntaxe reste accessible pour des chatbots simples, mais suppose d'accepter un effort d'apprentissage si vous souhaitez intégrer des fonctionnalités avancées.
+
+##### Les avantages !
+1. contrôle beaucoup plus important sur votre chatbot : ChatMD permet de concevoir des chatbots scénarisés, dans lesquels vous pouvez garder la main sur le parcours et les réponses que le chatbot propose
+2. compatibilité RGPD : pas de création de compte, pas de données collectées (sauf si vous créez un chatbot avec une IA qui collecte des données).
+3. intégration possible de l'IA, mais de manière plus éthique et responsable
+4. customisation complète possible de votre chatbot
+5. code open-source, très léger et écoresponsable
+
+##### Pas de statistiques d'usage
+
+ChatMD ne dispose pas d'outil intégré de statistiques d'usages, justement pour éviter la collecte de données.
+
+En revanche, on peut partager son historique de conversation avec ChatMD et vous pouvez par conséquent demander à vos utilisateurs de le faire.
+
+Il est également possible d'adapter ChatMD sur votre propre serveur pour lui ajouter un outil de ce type.
 
 ## Exemples
 
