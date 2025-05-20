@@ -1072,13 +1072,13 @@ useLLM:
 	preprompt: "Pré prompt, avant la demande",
 	postprompt: "Post prompt, après la demande",
 	maxProcessingTime: temps_d_attente_maximum,
+   always: false
 ```
 
 Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
 
+On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors mettre le paramètre `always: true` dans l'en-tête YAML. Dans ce cas, les réponses prévues dans le chatbot servent simplement de support pour la génération d'une réponse par le LLM.
 
-<!-- TODO: ajouter autres options de configuration :
-On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors mettre le paramètre `always: true` dans l'en-tête YAML -->
 
 ### RAG
 
