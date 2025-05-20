@@ -1133,6 +1133,8 @@ useLLM:
 
 Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/ai/rag/sources.mjs` pour définir un fichier RAG local et l'intégrer automatiquement à son chatbot au moment de la compilation de ChatMD. Dans ce cas, il faut mettre `RAGinformations: useFile` comme paramètre.
 
+<!-- TODO: ajouter utilisation du RAG dans bloc !useLLM dans une réponse -->
+
 
 #### Fonctionnement du RAG
 
