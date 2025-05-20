@@ -1044,11 +1044,16 @@ useLLM:
    encryptedAPIkey: clé_chiffrée
 ```
 
-<!-- TODO: ajouter page qui montre différents services pour accéder à une clé API -->
-
 #### LLM en local
 
-Plusieurs logiciels permettent de faire tourner un LLM en local.
+Plusieurs logiciels permettent de faire tourner un LLM en local et d'avoir une clé API qui va permettre à ChatMD d'envoyer un prompt au LLM et d'obtenir une réponse.
+
+:::info Quel logiciel utiliser ?
+Voici quelques solutions possibles :
+- [Jan.ai](https://jan.ai/docs/api-server)
+- [Ollama](https://github.com/ollama/ollama)
+- [LLM Studio](https://lmstudio.ai/docs/app/api)
+:::
 
 Dans ce cas, on a simplement besoin d'indiquer dans le YAML l'URL du serveur local et le nom du modèle.
 
@@ -1057,8 +1062,6 @@ useLLM:
    url: URL_API
    model: nom_du_modèle_de_langage
 ```
-
-<!-- TODO: Ajouter exemples de logiciels pour faire tourner un LLM en local -->
 
 #### Options possibles
 
