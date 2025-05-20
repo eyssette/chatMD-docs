@@ -1216,8 +1216,36 @@ useLLM:
 
 Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/ai/rag/sources.mjs` pour définir un fichier RAG local et l'intégrer automatiquement à son chatbot au moment de la compilation de ChatMD. Dans ce cas, il faut mettre `RAGinformations: useFile` comme paramètre.
 
-<!-- TODO: ajouter utilisation du RAG dans bloc !useLLM dans une réponse -->
 
+#### Utilisation du RAG dans un bloc prompt au sein d'un message
+
+Si on utilise un bloc prompt dans un message avec la directive `!useLLM`, alors on peut ajouter une base de connaissances à son prompt, et cette base de connaissance pourra être spécifique à chaque prompt (alors que la base de connaissances définie dans le RAG est générale).
+
+Pour cela, on utilise la syntaxe suivante : `!RAG: {question posée au LLM} {url:urlFichierRAG1 url:urlFichierRAG2}`
+
+ChatMD transformera alors cette ligne par une sélection des informations les plus pertinentes dans la base de connaissances, en fonction de la question posée.
+
+Voici un exemple :
+
+```markdown
+## question sur les programmes
+Quelle est votre question sur les programmes ?
+
+`@questionProgramme = @INPUT : traitement question programmes`
+
+## traitement question programmes
+
+`!useLLM`
+Tu es un expert en didactique des mathématiques.
+
+Un professeur a posé la question suivante : `@questionProgramme`
+
+Réponds à cette question en te fondant sur les éléments clés du programme :
+
+!RAG: {`@questionProgramme`} {url:"URL_fichier_texte_du_programme"}
+`END !useLLM`
+
+```
 
 #### Fonctionnement du RAG
 
