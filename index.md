@@ -1025,6 +1025,8 @@ Pour pouvoir accéder aux fonctionnalités IA, il faut avoir une clé API chez u
 
 On va ensuite chiffrer sa clé API afin d'éviter qu'elle soit diffusée publiquement dans le fichier source de son chatbot.
 
+<iframe src="https://chatmd.forge.apps.education.fr/docs/encrypt_api_key.html" style="border:0; width:100%; height:325px"></iframe>
+
 On pourra alors configurer l'accès au LLM dans le YAML, en ajoutant :
 
 ```yaml
