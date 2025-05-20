@@ -1025,6 +1025,12 @@ On peut ajouter du texte en Markdown avant ou après, et même utiliser plusieur
 
 Pour pouvoir accéder aux fonctionnalités IA, il faut avoir une clé API chez un fournisseur de LLM.
 
+:::info Comment créer une clé API ?
+Si vous visez un public réduit ou un usage peu intensif et expérimental, certains fournisseurs proposent des plans gratuits qui peuvent être suffisants.
+
+Voir par exemple cette liste : https://github.com/cheahjs/free-llm-api-resources
+:::
+
 On va ensuite chiffrer sa clé API afin d'éviter qu'elle soit diffusée publiquement dans le fichier source de son chatbot.
 
 <iframe src="https://chatmd.forge.apps.education.fr/docs/encrypt_api_key.html" style="border:0; width:100%; height:325px"></iframe>
