@@ -1215,7 +1215,7 @@ useLLM:
 ```yaml
 useLLM:
    maxTokens: nombre_maximum_de_tokens
-   systemPrompt: "Prompt système général",
+   systemPrompt: "Prompt système général"
 	preprompt: "Pré prompt, avant la demande"
 	postprompt: "Post prompt, après la demande"
 	maxProcessingTime: temps_d_attente_maximum
