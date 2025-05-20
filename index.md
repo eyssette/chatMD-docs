@@ -1134,7 +1134,7 @@ Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/a
 
 ChatMD utilise un système de RAG simplifié qui fonctionne ainsi :
 
-1. **Préparation de la base de connaissances :** ChatMD découpe en segments plus courts (_chunks_) la base de connaissances.
+1. **Préparation de la base de connaissances :** ChatMD découpe en segments (_chunks_) la base de connaissances.
 2. **Recherche des passages pertinents lors d'une requête :** quand une question est posée, ChatMD fait un calcul de similarité entre la question et ces différents segments, afin d'identifier les passages les plus pertinents.
 3. **Construction du prompt enrichi :** ChatMD ajoute les passages les plus pertinents au prompt et demande au LLM de répondre en prenant en compte ces passages.
 
