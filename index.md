@@ -1081,7 +1081,7 @@ useLLM:
    url: URL_API
    model: nom_du_modèle_de_langage
    encryptedAPIkey: clé_chiffrée
-   informations: "URL_base_de_connaissance"
+   RAGinformations: "URL_base_de_connaissance"
 ```
 
 On peut mettre plusieurs URLs à récupérer pour constituer sa base de connaissance.
@@ -1091,7 +1091,7 @@ useLLM:
    url: URL_API
    model: nom_du_modèle_de_langage
    encryptedAPIkey: clé_chiffrée
-   informations: ["URL1", "URL2", "URL3"]
+   RAGinformations: ["URL1", "URL2", "URL3"]
 ```
 
 La base de connaissance doit être constituée de fichiers texte.
@@ -1108,14 +1108,44 @@ ChatMD utilise un système de RAG simplifié qui fonctionne ainsi :
 :::info collapsible Aspects techniques
 Contrairement aux systèmes RAG classiques, ChatMD ne repose pas sur une vectorisation sémantique des documents à l'aide d'_embeddings_ stockés dans une base vectorielle.
 
-À la place, ChatMD effectue une vectorisation lexicale légère : les documents sont représentés sous forme de tokens, et la similarité entre une question et les documents est calculée à l’aide de méthodes classiques (similarité cosinus, calcul de distance lexicale, prise en compte de la taille et de la position des tokens …).
+À la place, ChatMD effectue une vectorisation lexicale légère : les documents sont représentés sous forme de tokens, et la similarité entre une question et les documents est calculée à l'aide de méthodes classiques (similarité cosinus, calcul de distance lexicale, prise en compte de la taille et de la position des tokens …).
 
 Ce choix vise à :
-1. favoriser un usage sobre de l'intelligence artificielle, en évitant les appels à des services d’API pour la vectorisation ;
+1. favoriser un usage sobre de l'intelligence artificielle, en évitant les appels à des services d'API pour la vectorisation ;
 2. simplifier le déploiement en supprimant la dépendance à une base de données externe ou à un moteur de recherche sémantique.
 
 Par ailleurs le parti-pris est que dans les cadres d'usages de ChatMD, notamment institutionnels ou pédagogiques, les documents utilisés pour la base de connaissance intègrent suffisamment de mots-clés pour pouvoir se passer de la vectorisation sémantique.
 :::
+
+#### Options de configuration
+
+Chaque phase du RAG dans ChatMD peut être configurée à l'aide de différents paramètres :
+
+1. **Préparation de la base de connaissances :** il est possible de définir la méthode de découpage des documents en segments (_chunks_). Par défaut, la séparation se fait ligne par ligne, mais d'autres options sont disponibles : découpage par paragraphe, par un séparateur personnalisé (comme `---`), ou tous les _n_ caractères.
+2. **Recherche des passages pertinents lors d'une requête :** on peut choisir le nombre de segments à inclure dans la requête. Par défaut, ChatMD sélectionne les 3 passages les plus pertinents.
+3. **Construction du prompt enrichi :** on peut changer le message qui précise la manière d'utiliser les informations fournies.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: "URL_base_de_connaissance"
+   RAGseparator: "\n",
+   RAGmaxTopElements: 3,
+   RAGprompt: |
+      Voici ci-dessous le contexte à partir duquel tu dois prioritairement partir pour construire ta réponse, tu dois sélectionner dans ce contexte l'information qui est en lien avec la question et ne pas parler du reste. Si l'information n'est pas dans le contexte, indique-le et essaie de répondre malgré tout."
+```
+
+Voici un exemple de message pour le paramètre `RAGprompt` afin que l'IA réponde uniquement sur la base des documents disponibles, sans extrapolation.
+
+```yaml
+useLLM:
+   RAGprompt: |
+      Voici ci-dessous le contexte à partir duquel tu dois construire ta réponse, tu dois sélectionner dans ce contexte l'information pertinente et ne pas parler du reste. Si la réponse à la question n'est pas dans le contexte, tu ne dois pas répondre et dire : je ne sais pas.
+      CONTEXTE : 
+
+```
 
 
 ### Exemples
