@@ -379,8 +379,6 @@ Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https:/
 ### L'en-tête YAML
 
 
-<!-- TODO: ajouter un récapitulatif de l'ensemble des options disponibles dans le YAML et via les directives -->
-
 L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
 
 Elle permet de définir des propriétés qui configurent le comportement du chatbot.
@@ -1466,3 +1464,7 @@ ChatMD repose sur plusieurs logiciels libres :
 - [textFit](https://github.com/STRML/textFit) pour la gestion du redimensionnement automatique
 
 Pour découvrir d'autres outils du créateur de ChatMD : [son site personnel](https://eyssette.forge.apps.education.fr)
+
+#### Documentation technique
+
+Pour voir l'ensemble des options YAML disponibles, des directives et autres formes de customisation de ChatMD, vous pouvez [consulter la documentation technique](https://chatmd.forge.apps.education.fr/docs/#technique.md)
