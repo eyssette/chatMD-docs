@@ -178,6 +178,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Accompagnement pour des défis avec Scratch](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/ZK8abNVmSNWhZXzXzzs6Sw)
 - [Alpha, assistant pour les études de documents en SVT au collège, avec ou sans IA](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pCnPSO0CRDWn-Yq-f8D1Xg)
 - [Automaths, un chatbot qui permet de réviser les automatismes en mathématiques au lycée professionnel](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/R5nR9oLqS0eeYJ3eWiUBKg)
+- [Créer des chatbots de révisions sur les modes et temps dans le cadre de la préparation au DNB](https://pedagogie.ac-orleans-tours.fr/spip.php?article3029)
 
 #### Guide de découverte ou d'exploration d'un sujet
 
