@@ -335,6 +335,33 @@ Ce n'est pas une simple recherche d'occurrences : le calcul intègre une décomp
 
 La décomposition en tokens permet de retrouver des racines communes et la distance lexicale permet de trouver une réponse malgré des fautes d'orthographe.
 
+### Historique des interactions et partage d'une conversation
+
+ChatMD enregistre toutes les interactions de l'utilisateur avec le chatbot afin de permettre le partage de l'historique de la conversation ou d'une réponse spécifique.
+
+:::info Ce n'est pas une collecte de données
+Cet enregistrement se fait dans le navigateur lui-même et non pas sur un serveur : ChatMD ne collecte aucune donnée personnelle.
+:::
+
+En dessous de chaque message généré par le chatbot, on retrouve un bouton de menu qui permet d'ouvrir une fenêtre modale avec des liens de partage. 
+
+Si on clique sur le lien de partage de toute la conversation, ChatMD ouvre le chatbot en reproduisant l'ensemble des interactions de l'utilisateur.
+
+Comme ChatMD ne propose pas d'outil de statistiques intégré, cela vous permet d'avoir malgré tout un retour de la part de vos utilisateurs, si vous leur demandez de partager leur conversation avec vous.
+
+:::info Aspect technique
+
+D'un point de vue technique, les actions de l'utilisateur sont enregistrées dans les paramètres de l'URL : `?actions=action1|action2|action3`. Les actions sont listées dans le paramètre `?actions` et sont séparées par le caractère `|`. L'ordre des actions reflète leur enchaînement prévu.
+
+Il y a 6 types d'action différents :
+1. Clic sur un bouton, identifié par son numéro : `c:n3`
+2. Clic sur bouton, identifié par le texte affiché de ce bouton : `c:texte` (plus précisément : ChatMD sélectionne le dernier bouton affiché qui contient ce texte)
+3. Question ou réponse de l'utilisateur envoyée au chatbot : `e:message`
+4. Question envoyé à un LLM : `llmq:message`
+6. Réponse générée par le LLM : `llmr:message`
+On peut par conséquent aussi utiliser directement ces paramètres dans l'URL si on le souhaite.
+:::
+
 ### Retour au message initial
 
 Pour pouvoir revenir au message initial, on utilise un lien sans cible.
