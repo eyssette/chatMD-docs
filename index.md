@@ -871,10 +871,14 @@ variablesDynamiques: true
 
 On peut définir la valeur d'une variable de deux manières.
 
-##### Dans un bloc code
+##### À l'intérieur d'un message prévu du chatbot
+
+On utilise un bloc code, avec la syntaxe suivante : `@nomVariable = valeur de la variable`
 
 ```markdown
-`@nomDeMaVariable = valeur de ma variable`
+## Question 1 Réponse 3
+`@pointQ1 = 3`
+Oui, c'était bien la bonne réponse !
 ```
 
 ##### Dans un bouton cliquable
