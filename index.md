@@ -430,6 +430,8 @@ gestionGrosMots: true
 ---
 ```
 
+Le récapitulatif de toutes les options disponibles dans le YAML est disponible dans la [documentation technique](https://chatmd.forge.apps.education.fr/docs/#technique.md)
+
 ### Algorithme
 
 Pour améliorer l'algorithme de choix d'une réponse, vous pouvez utiliser ces paramètres dans l'en-tête YAML : 
