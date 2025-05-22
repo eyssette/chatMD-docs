@@ -1353,6 +1353,14 @@ Réponds à cette question en te fondant sur les éléments clés du programme :
 
 ```
 
+On peut aussi configurer le RAG avec certaines options :
+- `maxResults:` pour définir le nombre de résultats maximum à intégrer dans le RAG
+- `separator:` : pour définir le séparateur des différents segments de la base de connaissance
+
+Par exemple :
+`!RAG: {Question posée au LLM} {url:"URL" maxResults:5 separator:"---"}`
+
+
 #### Fonctionnement du RAG
 
 ChatMD utilise un système de RAG simplifié qui fonctionne ainsi :
