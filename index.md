@@ -345,6 +345,10 @@ Cet enregistrement se fait dans le navigateur lui-même et non pas sur un serveu
 
 En dessous de chaque message généré par le chatbot, on retrouve un bouton de menu qui permet d'ouvrir une fenêtre modale avec des liens de partage. 
 
+![](img/bouton_menu.png)
+
+![](img/liens_partage_conversation.png)
+
 Si on clique sur le lien de partage de toute la conversation, ChatMD ouvre le chatbot en reproduisant l'ensemble des interactions de l'utilisateur.
 
 Comme ChatMD ne propose pas d'outil de statistiques intégré, cela vous permet d'avoir malgré tout un retour de la part de vos utilisateurs, si vous leur demandez de partager leur conversation avec vous.
@@ -511,7 +515,8 @@ theme: bubbles
 ```
 Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/zQTZQgJVRhy8SP0Gr1AQTQ) est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
 
-![](https://minio.apps.education.fr/codimd-prod/uploads/71de238fd9d9e28e5a52575fc.png)
+
+![](img/theme_bubbles.png)
 
 
 Pour ajouter des styles CSS personnalisés.
