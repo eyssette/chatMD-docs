@@ -1166,6 +1166,10 @@ Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches s�
 
 ```
 
+:::info Réponse sur plusieurs lignes possible
+Dans le cas où on demande une réponse qu'on fait évaluer par un LLM, l'utilisateur peut faire un message plus long et l'écrire sur plusieurs lignes en utilisant `Shift+Enter` pour aller à la ligne.
+:::
+
 
 
 
