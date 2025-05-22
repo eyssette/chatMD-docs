@@ -353,17 +353,21 @@ Si on clique sur le lien de partage de toute la conversation, ChatMD ouvre le ch
 
 Comme ChatMD ne propose pas d'outil de statistiques intégré, cela vous permet d'avoir malgré tout un retour de la part de vos utilisateurs, si vous leur demandez de partager leur conversation avec vous.
 
-:::info Aspect technique
+:::info Aspects techniques
 
-D'un point de vue technique, les actions de l'utilisateur sont enregistrées dans les paramètres de l'URL : `?actions=action1|action2|action3`. Les actions sont listées dans le paramètre `?actions` et sont séparées par le caractère `|`. L'ordre des actions reflète leur enchaînement prévu.
+D'un point de vue technique, les actions de l'utilisateur sont enregistrées dans les paramètres de l'URL : `?actions=action1|action2|action3`.
+
+Les actions sont listées dans le paramètre `?actions` et sont séparées par le caractère `|`.
+
+L'ordre des actions reflète leur enchaînement prévu.
 
 Il y a 6 types d'action différents :
 1. Clic sur un bouton, identifié par son numéro : `c:n3`
 2. Clic sur bouton, identifié par le texte affiché de ce bouton : `c:texte` (plus précisément : ChatMD sélectionne le dernier bouton affiché qui contient ce texte)
 3. Question ou réponse de l'utilisateur envoyée au chatbot : `e:message`
-4. Question envoyé à un LLM : `llmq:message`
+4. Question envoyée à un LLM : `llmq:message`
 6. Réponse générée par le LLM : `llmr:message`
-On peut par conséquent aussi utiliser directement ces paramètres dans l'URL si on le souhaite.
+On peut utiliser directement ces paramètres dans l'URL si on le souhaite.
 :::
 
 ### Retour au message initial
