@@ -134,3 +134,11 @@ encadré
 
 `@LATITUDE` `@LONGITUDE` `@POSITION_ACCURACY`
 ```
+
+## Opérations autorisées dans les variables dynamiques
+
+-   Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
+-   Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
+-   Opérateurs logiques : `&&`, `||`, `!`,
+-   Parenthèses : `(`, `)`,
+-   Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `.trim()`, `encodeURI()`
