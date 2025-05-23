@@ -1329,7 +1329,7 @@ Si on utilise un bloc prompt dans un message avec la directive `!useLLM`, alors 
 
 Pour cela, on utilise la syntaxe suivante : `!RAG: {question posée au LLM} {url:urlFichierRAG1 url:urlFichierRAG2}`
 
-ChatMD transformera alors cette ligne par une sélection des informations les plus pertinentes dans la base de connaissances, en fonction de la question posée.
+ChatMD transformera alors cette ligne par une sélection des informations les plus pertinentes dans la base de connaissances (en fonction de la question posée), et un message indiquant de répondre à partir de ces informations.
 
 Voici un exemple :
 
@@ -1346,8 +1346,6 @@ Tu es un expert en didactique des mathématiques.
 
 Un professeur a posé la question suivante : `@questionProgramme`
 
-Réponds à cette question en te fondant sur les éléments clés du programme :
-
 !RAG: {`@questionProgramme`} {url:"URL_fichier_texte_du_programme"}
 `END !useLLM`
 
@@ -1356,6 +1354,7 @@ Réponds à cette question en te fondant sur les éléments clés du programme :
 On peut aussi configurer le RAG avec certaines options :
 - `maxResults:` pour définir le nombre de résultats maximum à intégrer dans le RAG
 - `separator:` : pour définir le séparateur des différents segments de la base de connaissance
+- `prompt:` : pour définir le message qui précise comment on doit utiliser les informations issues de la base de connaissance (vous pouvez consulter ci-dessous, dans les options de configuration, le prompt par défaut).
 
 Par exemple :
 `!RAG: {Question posée au LLM} {url:"URL" maxResults:5 separator:"---"}`
