@@ -101,12 +101,12 @@ Avec ChatMD, la création d’un chatbot ne se fait pas en important des documen
 Il faut concevoir son chatbot en suivant une syntaxe spécifique. Cette syntaxe reste accessible pour des chatbots simples, mais suppose d'accepter un effort d'apprentissage si vous souhaitez intégrer des fonctionnalités avancées.
 
 ##### Les avantages !
-1. contrôle beaucoup plus important sur votre chatbot : ChatMD permet de concevoir des chatbots scénarisés, dans lesquels vous pouvez garder la main sur le parcours et les réponses que le chatbot propose
-2. compatibilité RGPD : pas de création de compte, pas de données collectées (sauf si vous créez un chatbot avec une IA qui collecte des données).
-3. intégration possible de l'IA, mais de manière plus éthique et responsable
-4. customisation complète possible de votre chatbot
-5. code open-source, très léger et écoresponsable
-6. une communauté prête à vous aider et un développement à l'écoute de vos demandes d'évolution de l'outil
+1. Contrôle beaucoup plus important sur votre chatbot : ChatMD permet de concevoir des chatbots scénarisés, dans lesquels vous pouvez garder la main sur le parcours et les réponses que le chatbot propose
+2. Compatibilité RGPD : pas de création de compte, pas de données collectées (sauf si vous créez un chatbot avec une IA qui collecte des données).
+3. Intégration possible de l'IA, mais de manière plus éthique et responsable
+4. Customisation complète possible de votre chatbot
+5. Code open-source, très léger et écoresponsable
+6. Échanges facilités avec la communauté des utilisateurs et développement à l'écoute de vos demandes d'évolution de l'outil
 
 ##### Pas de statistiques d'usage
 
@@ -163,7 +163,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 #### Outil d'aide à la décision ou à la création
 - [BTK-Bot : un assistant pour aider à trouver sa future formation après un BAC STL Biotechnologie](https://chatmd.forge.apps.education.fr/#https://biomicrobio.fr/images/BOT/BTKBot.md)
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
-- [Aide à la préparation d'un interview pour une webradio](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/PXdIW56mQHOhtOwc6WfPoA?view)
+- [Aide à la préparation d'une interview pour une webradio](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/PXdIW56mQHOhtOwc6WfPoA?view)
 - [Arbre de décision pour choisir le bon “commit” quand on a fait une modification d'un code source](https://chatmd.forge.apps.education.fr/#https://pad.numerique.gouv.fr/FurkP8BzRY6lcZLqP5avqw%23)
 
 #### Outil de révision de connaissances ou d'aide méthodologique
@@ -171,7 +171,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [ViTa : un chatbot, à destination d'élèves de 1ère spécialité SVT, avec ou sans IA](https://svt.ac-versailles.fr/spip.php?article1355)
 - [GRISMS'Bot : un outil pour préparer les élèves au baccalauréat STSS](https://sante-social.ac-creteil.fr/spip.php?article168)
 - [EdBot : un assistant pour aider à résoudre les équations différentielles du programme de Physique-Chimie de Terminale](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bO2VCgMkSSWeET_oEKsZ2A)
-- [Une collection de chatbots en Technologie sur sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
+- [Une collection de chatbots en Technologie sur des Objets ou Systèmes Techniques, en lien avec les smartcities](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/UJrd7S7jQKCws_VB4chFbA)
 - [Aide sur les triangles rectangles](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6oL2iMz0Tlas6TqCp8GV2Q)
 - [Le calcul littéral en 4e](https://auxmaths.fr/chatMD/index_calclitte.html)
 - [RadcliffeBot : assistance en SVT](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RadcliffeBot.md)
@@ -188,7 +188,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 
 #### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
-- [ Le chat enquêteur (ionBOT) :  une enquête fictive visant à identifier un suspect à partir d'indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
+- [ Le chat enquêteur (ionBOT) : une enquête fictive visant à identifier un suspect à partir d'indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
 - [Amybot et le complot des pixels : une enquête en SNT autour des enjeux de la photographie numérique](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/4znvEQq_TmOkr4hVgbOQlg?both)
 
 #### Discussion avec un personnage historique
@@ -209,7 +209,7 @@ Pour découvrir le Markdown, vous pouvez suivre ce [tutoriel](https://docs.forge
 
 Il existe plusieurs services pour créer un fichier Markdown accessible en ligne.
 
-Si vous êtes prof en France et que avez des identifiants académiques, vous pouvez utiliser [CodiMD](https://codimd.apps.education.fr/) sur le [portail Apps Edu](https://portail.apps.education.fr/).
+Si vous êtes prof en France et que vous avez des identifiants académiques, vous pouvez utiliser [CodiMD](https://codimd.apps.education.fr/) sur le [portail Apps Edu](https://portail.apps.education.fr/).
 
 D'autres outils fonctionnent avec ChatMD et notamment : [Digipage](https://digipage.app/) de La Digitale et [Framapad](https://framapad.org/) de Framasoft
 
@@ -420,7 +420,7 @@ L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section
 
 Elle permet de définir des propriétés qui configurent le comportement du chatbot.
 
-Cet en-tête doit impérativement commencer et se terminer par par une ligne contenant exactement trois tirets `---`, sans espaces avant ni après.
+Cet en-tête doit impérativement commencer et se terminer par une ligne contenant exactement trois tirets `---`, sans espaces avant ni après.
 
 Voici un exemple d'en-tête YAML :
 
@@ -483,17 +483,20 @@ Pour personnaliser l'apparence du chatbot, vous pouvez utiliser différents para
 #### Avatar et favicon
 
 
-Pour changer l'avatar du chatbot (il faut mettre l'url de son image à la place de URL) :
+Pour changer l'avatar du chatbot (il faut mettre l'url de son image à la place de `URL`) :
+
 ```yaml
 avatar: URL
 ```
 
 Pour que l'avatar soit en forme de cercle :
+
 ```yaml
 avatarCercle: true
 ```
 
-Pour changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de URL)
+Pour changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de `URL`) :
+
 ```yaml
 favicon: URL
 ```
@@ -503,19 +506,22 @@ favicon: URL
 #### Footer
 
 Pour supprimer le pied de page :
+
 ```yaml
 footer: false
 ```
 
 Pour customiser ce qui apparaît dans le pied de page (il vaut mieux ne pas mettre un texte très long) :
+
 ```yaml
 footer: 'Mon footer'
 ```
 
 
-#### Thème et styles CSSS
+#### Thème et styles CSS
 
 Pour utiliser un thème CSS particulier :
+
 ```yaml
 theme: bubbles
 ```
@@ -525,7 +531,8 @@ Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.f
 ![](img/theme_bubbles.png)
 
 
-Pour ajouter des styles CSS personnalisés.
+Pour ajouter des styles CSS personnalisés :
+
 ```yaml
 style: |
     a{color:red}
@@ -953,9 +960,9 @@ Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both)
 :::info Par défaut, seules certaines opérations sont autorisées
 
 - Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
-- Comparaison :  `<=`, `>=`, `<`, `>`, `==`, `!=`,
-- Opérateurs logiques :  `&&`, `||`, `!`,
-- Parenthèses :  `(`, `)`,
+- Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
+- Opérateurs logiques : `&&`, `||`, `!`,
+- Parenthèses : `(`, `)`,
 - Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `.trim()`, `encodeURI()`
 :::
 
@@ -968,7 +975,7 @@ Un bloc conditionnel vous permet d'afficher un contenu seulement si une conditio
 
 :::info Structure
 1. On commence un bloc conditionnel par `` `if CONDITION` ``
-2. On écrit ensuite le contenu qui doit être affiché si la condition est vérifée
+2. On écrit ensuite le contenu qui doit être affiché si la condition est vérifiée
 3. On termine le bloc conditionnel par `` `endif` ``
 :::
 
@@ -990,7 +997,7 @@ La liste des opérateurs autorisés est la même que celle pour les variables dy
 
 ##### Pour récupérer ce qu'a tapé un utilisateur
 
-On peut poser une question à l'utilisateur, récupérer le contenu de sa réponse, et aller directement à un autre message (dans lequel on pourra alors utiliser cette variable).
+On peut poser une question à l'utilisateur, récupérer le contenu de sa réponse, puis aller directement à un autre message (dans lequel on pourra alors utiliser cette variable).
 
 On utilise la syntaxe suivante : `` `@mavariable = @INPUT : message suivant` `` 
 
@@ -1043,7 +1050,7 @@ Vous habitez probablement près de : Lyon !
 
 `if @LATITUDE==undefined`
 La géolocalisation n'a malheureusement pas fonctionné.
-Essayez de recliquer sur le bouton qui vous a mené ici, ou de reposer votre question.
+Vous pouvez cliquer à nouveau sur le bouton qui vous a mené ici, ou reposer votre question.
 Si cela ne marche pas, essayez de réactualiser la page.
 `endif`
 ```
@@ -1066,7 +1073,7 @@ bots:
       cssMessage: "CSS particulier pour les messages du Bot2"
 ```
 
-On uilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
+On utilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
 
 On peut avoir plusieurs bots qui se répondent dans un même message.
 
@@ -1180,7 +1187,7 @@ Cet usage suppose aussi d'avoir au préalable activé les variables dynamiques d
 ## Question sur les trois types de roche
 Quels sont les trois grands types de roche ?
 
-`@reponseTypesDeRoches = @INPUT : Réponse à la question sur les trois types de roche`
+`@réponseTypesDeRoches = @INPUT : Réponse à la question sur les trois types de roche`
 
 ## Réponse à la question sur les trois types de roche
 
@@ -1191,7 +1198,7 @@ La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critiq
 `!useLLM`
 J'ai pose à un élève la question suivante : quels sont les trois grands types de roche ?
 
-Voici la réponse de l'élève : `@reponseTypesDeRoches`
+Voici la réponse de l'élève : `@réponseTypesDeRoches`
 
 Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
 
@@ -1307,7 +1314,7 @@ useLLM:
 
 La base de connaissance doit être constituée de fichiers texte.
 
-On peut éventuellement mettre directement du texte, si la base de connaissances est très succinte.
+On peut éventuellement mettre directement du texte, si la base de connaissances est très succincte.
 
 ```yaml
 useLLM:
@@ -1325,7 +1332,9 @@ Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/a
 
 #### Utilisation du RAG dans un bloc prompt au sein d'un message
 
-Si on utilise un bloc prompt dans un message avec la directive `!useLLM`, alors on peut ajouter une base de connaissances à son prompt, et cette base de connaissance pourra être spécifique à chaque prompt (alors que la base de connaissances définie dans le RAG est générale).
+Si on utilise un bloc prompt dans un message avec la directive `!useLLM`, alors on peut ajouter une base de connaissances à son prompt.
+
+Cette base de connaissance pourra être spécifique à chaque prompt (alors que la base de connaissances définie dans le RAG est générale).
 
 Pour cela, on utilise la syntaxe suivante : `!RAG: {question posée au LLM} {url:urlFichierRAG1 url:urlFichierRAG2}`
 
@@ -1434,7 +1443,7 @@ Cela affiche l'interface du chatbot dans un cadre intégré à votre site.
 
 Le widget permet d'ajouter un bouton flottant en bas à droite de la page.
 
-Lorsqu'on clique sur le bouton, le chatbot s'ouvre dans une fenêtre superposée juste au dessus du bouton.
+Lorsqu'on clique sur le bouton, le chatbot s'ouvre dans une fenêtre superposée juste au-dessus du bouton.
 
 #### Code à insérer
 
