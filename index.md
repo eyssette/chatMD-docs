@@ -567,7 +567,7 @@ Pour désactiver l'effet “machine à écrire” pour tout son chatbot (peut ê
 typewriter: false
 ```
 
-Pour désactiver l'effet typewriter pour un passage seulement, on met `` `\ `` avant et après le passage à afficher d'un coup.
+Pour désactiver l'effet typewriter pour un passage seulement, on met `` \` `` avant et après le passage à afficher d'un coup.
 
 Exemple :
 ```txt
