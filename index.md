@@ -154,7 +154,8 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [RiBascanIA : un assistant virtuel conversationnel pour accompagner l'utilisation du Règlement intérieur du lycée Louis-Bascan](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RiBascanIA.md)
 
 #### Outil de formation à destination de la communauté enseignante
-- [Rendre la compréhension d'une histoire accessible, par une enseignante en RASED](https://chatmd.forge.apps.education.fr/#https://horvathjulie.forge.apps.education.fr/bot/comprehension.md)
+- [Rendre la compréhension d'une histoire accessible (en primaire)](https://horvathjulie.forge.apps.education.fr/bot/#comprehension)
+- [Rendre la résolution de problèmes mathématiques accessible (en primaire)](https://horvathjulie.forge.apps.education.fr/bot/#resolution-problemes)
 - [BoBot : un chatbot pour accompagner un parcours de formation sur “Enseigner avec les chatbots”](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/g7sQ4xUa5)
 - [Scénariser sa formation avec la méthode ABC Learning Design](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/VmyzDYolTauP9wRwLnK84g)
 - [Chatbot pour accompagner les personnes formées au programme pHARe dans le milieu scolaire.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/HE5zk4vIE)
@@ -179,6 +180,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Alpha, assistant pour les études de documents en SVT au collège, avec ou sans IA](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pCnPSO0CRDWn-Yq-f8D1Xg)
 - [Automaths, un chatbot qui permet de réviser les automatismes en mathématiques au lycée professionnel](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/R5nR9oLqS0eeYJ3eWiUBKg)
 - [Créer des chatbots de révisions sur les modes et temps dans le cadre de la préparation au DNB](https://pedagogie.ac-orleans-tours.fr/spip.php?article3029)
+- [BioALc : un guide pour deux épreuves du BTS Bioanalyses en Laboratoire de contrôle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/2KwANarURoWcq3gGDXKObg)
 
 #### Guide de découverte ou d'exploration d'un sujet
 
