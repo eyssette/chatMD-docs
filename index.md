@@ -133,6 +133,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Ele@Bot, un chatbot pour accompagner dans la création de parcours Éléa](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/uhjFSgThz)
 - [Guide technique d'utilisation d'AnalookW 4 pour l'analyse des sons de chauves-souris](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/guillaumarchais/ChatMD/refs/heads/main/Analook-tuto)
 - [Tutoriel pour le logiciel “Evidence of Absence”](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/EoA2-tuto-FR)
+- [Guide technique pour le robot mBot et l'interface mBlock](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/0CDC9yl0RD2JwYgm6uVB3g)
 
 #### Guide d'utilisation d'un outil
 - [Utilisation d'un microscope](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/xGNHIJSeTVCk6FHas-_71g)
