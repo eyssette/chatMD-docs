@@ -724,10 +724,17 @@ variables:
   maVariable2: "Ceci est ma variable 2"
 ```
 
+On peut utiliser de l'aléatoire dans une variable fixe, en utilisant une liste de choix possibles.
+
+```yaml
+variables:
+  maVariable1: ["Première possibilité", "Deuxième possibilité", "Troisième possibilité"]
+```
+
 Dans votre contenu Markdown, utilisez-les ainsi : `@{maVariable1}`
 
-- Les variables sans préfixe `_` sont interprétées au déclenchement (ce qui permet d'intégrer de l'aléatoire avec `///` comme séparateur entre les différents choix possibles)
-- Les variables avec préfixe `_` sont interprétées à la génération du chatbot, ce qui permet de créer des variables fixes pour les menus de choix d'option en fin de message
+- Les variables sans préfixe `_` sont interprétées au déclenchement : si on utilise de l'aléatoire, on pourra avoir une sélection différente à chaque utilisation de la variable
+- Les variables avec préfixe `_` sont interprétées à la génération du chatbot, ce qui permet d'utiliser des variables fixes pour les menus de choix d'option en fin de message
 
 Voir cet [exemple](https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ)
 
