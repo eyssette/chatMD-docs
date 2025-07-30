@@ -197,8 +197,9 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Amybot et le complot des pixels : une enquête en SNT autour des enjeux de la photographie numérique](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/4znvEQq_TmOkr4hVgbOQlg?both)
 
 #### Discussion avec un personnage historique
-- [Discussion avec Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
-- [Discussion avec Marie-Antoinette](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/foeWS9ONTDW2KEGsu8BaIA)
+- [Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
+- [Marie-Antoinette](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/foeWS9ONTDW2KEGsu8BaIA)
+- [Une série de chatbots en sciences physiques pour discuter avec Aristote, Newton, Marie Curie, Einstein …](https://codimd.apps.education.fr/x70ETgFMRv2J-5ztUFnUcw)
 
 ## Le Markdown
 
