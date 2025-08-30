@@ -184,6 +184,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Automaths, un chatbot qui permet de réviser les automatismes en mathématiques au lycée professionnel](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/R5nR9oLqS0eeYJ3eWiUBKg)
 - [Créer des chatbots de révisions sur les modes et temps dans le cadre de la préparation au DNB](https://pedagogie.ac-orleans-tours.fr/spip.php?article3029)
 - [BioALc : un guide pour deux épreuves du BTS Bioanalyses en Laboratoire de contrôle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/2KwANarURoWcq3gGDXKObg)
+- [Memory, compagnon pour apprendre à apprendre](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/jfKO7VdaS_SWBi5JxFmrmw)
 
 #### Guide de découverte ou d'exploration d'un sujet
 
