@@ -164,6 +164,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Scénariser sa formation avec la méthode ABC Learning Design](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/VmyzDYolTauP9wRwLnK84g)
 - [Chatbot pour accompagner les personnes formées au programme pHARe dans le milieu scolaire.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/HE5zk4vIE)
 - [Aide à la mise en œuvre d'un projet EMI autour de la webradio](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11266070/es/assistant-virtuel-emi-et-webradio)
+- [EvalBot, assistant pour mieux évaluer en Physique-Chimie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/JI9QV_KWQOOMm-wFN_d9ow?both)
 
 #### Outil d'aide à la décision ou à la création
 - [BTK-Bot : un assistant pour aider à trouver sa future formation après un BAC STL Biotechnologie](https://chatmd.forge.apps.education.fr/#https://biomicrobio.fr/images/BOT/BTKBot.md)
