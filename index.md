@@ -189,6 +189,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 
 - [Etibot, un guide pour explorer les enjeux éthiques liés à l'intelligence artificielle.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/eFYRHyEiQhWw6B1aWxpayA?view)
 - [Découverte de l'intelligence artificielle avec des collégiens](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/F2Pd3ZfDREa1afghO57TrA)
+- [WinIA : un chatbot pour guider les élèves dans leurs usages de l'IA](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/8AARAPSoRKyrMXc65svDHg)
 - [Chirobot-sons: petit guide sur les sons émis par les chauves-souris](https://chatmd.forge.apps.education.fr/#https://github.com/guillaumarchais/ChatMD/blob/main/chirobot-sons)
 
 #### Escape Game, aventure, enquête
