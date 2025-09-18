@@ -151,11 +151,12 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Num44Bot : un chatbot créé par une équipe numérique pour répondre aux questions courantes](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/FziWeluESheEBLZFXBrIvw)
 
 #### Guide pour les élèves, parents ou collègues d'un établissement
-- [A-Lyc-IA : chatbot en widget sur le site d'un lycée pour répondre aux questions sur l'établissement](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/lX85V-OJR8S1lWJl1a2Z4g)
+- [Guide parents et élèves pour le numérique au lycée du Parc à Lyon](https://chatmd.forge.apps.education.fr/#https://fjunier.forge.apps.education.fr/chatbots/chatbot_assistance/chatbot_assistance.md)
 - [Un assistant pour répondre à des questions concernant un collège et des outils numériques utilisés](https://chatmd.forge.apps.education.fr/#https://college-vincent-van-gogh-arles.forge.apps.education.fr/chatbot_assistance_vvg/chatbot.md)
 - [ChatBot d'aide de la cité scolaire Réaumur-Buron](https://reaumur-buron.paysdelaloire.e-lyco.fr/accueil/informations-pratiques/vie-de-leleve/chatbot-daide/)
 - [RiBascanIA : un assistant virtuel conversationnel pour accompagner l'utilisation du Règlement intérieur du lycée Louis-Bascan](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/RiBascanIA.md)
 - [SandBot : un assistant conçu pour faciliter l'utilisation de l'écosystème numérique d'un lycée](https://sandbot.forge.apps.education.fr/)
+- [A-Lyc-IA : chatbot en widget sur le site d'un lycée pour répondre aux questions sur l'établissement](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/lX85V-OJR8S1lWJl1a2Z4g)
 
 #### Outil de formation à destination de la communauté enseignante
 - [Rendre la compréhension d'une histoire accessible (en primaire)](https://horvathjulie.forge.apps.education.fr/bot/#comprehension)
