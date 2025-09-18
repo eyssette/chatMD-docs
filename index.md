@@ -1502,7 +1502,6 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 
 #### Exemples d'utilisation de ChatMD en widget
 
-- [A-lyc-IA : chatbot du lycée Brossaud-Blancho dans l'académie de Nantes](https://brossaud-blancho.paysdelaloire.e-lyco.fr/)
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
 <!-- TODO: ajouter autres possibilités d'intégration dans un site web
