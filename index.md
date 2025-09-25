@@ -1,5 +1,5 @@
 ---
-addOns: copycode, lightbox, highlight
+addOns: copycode, lightbox, highlight, titleLinks
 theme: colors
 style: |
    .displayHomepage .admonition{font-size:0.95em}
