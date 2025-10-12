@@ -1506,7 +1506,7 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 
 <!
 
-### Module SCORM pour Moodle (Magistère, Éléa …)
+### Module SCORM pour Moodle <aside>(Magistère, Éléa …)</aside>
 
 L’export SCORM permet d’intégrer votre chatbot dans les plateformes de type Moodle comme Magistère et Éléa.
 
