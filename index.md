@@ -94,9 +94,9 @@ La syntaxe de base est simple, mais [ChatMD](https://chatmd.forge.apps.education
 
 Par rapport à d'autres solutions qui proposent de créer, avec de l'IA, un chatbot en quelques clics, ChatMD propose une approche différente.
 
-##### Une prise en main qui demande un peu d’apprentissage
+##### Une prise en main qui demande un peu d'apprentissage
 
-Avec ChatMD, la création d’un chatbot ne se fait pas en important des documents ou via une interface graphique.
+Avec ChatMD, la création d'un chatbot ne se fait pas en important des documents ou via une interface graphique.
 
 Il faut concevoir son chatbot en suivant une syntaxe spécifique. Cette syntaxe reste accessible pour des chatbots simples, mais suppose d'accepter un effort d'apprentissage si vous souhaitez intégrer des fonctionnalités avancées.
 
@@ -690,7 +690,7 @@ Voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both)
 #### Lightbox pour les images, les PDF et les liens
 
 :::info Qu'est-ce qu'une _lightbox_ ?
-Une _lightbox_ permet de voir en grand une image, un PDF ou de visualiser un lien externe, le tout sans quitter votre chatbot, mais en affichant ce contenu dans une fenêtre superposée qui s’ouvre au-dessus du contenu principal.
+Une _lightbox_ permet de voir en grand une image, un PDF ou de visualiser un lien externe, le tout sans quitter votre chatbot, mais en affichant ce contenu dans une fenêtre superposée qui s'ouvre au-dessus du contenu principal.
 :::
 
 Pour activer le plugin _lightbox_, on l'ajoute à la liste des plugins dans le YAML :
@@ -1156,12 +1156,12 @@ Le bloc prompt doit être écrit de la manière suivante :
 Voici une dictée générée automatiquement  :
 
 `!useLLM`
-Rédige une dictée d’environ 80 à 100 mots, destinée à des élèves de quatrième.  
-Le texte doit être rédigé au passé simple et à l’imparfait, contenir au moins trois adjectifs accordés en genre et en nombre, ainsi qu’une proposition subordonnée relative.  
+Rédige une dictée d'environ 80 à 100 mots, destinée à des élèves de quatrième.  
+Le texte doit être rédigé au passé simple et à l'imparfait, contenir au moins trois adjectifs accordés en genre et en nombre, ainsi qu'une proposition subordonnée relative.  
 Le vocabulaire doit rester accessible pour ce niveau, et le ton peut être narratif ou descriptif.
 `END !useLLM`
 
-📝 Conseil : lis d’abord la dictée une première fois en entier, puis fais-la à l’écrit sans te précipiter. Pense à bien accorder les adjectifs et les verbes, surtout à l’imparfait !
+📝 Conseil : lis d'abord la dictée une première fois en entier, puis fais-la à l'écrit sans te précipiter. Pense à bien accorder les adjectifs et les verbes, surtout à l'imparfait !
 ```
 
 
@@ -1505,22 +1505,43 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
 
-### Module SCORM pour Moodle <aside>(Magistère, Éléa …)</aside>
+### Export SCORM pour Moodle :<aside>intégration dans _Magistère_ ou _Éléa_</aside>
 
-L’export SCORM permet d’intégrer votre chatbot dans les plateformes de type Moodle comme Magistère et Éléa.
+L'export SCORM permet d'intégrer votre chatbot dans les plateformes de type _Moodle_ comme _Magistère_ et _Éléa_.
 
-Ce mécanisme assure la remontée automatique des données suivantes :
-- le temps passé sur le chatbot
-- l'historique des interactions avec le chatbot
+:::info Intégrer ChatMD en tant que module SCORM présente deux avantages importants
+1. Pouvoir **calculer un score ou un statut de réussite** dans ChatMD et l'envoyer ensuite dans Moodle pour qu'il soit récupéré en tant que note ou condition d'achèvement du parcours
+2. Pouvoir **enregistrer les interactions de l'utilisateur avec le chatbot** afin que la personne qui a conçu le parcours puisse voir ce que les participants ont fait avec le chatbot
+:::
 
-On peut aussi faire remonter :
-- Un score obtenu par l’utilisateur
-- Et/ou un statut de réussite
 
-Pour faire remonter ces données optionnelles, il faut activer les variables dynamiques et utiliser les variables suivantes :  `scormScore`, `scormScoreMax`, `scormSuccess`.
+#### Configurer son chatbot pour l'utiliser avec Moodle
 
-<iframe src="https://chatmd.forge.apps.education.fr/docs/create_scorm_package.html" style="border:0; width:100%; height:325px"></iframe>
+L'enregistrement des interactions de l'utilisateur avec le chatbot est automatique.
 
+Mais si vous souhaitez faire remonter un score ou bien un statut de réussite, il faut activer les variables dynamiques dans le YAML et utiliser les variables suivantes :
+- `scormScore` pour définir un nombre de points
+- `scormScoreMax` pour définir le nombre de points maximal possible
+- `scormSuccess` pour définir un statut de réussite, qui est soit `true`, soit `false`, soit `undefined` par défaut.
+
+#### Exporter son chatbot en tant que module SCORM
+
+Utilisez l'outil ci-dessous pour créer le package SCORM (fichier zip) à intégrer ensuite comme activité dans Moodle.
+
+<iframe src="https://chatmd.forge.apps.education.fr/docs/create_scorm_package.html" style="border:0; width:100%; height:200px"></iframe>
+
+
+#### Récupérer les informations dans Moodle
+
+Pour pouvoir voir les informations envoyées par ChatMD vers Moodle, il faut aller dans les rapports du module Scorm et cliquer sur la tentative de l'utilisateur.
+
+Si vous avez calculé un score ou un statut de réussite, il sera déjà affiché et vous aurez aussi accès au temps passé sur le chatbot.
+
+Pour pouvoir voir la conversation de l'utilisateur, il faut cliquer sur les détails du parcours, vous pouvez alors utiliser le bookmarklet suivant pour pouvoir afficher automatiquement dans une nouvelle fenêtre la conversation de l'utilisateur.
+
+Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détail d'un parcours d'utilisateur.
+
+<a href="javascript:(function(){const script=document.createElement('script');script.src='https://chatmd.forge.apps.education.fr/docs/js/open_chatbot_from_moodle_report.js';document.body.appendChild(script);})();">Voir la conversation</a>
 
 <!-- TODO: ajouter autres possibilités d'intégration dans un site web
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
