@@ -1517,7 +1517,9 @@ L'export SCORM permet d'intégrer votre chatbot dans les plateformes de type _Mo
 
 #### Configurer son chatbot pour l'utiliser avec Moodle
 
-L'enregistrement des interactions de l'utilisateur avec le chatbot est automatique.
+Pour activer l'intégration de votre chatbot avec Moodle, il faut ajouter la propriété `scorm: true` dans l'en-tête YAML.
+
+L'enregistrement des interactions de l'utilisateur avec le chatbot sera alors automatique.
 
 Mais si vous souhaitez faire remonter un score ou bien un statut de réussite, il faut activer les variables dynamiques dans le YAML et utiliser les variables suivantes :
 - `scormScore` pour définir un nombre de points
