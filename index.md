@@ -1504,7 +1504,6 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
-<!
 
 ### Module SCORM pour Moodle <aside>(Magistère, Éléa …)</aside>
 
