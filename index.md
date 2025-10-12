@@ -1504,7 +1504,26 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
-<!-- TODO: ajouter autres possibilités d'intégration dans un site web
+<!
+
+### Module SCORM pour Moodle (Magistère, Éléa …)
+
+L’export SCORM permet d’intégrer votre chatbot dans les plateformes de type Moodle comme Magistère et Éléa.
+
+Ce mécanisme assure la remontée automatique des données suivantes :
+- le temps passé sur le chatbot
+- l'historique des interactions avec le chatbot
+
+On peut aussi faire remonter :
+- Un score obtenu par l’utilisateur
+- Et/ou un statut de réussite
+
+Pour faire remonter ces données optionnelles, il faut activer les variables dynamiques et utiliser les variables suivantes :  `scormScore`, `scormScoreMax`, `scormSuccess`.
+
+<iframe src="https://chatmd.forge.apps.education.fr/docs/create_scorm_package.html" style="border:0; width:100%; height:325px"></iframe>
+
+
+-- TODO: ajouter autres possibilités d'intégration dans un site web
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
 -->
 

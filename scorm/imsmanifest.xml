@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ChatMD" version="1.0">
+ <metadata>
+  <schema>ADL SCORM</schema>
+  <schemaversion>1.2</schemaversion>
+ </metadata>
+ <organizations default="chatMD">
+  <organization identifier="chatMD" structure="hierarchical">
+   <item identifier="chatbot" isvisible="true" identifierref="chatbot">
+    <title>Chatbot</title>
+   </item>
+  </organization>
+ </organizations>
+ <resources>
+  <resource identifier="chatbot" type="webcontent" adlcp:scormtype="sco" href="index.html#URLCHATBOT">
+  </resource>
+ </resources>
+</manifest>
