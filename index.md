@@ -1523,7 +1523,7 @@ Pour faire remonter ces données optionnelles, il faut activer les variables dyn
 <iframe src="https://chatmd.forge.apps.education.fr/docs/create_scorm_package.html" style="border:0; width:100%; height:325px"></iframe>
 
 
--- TODO: ajouter autres possibilités d'intégration dans un site web
+<!-- TODO: ajouter autres possibilités d'intégration dans un site web
 Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
 -->
 
