@@ -1,0 +1,24 @@
+{
+	"ltex.enabled": [
+
+		"bibtex",
+		"context",
+		"context.tex",
+		"html",
+		"latex",
+		"markdown",
+		"mdx",
+		"typst",
+		"asciidoc",
+		"neorg",
+		"org",
+		"quarto",
+		"restructuredtext",
+		"rsweave"
+	],
+	"cSpell.enabledFileTypes": {
+		"*": false,
+		"markdown": true,
+		"javascript": false,
+	}
+}
