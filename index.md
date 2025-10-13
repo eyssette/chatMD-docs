@@ -1535,13 +1535,13 @@ Utilisez l'outil ci-dessous pour créer le package SCORM (fichier zip) à intég
 
 #### Récupérer les informations dans Moodle
 
-Pour pouvoir voir les informations envoyées par ChatMD vers Moodle, il faut aller dans les rapports du module Scorm et cliquer sur la tentative de l'utilisateur.
+Pour pouvoir voir les informations envoyées par ChatMD vers Moodle, il faut aller dans les rapports du module SCORM et cliquer sur la tentative de l'utilisateur.
 
 Si vous avez calculé un score ou un statut de réussite, il sera déjà affiché et vous aurez aussi accès au temps passé sur le chatbot.
 
 Pour pouvoir voir la conversation de l'utilisateur, il faut cliquer sur les détails du parcours, vous pouvez alors utiliser le bookmarklet suivant pour pouvoir afficher automatiquement dans une nouvelle fenêtre la conversation de l'utilisateur.
 
-Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détail d'un parcours d'utilisateur.
+Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détails d'un parcours d'utilisateur.
 
 <a href="javascript:(function(){const script=document.createElement('script');script.src='https://chatmd.forge.apps.education.fr/docs/js/open_chatbot_from_moodle_report.js';document.body.appendChild(script);})();">Voir la conversation</a>
 
