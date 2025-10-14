@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Récupération du nom de l'utilisateur
 	const studentName = scorm.get("cmi.core.student_name");
-	const studentNameParameter = studentName ? "?scoreName=" + studentName : "";
+	const studentNameParameter = studentName ? "?scormName=" + studentName : "";
 
 	// Création de l’iframe avec le chatbot
 	const iframe = document.createElement("iframe");
