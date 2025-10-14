@@ -79,6 +79,11 @@ window.addEventListener("message", (event) => {
 			}
 		}
 
+		// Enregistrement d'un commentaire
+		if (event.data.comment) {
+			scorm.set("cmi.comments", event.data.comment);
+		}
+
 		// Enregistrement de l'historique des actions
 		if (event.data.actionsHistory) {
 			const actionsHistory = event.data.actionsHistory;
