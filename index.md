@@ -1526,6 +1526,10 @@ Mais si vous souhaitez faire remonter un score ou bien un statut de réussite, i
 - `scormScoreMax` pour définir le nombre de points maximal possible
 - `scormSuccess` pour définir un statut de réussite, qui est soit `true`, soit `false`, soit `undefined` par défaut.
 
+Vous pouvez aussi faire remonter d'autres informations, en utilisant la variable `scormComment`.
+
+Enfin, vous pouvez utiliser dans votre chatbot le nom de l'utilisateur Moodle avec la variable `@GETscormName`.
+
 #### Exporter son chatbot en tant que module SCORM
 
 Utilisez l'outil ci-dessous pour créer le package SCORM (fichier zip) à intégrer ensuite comme activité dans Moodle.
