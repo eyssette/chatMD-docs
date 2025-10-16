@@ -40,6 +40,7 @@ bots:
       avatar: URLimageBot2
       cssAvatar: "CSS particulier pour l'avatar du Bot2"
       cssMessage: "CSS particulier pour les messages du Bot2"
+scorm: true
 ```
 
 ```yaml
@@ -140,5 +141,5 @@ encadré
 -   Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
 -   Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
 -   Opérateurs logiques : `&&`, `||`, `!`,
--   Parenthèses : `(`, `)`,
--   Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `.trim()`, `encodeURI()`
+-   Parenthèses et crochets : `(`, `)`,`[`, `]`,
+-   Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `toUpperCase()`, `.trim()`, `encodeURI()`
