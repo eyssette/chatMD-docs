@@ -529,7 +529,7 @@ footer: 'Mon footer'
 ```
 
 
-#### Thème et styles CSS
+#### Thème
 
 Pour utiliser un thème CSS particulier :
 
@@ -542,13 +542,27 @@ Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.f
 ![](img/theme_bubbles.png)
 
 
-Pour ajouter des styles CSS personnalisés :
+#### Styles CSS
+
+Vous pouvez ajouter des styles CSS personnalisés au chatbot entier, dans l'en-tête YAML :
 
 ```yaml
 style: |
     a{color:red}
     p{text-align:center}
 ```
+
+Mais vous pouvez aussi modifier le style d'un message en particulier, en ajoutant une balise HTML `<style scoped></style>` au début de votre message :
+
+```markdown
+## Message
+
+<style scoped>p{color:red}</style>
+
+Ce message s'affichera en rouge
+
+```
+
 
 Pour le CSS, le mieux est d'utiliser les outils de développement de votre navigateur, de repérer avec le sélecteur l'élément que vous voulez changer et de repérer la propriété qu'il faut modifier. Vous pouvez tester directement la modification pour voir avant de l'intégrer à votre chatbot.
 
