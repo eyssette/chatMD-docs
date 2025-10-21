@@ -1519,6 +1519,17 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
 
+### URL personnalisée <aside>sur la Forge des communs numériques éducatifs</aside>
+
+
+Vous pouvez créer votre propre dépôt sur la [Forge des communs numériques éducatifs](http://forge.apps.education.fr/), afin d'avoir une URL personnalisée pour votre chatbot.
+
+Attention à choisir un nom bien spécifique à votre projet !
+
+Pour créer votre chatbot sur la Forge, il suffit de bifurquer le [modèle de déploiement avec ChatMD](https://forge.apps.education.fr/docs/modeles/modele-chatmd).
+
+Pour comprendre comment bifurquer un projet et choisir votre URL, vous pouvez suivre ce tutoriel : https://avoir-un-super-chemin-d-acces-sur-la.forge.apps.education.fr/
+
 ### Export SCORM pour Moodle :<aside>intégration dans _Magistère_ ou _Éléa_</aside>
 
 L'export SCORM permet d'intégrer votre chatbot dans les plateformes de type _Moodle_ comme _Magistère_ et _Éléa_.
