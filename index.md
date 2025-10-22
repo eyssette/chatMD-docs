@@ -972,9 +972,9 @@ On peut utiliser de l'aléatoire également dans les variables fixes (voir l'ong
 
 Les variables dynamiques sont des variables dont la valeur peut changer au cours de la conversation avec le chatbot.
 
-Par exemple, une variable dynamique peut enregistrer le prénom de l’utilisateur, calculer un score selon ses réponses, ou mémoriser les choix qu’il a effectués précédemment.
+Par exemple, une variable dynamique peut enregistrer le prénom de l'utilisateur, calculer un score selon ses réponses, ou mémoriser les choix qu'il a effectués précédemment.
 
-Grâce à ces variables, le chatbot peut adapter son comportement de manière plus fine et proposer des contenus plus pertinents selon le contexte, en tenant compte de l’historique de la conversation.
+Grâce à ces variables, le chatbot peut adapter son comportement de manière plus fine et proposer des contenus plus pertinents selon le contexte, en tenant compte de l'historique de la conversation.
 
 #### Prérequis
 
@@ -1041,6 +1041,24 @@ Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both)
 Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
 
 
+#### Traitement séquentiel des variables dynamiques
+
+La valeur d'une variable dynamique peut changer au cours d'un message lui-même, et pas seulement d'un message à un autre. Plus précisément, le chatbot évalue et met à jour les variables dans l'ordre dans lequel les opérations sont définies à l'intérieur d'un message.
+
+Exemple : 
+
+```markdown
+Le score était de `@score`.
+
+Vous avez gagné 2 points !
+
+`@score=calc(@score+2)`
+
+Le nouveau score est de : `@score`
+```
+
+Lorsqu'une variable est définie dans un bloc conditionnel (voir ci-dessous), sa valeur n'est mise à jour que si la condition associée est remplie. Si la condition n'est pas vérifiée, la variable conserve sa valeur précédente (ou reste vide si elle n'a jamais été initialisée).
+
 #### Bloc conditionnel
 
 Un bloc conditionnel vous permet d'afficher un contenu seulement si une condition est remplie.
@@ -1058,7 +1076,7 @@ Exemple :
 Bravo, vous avez atteint le niveau expert !
 `endif`
 ```
-On peut mettre plusieurs blocs conditionnels, mais on ne peut pas les imbriquer.
+On peut mettre plusieurs blocs conditionnels, et ils peuvent être imbriqués si on le souhaite.
 
 On peut écrire des conditions complexes en utilisant des opérateurs.
 
