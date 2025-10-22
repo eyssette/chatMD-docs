@@ -1153,6 +1153,14 @@ Un exemple ici qui reprend les données ouvertes de data.education.gouv.fr pour 
 
 #### Syntaxe générale
 
+Pour activer ce plugin, il faut d'abord l'ajouter dans l'en-tête YAML :
+
+```yaml
+---
+plugins: readcsv
+---
+```
+
 Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
 
 ````markdown
