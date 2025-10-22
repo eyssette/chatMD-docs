@@ -850,7 +850,41 @@ Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both)
 
 
 
-### Aléatoire
+
+### Plusieurs bots
+
+Pour gérer plusieurs personnages de chatbot dans un même projet, il faut d'abord déclarer les bots dans le YAML :
+```yaml
+bots:
+   nomBot1:
+      avatar: URLimageBot1
+      cssAvatar: "CSS particulier pour l'avatar du Bot1"
+      cssMessage: "CSS particulier pour les messages du Bot1"
+   nomBot2:
+      avatar: URLimageBot2
+      cssAvatar: "CSS particulier pour l'avatar du Bot2"
+      cssMessage: "CSS particulier pour les messages du Bot2"
+```
+
+On utilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
+
+On peut avoir plusieurs bots qui se répondent dans un même message.
+
+```markdown
+!Bot: Schopenhauer  
+Le désir nous conduit inévitablement à la souffrance.
+
+!Bot: Épicure  
+Il faut différencier les désirs ! Seuls les désirs vains nous éloignent du bonheur.
+```
+
+Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both) et [chatbot](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA)
+
+
+## Contenus dynamiques
+
+
+### Introduire de l'aléatoire
 
 
 #### Choix aléatoire d'un message
@@ -934,7 +968,13 @@ Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir 
 
 On peut utiliser de l'aléatoire également dans les variables fixes (voir l'onglet : “Chatbots très longs”) ou dans les variables dynamiques (voir le prochain onglet).
 
-### Variables dynamiques
+### Utiliser des variables dynamiques
+
+Les variables dynamiques sont des variables dont la valeur peut changer au cours de la conversation avec le chatbot.
+
+Par exemple, une variable dynamique peut enregistrer le prénom de l’utilisateur, calculer un score selon ses réponses, ou mémoriser les choix qu’il a effectués précédemment.
+
+Grâce à ces variables, le chatbot peut adapter son comportement de manière plus fine et proposer des contenus plus pertinents selon le contexte, en tenant compte de l’historique de la conversation.
 
 #### Prérequis
 
@@ -995,7 +1035,7 @@ Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both)
 - Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
 - Opérateurs logiques : `&&`, `||`, `!`,
 - Parenthèses : `(`, `)`,
-- Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `.trim()`, `encodeURI()`
+- Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `toUpperCase()`, `.trim()`, `encodeURI()`
 :::
 
 Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
@@ -1087,37 +1127,81 @@ Si cela ne marche pas, essayez de réactualiser la page.
 `endif`
 ```
 
+### Intégrer des données externes <aside>avec le plugin readCsv</aside>
 
+ChatMD peut lire des données à la volée (au format CSV, TSV ou JSON), ce qui vous permet de les intégrer dans votre chatbot et de les filtrer au cours de la conversation.
 
+Un exemple ici qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
 
-### Plusieurs bots
+#### Syntaxe générale
 
-Pour gérer plusieurs personnages de chatbot dans un même projet, il faut d'abord déclarer les bots dans le YAML :
-```yaml
-bots:
-   nomBot1:
-      avatar: URLimageBot1
-      cssAvatar: "CSS particulier pour l'avatar du Bot1"
-      cssMessage: "CSS particulier pour les messages du Bot1"
-   nomBot2:
-      avatar: URLimageBot2
-      cssAvatar: "CSS particulier pour l'avatar du Bot2"
-      cssMessage: "CSS particulier pour les messages du Bot2"
+Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
+
+````markdown
+```readcsv URL_DES_DONNÉES
+condition: FORMULE_DE_FILTRE (optionnel)
+sort: FORMULE_DE_TRI (optionnel)
+
+TEMPLATE_EN_MARKDOWN
+(éventuellement sur plusieurs lignes)
+
 ```
+````
 
-On utilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
 
-On peut avoir plusieurs bots qui se répondent dans un même message.
+#### Formule de filtre
+
+La formule de filtre permet de sélectionner uniquement certaines lignes dans les données, selon une condition.
+
+Dans l'expression, utilisez `$1`, `$2`, `$3`... pour désigner les colonnes (la première colonne est `$1` …).
+
+Pour la condition, vous pouvez utiliser les mêmes opérateurs que ceux disponibles pour le calcul des variables dynamiques complexes.
+
+Exemples :
+- `condition: $3 > 100` → garde les lignes où la colonne 3 est supérieure à 100
+- `condition: $2 == "Lycée"` → garde les lignes où la colonne 2 est "Lycée"
+- `condition: $3 > 50 && $4.includes("public")` → combine plusieurs conditions
+
+
+#### Formule de tri
+
+La formule de tri permet de trier les résultats filtrés pour pouvoir les afficher dans l'ordre que l'on souhaite.
+
+La syntaxe est la suivante : `sort: $<colonne> [ordre] [type]`
+
+- ordre : `asc` (croissant, par défaut) ou `desc` (décroissant)
+- type : `alph` (alphabétique, par défaut), `num` (numérique) ou `date`
+
+Exemples :
+- `sort: $1` → tri alphabétique sur la colonne 1
+- `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
+- `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
+
+#### Template en Markdown
+
+Le template définit comment afficher chaque ligne du CSV.
+
+Utilisez `$1`, `$2`, `$3`… pour insérer les valeurs des colonnes.
+
+Par exemple, imaginons une liste de lycées et collèges, avec le nom dans la colonne 1, l'UAI dans la colonne 2, "public" ou "privé" dans la colonne 3, et "lycée" ou "collège" dans la colonne 4. On pourrait avoir le template suivant :
 
 ```markdown
-!Bot: Schopenhauer  
-Le désir nous conduit inévitablement à la souffrance.
-
-!Bot: Épicure  
-Il faut différencier les désirs ! Seuls les désirs vains nous éloignent du bonheur.
+Nom de l'établissement : $1
+UAI : $2
+Il s'agit d'un $4 $3
 ```
 
-Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both) et [chatbot](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA)
+
+
+#### Combinaison avec les variables dynamiques
+
+On peut utiliser des variables dynamiques, soit pour utiliser le plugin readCsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
+
+Ce dernier cas peut être très utile si on peut accéder à une API qui permet de récupérer des données spécifiques en fonction de paramètres dans l'URL elle-même.
+
+Vous pouvez consulter cet exemple qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
+
+Voir la source : https://drane-lyon.forge.apps.education.fr/chatbot/uai.md
 
 
 ## Utilisation de l'IA
