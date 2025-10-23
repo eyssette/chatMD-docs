@@ -122,7 +122,7 @@ Merci à toutes les personnes qui ont accepté de partager leur chatbot ci-desso
 
 :::success
 N'hésitez pas à partager vous aussi vos exemples de chatbot :
-- sur le [salon Tchap dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) 
+- sur le [salon Tchap dédié à ChatMD](https://tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr?via=agent.education.tchap.gouv.fr&via=agent.diplomatie.tchap.gouv.fr&via=agent.dev-durable.tchap.gouv.fr) 
 - par [mail](mailto:forge-apps+guichet+chatmd-chatmd-forge-apps-education-fr-1072-issue-@phm.education.gouv.fr), ou via les [réseaux sociaux](http://eyssette.forge.apps.education.fr/) !
 :::
 
@@ -568,7 +568,7 @@ Pour le CSS, le mieux est d'utiliser les outils de développement de votre navig
 
 Pour apprendre le CSS, vous pouvez commencer par les conseils sur le [site de documentation des technologies web de Mozilla](https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content).
 
-Vous pouvez aussi demander de l'aide dans le [salon Tchap](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr) ou en faisant un [ticket](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/issues/new?issuable_template=help)
+Vous pouvez aussi demander de l'aide dans le [salon Tchap](https://tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr?via=agent.education.tchap.gouv.fr&via=agent.diplomatie.tchap.gouv.fr&via=agent.dev-durable.tchap.gouv.fr) ou en faisant un [ticket](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/issues/new?issuable_template=help)
 
 #### Attributs génériques (classes CSS personnalisées)
 
@@ -1705,7 +1705,7 @@ Vous pouvez :
 
 #### Communauté et aide
 
-- Sur Tchap : [salon dédié à ChatMD](https://www.tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr)
+- Sur Tchap : [salon dédié à ChatMD](https://tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr?via=agent.education.tchap.gouv.fr&via=agent.diplomatie.tchap.gouv.fr&via=agent.dev-durable.tchap.gouv.fr)
 - Via le système des [tickets](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/issues/)
 
 
