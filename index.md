@@ -1415,11 +1415,17 @@ useLLM:
    postprompt: "Post prompt, après la demande"
    maxProcessingTime: temps_d_attente_maximum
    always: false
+   stream: true
+   simulateStream: true
 ```
 
 Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
 
 On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors mettre le paramètre `always: true` dans l'en-tête YAML. Dans ce cas, les réponses prévues dans le chatbot servent simplement de support pour la génération d'une réponse par le LLM.
+
+On peut demander à obtenir la réponse du LLM d'un coup, sans "streaming" de la réponse, avec le paramètre `stream: false`.
+
+Si on utilise un outil, comme n8n, pour cacher sa clé API, alors le streaming de la réponse n'est pas possible, il faut donc mettre le paramètre `stream: false`, mais on peut utiliser le paramètre `simulateStream: true` pour afficher la réponse petit à petit, comme si elle était "streamée".
 
 
 ### RAG
