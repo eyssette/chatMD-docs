@@ -1386,6 +1386,30 @@ useLLM:
    encryptedAPIkey: clé_chiffrée
 ```
 
+:::warning Attention !
+Le fait de chiffrer la clé API empêche seulement que la clé soit récupérée par quelqu'un qui n'a pas le mot de passe.
+
+Mais une personne qui a le mot de passe et un peu de connaissances techniques pourrait récupérer la clé API. Ce n'est donc pas une solution parfaite et il faut donc vérifier les usages de sa clé, et la réinitialiser en cas de problème.
+:::
+
+#### Utiliser un serveur intermédiaire pour sécuriser la clé API
+
+Une autre approche, plus sécurisée, consiste à ne pas exposer directement la clé API du LLM dans votre application, même sous forme chiffrée.
+
+Vous pouvez pour cela utiliser un serveur intermédiaire (par exemple via un outil d’automatisation comme n8n) qui se chargera de faire l’appel au modèle de langage et de renvoyer la réponse.
+
+Les avantages :
+1. la clé API reste totalement cachée ;
+2. vous pouvez appliquer des filtres, des quotas ou des règles d’accès ;
+3. cela facilite la supervision et le changement de fournisseur si nécessaire.
+
+L'inconvénient est qu'il faut mettre en place ce serveur, ce qui suppose des connaissances techniques et l'accès à un serveur.
+
+:::warning
+Attention, selon la solution choisie, le serveur permettra ou non de renvoyer une réponse "streamée". Il faudra donc adapter la valeur du paramètre `stream` (voir les options plus en détails, ci-dessous).
+:::
+
+
 #### LLM en local
 
 Plusieurs logiciels permettent de faire tourner un LLM en local et d'avoir une clé API qui va permettre à ChatMD d'envoyer un prompt au LLM et d'obtenir une réponse.
