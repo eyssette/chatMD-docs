@@ -587,6 +587,8 @@ Bloc de texte **Markdown** multiligne
 
 #### Effet “machine à écrire”
 
+Par défaut l'effet “machine à écrire” est activé, sauf si vous avez désactivé les effets d'animation sur votre système (généralement dans les paramètres d'accessibilité).
+
 Pour désactiver l'effet “machine à écrire” pour tout son chatbot (peut être pratique notamment au moment de la conception du chatbot, pour éviter d'attendre l'affichage des réponses), on met dans le YAML :
 ```yaml
 typewriter: false
