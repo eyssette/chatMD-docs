@@ -1018,6 +1018,26 @@ ChatMD choisira au hasard une de ces possibilités.
 `@messageAccueil = Bonjour ! /// Salut ! /// Bienvenue !`
 ```
 
+#### Laisser l'utilisateur définir la valeur d'une variable avec une liste déroulante
+
+On peut proposer à l'utilisateur un choix dans une liste déroulante afin de définir la valeur d'une variable dynamique.
+
+Pour cela, on utilise dans un message un élément HTML `<select>`.
+
+Lorsque l'utilisateur fait un choix, la valeur sélectionnée est enregistrée automatiquement dans la variable associée.
+
+Cette variable peut ensuite être utilisée pour afficher du contenu différent selon le choix effectué.
+
+Exemple : 
+
+```html
+<label for="fonction">Vous êtes</label> <select name="choix" id="fonction" data-selected="`@choix`">
+<option value="">À sélectionner</option>
+<option value="Enseignant">Enseignant(e)</option>
+<option value="CPE">CPE</option>
+</select>
+```
+
 #### Variables dynamiques complexes
 
 Vous pouvez aussi définir la valeur d'une variable dynamique à partir de la valeur d'autres variables dynamiques.
@@ -1398,11 +1418,11 @@ Mais une personne qui a le mot de passe et un peu de connaissances techniques po
 
 Une autre approche, plus sécurisée, consiste à ne pas exposer directement la clé API du LLM dans votre application, même sous forme chiffrée.
 
-Vous pouvez pour cela utiliser un serveur intermédiaire (par exemple via un outil d’automatisation comme n8n) qui se chargera de faire l’appel au modèle de langage et de renvoyer la réponse.
+Vous pouvez pour cela utiliser un serveur intermédiaire (par exemple via un outil d'automatisation comme n8n) qui se chargera de faire l'appel au modèle de langage et de renvoyer la réponse.
 
 Les avantages :
 1. la clé API reste totalement cachée ;
-2. vous pouvez appliquer des filtres, des quotas ou des règles d’accès ;
+2. vous pouvez appliquer des filtres, des quotas ou des règles d'accès ;
 3. cela facilite la supervision et le changement de fournisseur si nécessaire.
 
 L'inconvénient est qu'il faut mettre en place ce serveur, ce qui suppose des connaissances techniques et l'accès à un serveur.
