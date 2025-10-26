@@ -1031,10 +1031,11 @@ Cette variable peut ensuite être utilisée pour afficher du contenu différent 
 Exemple : 
 
 ```html
-<label for="fonction">Vous êtes</label> <select name="choix" id="fonction" data-selected="`@choix`">
-<option value="">À sélectionner</option>
-<option value="Enseignant">Enseignant(e)</option>
-<option value="CPE">CPE</option>
+<label for="niveau">Vous enseignez dans</label> <select name="niveau" id="niveau" data-selected="`@niveau`">
+   <option value="">À sélectionner</option>
+   <option value="1D">une école</option>
+   <option value="2D collège">un collège</option>
+   <option value="2D lycée">un lycée</option>
 </select>
 ```
 
