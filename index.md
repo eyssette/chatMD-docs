@@ -1110,22 +1110,45 @@ La liste des opérateurs autorisés est la même que celle pour les variables dy
 
 ##### Pour récupérer ce qu'a tapé un utilisateur
 
-On peut poser une question à l'utilisateur, récupérer le contenu de sa réponse, puis aller directement à un autre message (dans lequel on pourra alors utiliser cette variable).
+La variable dynamique `@INPUT` contient toujours la dernière réponse de l'utilisateur.
 
-On utilise la syntaxe suivante : `` `@mavariable = @INPUT : message suivant` `` 
+On peut donc l'utiliser soit pour l'afficher directement dans un message, soit pour l'assigner à une autre variable avec `@mavariable = calc(@INPUT)`.
+
+Pour poser une question à l'utilisateur, récupérer le contenu de sa réponse, puis aller directement à un autre message dans lequel on va utiliser sa réponse, on procède ainsi, avec la directive `!Next`
+
+```markdown
+Bonjour ! Quel est ton nom ?
+
+!Next: accueil
+
+## accueil
+`@nom = calc(@INPUT)`
+Bonjour `@nom`
+Bienvenue ici !
+```
+
+:::precision collapsible Cas où le message contient des déclencheurs
+Si le message cible contient des déclencheurs, ces déclencheurs fonctionneront comme des conditions pour accéder au message : il faudra que la réponse de l'utilisateur soit similaire à l'un de ces déclencheurs. Pour les désactiver et ne pas faire cette vérification, on peut écrire `!Next: message suviant / ignoreKeywords`.
+:::
+
+:::precision collapsible Ancienne syntaxe `@mavariable = @INPUT : message suivant`
+L'ancienne syntaxe est toujours possible.
+
+On peut utiliser la syntaxe suivante : `` `@mavariable = @INPUT : message suivant` ``, qui signifie qu'on va enregistrer le futur message de l'utilisateur dans `@mavariable` puis aller vers `message suivant`.
 
 Par exemple :
 
 ```markdown
 Bonjour ! Quel est ton nom ?
-`@nom = @INPUT : question matière préférée`
+`@nom = @INPUT : accueil`
 
-## question matière préférée
+## accueil
 Bonjour `@nom`
-Quelle est ta matière préférée ?
+Bienvenue ici !
 ```
 
-Ici, on récupère la réponse de l'utilisateur dans la variable `@nom` et on va ensuite au message `question matière préférée`.
+:::
+
 
 <!-- TODO: ajouter exemple de chatbot
 Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw)) -->
