@@ -563,6 +563,14 @@ Ce message s'affichera en rouge
 
 ```
 
+:::warning Gestion du thème sombre
+ChatMD a un thème sombre qui s'active par défaut pour les utilisateurs qui ont la préférence du mode sombre dans leur navigateur.
+
+Si vous ajoutez des styles personnalisés, il faut donc :
+- soit désactiver le thème sombre, en ajoutant `darkmode: false` dans votre en-tête YAML,
+- soit définir des styles particuliers propres au thème sombre, en préfixant les règles que vous voulez modifier pour le thème sombre avec la classe CSS `.darkmode ` 
+:::
+
 
 Pour le CSS, le mieux est d'utiliser les outils de développement de votre navigateur, de repérer avec le sélecteur l'élément que vous voulez changer et de repérer la propriété qu'il faut modifier. Vous pouvez tester directement la modification pour voir avant de l'intégrer à votre chatbot.
 
