@@ -1026,7 +1026,9 @@ ChatMD choisira au hasard une de ces possibilités.
 `@messageAccueil = Bonjour ! /// Salut ! /// Bienvenue !`
 ```
 
-#### Laisser l'utilisateur définir la valeur d'une variable avec une liste déroulante
+#### Laisser l'utilisateur définir la valeur d'une variable avec un formulaire
+
+##### Élément `<select>` pour proposer un choix dans une liste déroulante
 
 On peut proposer à l'utilisateur un choix dans une liste déroulante afin de définir la valeur d'une variable dynamique.
 
@@ -1046,6 +1048,53 @@ Exemple :
    <option value="2D lycée">un lycée</option>
 </select>
 ```
+
+##### Élément `<input>` pour laisser l'utilisateur écrire une réponse dans un petit champ texte
+
+On peut proposer à l'utilisateur de saisir librement du texte afin de définir la valeur d'une variable dynamique.
+
+Pour cela, on utilise dans un message un élément HTML `<input>` avec l'attribut type="text".
+
+Lorsque l'utilisateur saisit du texte et appuie sur la touche "Enter", il est automatiquement enregistré dans la variable associée.
+
+Cette variable peut ensuite être utilisée pour personnaliser les messages ou adapter la logique du chatbot en fonction de la réponse de l'utilisateur.
+
+```html
+Quel est votre nom ?
+<input type="text" id="nom" name="nom" value="`@nom`" placeholder="Entrez votre nom ici"  />
+```
+
+On peut utiliser les blocs conditionnels pour créer des questions avant de faire apparaître un commentaire ou bien la suite du chatbot.
+
+Exemple ([voir le chatbot correspondant](http://127.0.0.1:5501/#https://codimd.apps.education.fr/iRuaXoI0Q0-qQuk2lxIBqQ))
+
+```markdown
+Quel est le code secret ?
+
+`if !@codeSecret || @codeSecret != 42`
+
+<input type="text" id="codeSecret" name="codeSecret" value="`@codeSecret`" />
+
+`endif`
+
+`if @codeSecret == 42`
+
+``@codeSecret``
+Bravo tu as bien trouvé le code secret !
+
+1. [voir la suite](suite)
+
+`endif`
+
+## suite
+
+Suite du chatbot
+```
+
+
+
+
+
 
 #### Variables dynamiques complexes
 
