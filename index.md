@@ -204,7 +204,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 #### Discussion avec un personnage historique
 - [Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
 - [Marie-Antoinette](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/foeWS9ONTDW2KEGsu8BaIA)
-- [Une série de chatbots en sciences physiques pour discuter avec Aristote, Newton, Marie Curie, Einstein …](https://codimd.apps.education.fr/x70ETgFMRv2J-5ztUFnUcw)
+- [Une série de chatbots en sciences physiques pour discuter avec Aristote, Newton, Marie Curie, Einstein …](https://lightpad.forge.apps.education.fr/#https://codimd.apps.education.fr/x70ETgFMRv2J-5ztUFnUcw)
 
 ## Le Markdown
 
