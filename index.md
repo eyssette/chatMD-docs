@@ -1066,7 +1066,7 @@ Quel est votre nom ?
 
 On peut utiliser les blocs conditionnels pour créer des questions avant de faire apparaître un commentaire ou bien la suite du chatbot.
 
-Exemple ([voir le chatbot correspondant](http://127.0.0.1:5501/#https://codimd.apps.education.fr/iRuaXoI0Q0-qQuk2lxIBqQ))
+Exemple ([voir le chatbot correspondant](http://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/iRuaXoI0Q0-qQuk2lxIBqQ))
 
 ```markdown
 Quel est le code secret ?
