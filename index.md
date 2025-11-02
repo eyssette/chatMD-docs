@@ -2,20 +2,59 @@
 addOns: copycode, lightbox, highlight, titleLinks
 theme: colors
 style: |
-   .displayHomepage .admonition{font-size:0.95em}
-   .displayHomepage .admonition ul{padding-left: 1.75em;}
-   .displayHomepage li{margin-top: 0.25em}
-   h1 aside{font-weight:normal}
-   h3 span {font-weight: normal; font-size: 0.8em; vertical-align: text-top;}
-   h3 aside{font-weight:normal;font-size:0.9em!important}
-   h5{font-size: 0.85em;background: #EEE;padding: 1em;margin-top: 3em;color: black;}
-   li{margin-top:0.5em}
-   pre{padding-top:3em; min-width:60%}
-   .admonition{margin:1.25em auto}
-   .admonitionTitle{margin-top:0.5em}
-   .hljs{background:white; text-wrap:auto}
-   .hljs-code{background:#eefff9d9}
-   .language-html .hljs-tag{background:none}
+   .displayHomepage .admonition {
+      font-size: 0.95em;
+   }
+   .displayHomepage .admonition ul {
+      padding-left: 1.75em;
+   }
+   .displayHomepage li {
+      margin-top: 0.25em;
+   }
+   h1 aside {
+      font-weight: normal;
+   }
+   h3 span {
+      font-weight: normal;
+      font-size: 0.8em;
+      vertical-align: text-top;
+   }
+   h3 aside {
+      font-weight: normal;
+      font-size: 0.9em !important;
+   }
+   h5 {
+      font-size: 0.85em;
+      background: #eee;
+      padding: 1em;
+      margin-top: 3em;
+      color: black;
+      border-left: 3px solid #666;
+      padding-left: 2em;
+   }
+   li {
+      margin-top: 0.5em;
+   }
+   pre {
+      padding-top: 3em;
+      min-width: 60%;
+   }
+   .admonition {
+      margin: 1.25em auto;
+   }
+   .admonitionTitle {
+      margin-top: 0.5em;
+   }
+   .hljs {
+      background: white;
+      text-wrap: auto;
+   }
+   .hljs-code {
+      background: #eefff9d9;
+   }
+   .language-html .hljs-tag {
+      background: none;
+   }
 ---
 
 # ChatMD <aside>Manuel d'utilisation</aside>
