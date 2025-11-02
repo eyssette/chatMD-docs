@@ -25,7 +25,7 @@ style: |
 
 [ChatMD](https://chatmd.forge.apps.education.fr/) est un outil libre et gratuit qui permet de créer facilement un chatbot personnalisé à partir d'un simple fichier en Markdown.
 
-:::info ✨ Les Fonctionnalités clés
+:::info Les Fonctionnalités clés
 
 **Simplicité**
 - Créez un chatbot en quelques minutes grâce à une syntaxe facile à apprendre
