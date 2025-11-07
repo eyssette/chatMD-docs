@@ -1,0 +1,23 @@
+{
+	"$schema": "https://context7.com/schema/context7.json",
+	"projectTitle": "ChatMD",
+	"description": "A tool to create chatbots easily from a simple Markdown file.",
+	"excludeFolders": ["*"],
+	"excludeFiles": [
+		"README.md",
+		"Taskfile.yml",
+		".gitlab-ci.yml",
+		"create_scorm_package.html",
+		"encrypt_api_key.html"
+	],
+	"rules": [
+		"Use ChatMD for creating chatbots with Markdown",
+		"Be attentive to the ChatMD syntax and follow documented examples closely.",
+		"Treat fenced code blocks as authoritative syntax examples and never modify them automatically.",
+		"When parsing ChatMD directives, match exact syntax and capitalization as documented.",
+		"Ensure generated responses adhere to ChatMD syntax",
+		"Do not create or assume undocumented ChatMD directives or yaml options",
+		"Keep configurations as simple as possible; avoid using advanced options unless they are clearly required.",
+		"Use LLM configuration only when explicitly requested or when it provides a clear and meaningful improvement such as offering nuanced evaluation of user questions or answers beyond simple quiz logic."
+	]
+}
