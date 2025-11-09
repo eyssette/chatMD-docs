@@ -636,7 +636,7 @@ Bloc de texte **Markdown** multiligne
 
 Par défaut l'effet “machine à écrire” est activé, sauf si vous avez désactivé les effets d'animation sur votre système (généralement dans les paramètres d'accessibilité).
 
-Pour désactiver l'effet “machine à écrire” pour tout son chatbot (peut être pratique notamment au moment de la conception du chatbot, pour éviter d'attendre l'affichage des réponses), on met dans le YAML :
+Pour désactiver l'effet “machine à écrire” pour tout son chatbot, on met dans le YAML :
 ```yaml
 typewriter: false
 ```
@@ -650,7 +650,15 @@ texte sans
 effet typewriter
 \`
 ```
-Si on veut désactiver l'effet typewriter pour tout un message : on écrit `!Typewriter: false` ou `!Typewriter: true` dans le message (de préférence au début du message).
+
+Si on veut désactiver ou activer l'effet typewriter pour tout un message : on écrit `!Typewriter: false` ou `!Typewriter: true` dans le message (de préférence au début du message).
+
+
+De manière générale, la désactivation de l'effet machine à écrire est surtout utile :
+- quand on teste son chatbot pour éviter d'attendre l'affichage des réponses ;
+- si on n'aime pas cette animation ou bien qu'on vise un public qui pourrait ne pas apprécier un effet d'animation ;
+- si on veut, en cours ou en fin de message, afficher un point supplémentaire annexe d'un seul coup, au lieu d'attendre le temps de l'écriture avec l'effet d'animation ;
+- si on a mis dans son message du HTML un peu complexe qui doit être interprété d'un coup.
 
 #### Clavier
 
@@ -662,6 +670,10 @@ clavier: false
 
 
 Si on veut activer ou désactiver le clavier pour un message seulement, on écrit `!Keyboard: false` ou `!Keyboard: true` dans le message (de préférence au début du message).
+
+C'est surtout utile :
+- si on a désactivé le clavier de manière générale, afin de guider l'utilisateur avec des boutons à cliquer pour faire des choix, mais qu'on veut à un moment particulier laisser l'individu pouvoir poser une question, ou bien répondre à une question (parce qu'on a fait un quiz à ce moment-là)
+- ou au contraire, si on a laissé le clavier actif de manière générale, mais qu'on veut à un moment donné contraindre l'utilisateur à faire un choix entre plusieurs boutons à cliquer.
 
 
 ### Liens internes
