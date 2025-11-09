@@ -2,9 +2,6 @@
 
 Où aimerais-tu partir en vacances ?
 
-1. [À la plage](plage)
-2. [À la montagne](montagne)
-
 # plage
 - plage
 - sable
