@@ -139,6 +139,12 @@ Avec ChatMD, la création d'un chatbot ne se fait pas en important des documents
 
 Il faut concevoir son chatbot en suivant une syntaxe spécifique. Cette syntaxe reste accessible pour des chatbots simples, mais suppose d'accepter un effort d'apprentissage si vous souhaitez intégrer des fonctionnalités avancées.
 
+Il est cependant possible de se faire aider d'une IA pour construire son chatbot. Comme ChatMD utilise le Markdown et que les IA savent très bien produire du Markdown, cela fonctionne très bien, à condition de bien préciser la syntaxe qu'utilise ChatMD.
+
+:::warning
+Si vous vous aidez d'une IA pour faire votre chatbot, il est possible que l'IA introduise des éléments de syntaxe qui n'existent pas et que le contenu ne soit pas exact. Il faut donc bien relire ce que l'IA a produit.
+:::
+
 ##### Les avantages !
 1. Contrôle beaucoup plus important sur votre chatbot : ChatMD permet de concevoir des chatbots scénarisés, dans lesquels vous pouvez garder la main sur le parcours et les réponses que le chatbot propose
 2. Compatibilité RGPD : pas de création de compte, pas de données collectées (sauf si vous créez un chatbot avec une IA qui collecte des données).
