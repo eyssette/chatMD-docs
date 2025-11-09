@@ -1,0 +1,1650 @@
+<project title="ChatMD" summary="A tool to create chatbots easily from a simple Markdown file.">Important notes:
+
+- Core principle: Use ChatMD syntax for creating chatbots with Markdown.
+- Syntax Fidelity: ChatMD uses a specific Markdown-based syntax. Follow documented examples closely. Ensure generated responses adhere to ChatMD syntax.
+- No Assumptions: Never create or assume undocumented ChatMD directives or YAML options. If something isn't in the documentation, it doesn't exist.
+- Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
+- Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
+- Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
+- LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).<documentation><doc title="Formal Example" desc="Reference implementation showing correct ChatMD basic syntax."># Titre du chatbot
+
+Message initial
+
+1. [Premier choix](choix 1)
+2. [Deuxième choix](choix 2)
+
+## choix 1
+Message pour le choix 1
+
+## choix 2
+- déclencheur 1
+- déclencheur 2
+
+Message pour le choix 2
+
+1. [Bouton cliquable 1](cible bouton 1)
+2. [Bouton cliquable 2](cible bouton 2)
+
+## cible bouton 1
+
+Texte
+
+## cible bouton 2
+
+Texte</doc><doc title="Full documentation" desc="Complete guide covering all ChatMD features, advanced configurations, and integrations.">
+## Syntaxe de base
+
+### Structure générale d'un chatbot
+
+Pour faire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/), il faut l'écrire en Markdown avec une structure simple :
+
+```markdown
+# Titre du chatbot
+
+Message initial
+
+1. [Premier choix](choix 1)
+2. [Deuxième choix](choix 2)
+
+## choix 1
+Message pour le choix 1
+
+## choix 2
+- déclencheur 1
+- déclencheur 2
+
+Message pour le choix 2
+
+1. [Bouton cliquable 1](cible bouton 1)
+2. [Bouton cliquable 2](cible bouton 2)
+```
+
+:::info Points clés
+- Le message initial et le contenu des réponses peuvent inclure toute la syntaxe Markdown : images, vidéos, iframes, HTML, etc.
+- Les titres de niveau 2 (`## `) désignent les réponses possibles.
+- Pour chaque réponse, on peut associer des déclencheurs
+- À la fin de chaque message, on peut mettre des boutons cliquables
+:::
+
+
+:::warning Attention
+Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit exactement identique au texte de la réponse.
+
+Il est donc conseillé de faire des copier-coller pour être sûr de ne pas faire d'erreurs.
+:::
+
+Voici un [modèle à récupérer](https://codimd.apps.education.fr/mBGbHStJSVOSrlGfGb981A?both) si vous voulez construire votre premier chatbot !
+
+
+### Interaction <span>(1)</span> <aside>clics sur un bouton de réponse</aside>
+
+Si l'utilisateur clique sur un bouton de réponse, ChatMD cherche la réponse qui correspond à ce bouton et l'affiche.
+
+Pour créer des boutons qui déclenchent des réponses quand on clique dessus, il faut utiliser cette syntaxe :
+
+```markdown
+## Choix pilule
+
+Prenez-vous la pilule rouge ou la pilule bleue ?
+
+1. [La rouge](choix pilule rouge)
+2. [La bleue](choix pilule bleue)
+
+## choix pilule rouge
+Vous avez choisi la pilule rouge.
+
+## choix pilule bleue
+Vous avez choisi la pilule bleue.
+```
+
+On utilise donc une liste ordonnée avec pour chaque ligne :
+- un nombre
+- un point
+- une espace
+- entre crochets : le texte qui s'affiche
+- entre parenthèses : le nom de la réponse vers laquelle ChatMD va aller si on clique sur le bouton
+
+:::warning Attention à la syntaxe !
+Il faut respecter strictement la syntaxe.
+- Il ne faut pas mettre d'espace avant le nombre au début
+- Il ne faut pas oublier l'espace après le point avant les crochets
+- Il ne faut pas mettre d'espace entre les crochets et les parenthèses
+- Le texte de la cible du lien doit être exactement identique au titre de niveau 2 qui correspond à cette cible (en faisant aussi attention aux majuscules et minuscules) : il vaut mieux faire un copier-coller pour éviter les erreurs
+:::
+
+### Interaction <span>(2)</span> <aside>saisie libre de l'utilisateur au clavier</aside>
+
+Si on a laissé le clavier disponible, l'utilisateur peut écrire librement sa question.
+
+ChatMD va alors chercher la réponse la plus pertinente.
+
+Pour permettre à ChatMD de renvoyer la réponse la plus adéquate, on indique sous le titre de chaque réponse des déclencheurs (mots clés ou expressions) qui vont renforcer le choix de cette réponse.
+
+On utilise une liste non ordonnée en Markdown, qui suit immédiatement le titre de la réponse (sans ligne vide entre le titre et la liste)
+
+```markdown
+## Hors sujet
+- éviter le hors sujet
+- faire du hors sujet
+- rester dans le sujet
+- ne pas s'éloigner du sujet
+- ne pas s'éloigner de la question
+
+Pour éviter le hors-sujet dans une dissertation philosophique, il faut bien analyser le sujet lors du travail au brouillon et toujours vérifier le lien avec la question posée quand on rédige.
+
+1. [Comment bien analyser le sujet ?](Analyser le sujet)
+2. [Comment on rédige ?](Rédiger)
+```
+
+Si on laisse la possibilité de poser des questions libres, c'est tout de même recommandé de faire des propositions avec des boutons à cliquer pour guider plus facilement l'utilisateur.
+
+##### Fonctionnement de l'algorithme de recherche
+
+Si on utilise des déclencheurs, ChatMD calcule la réponse la plus adéquate.
+
+Ce n'est pas une simple recherche d'occurrences : le calcul intègre une décomposition en tokens et un calcul de distance lexicale.
+
+La décomposition en tokens permet de retrouver des racines communes et la distance lexicale permet de trouver une réponse malgré des fautes d'orthographe.
+
+### Historique des interactions et partage d'une conversation
+
+ChatMD enregistre toutes les interactions de l'utilisateur avec le chatbot afin de permettre le partage de l'historique de la conversation ou d'une réponse spécifique.
+
+:::info Ce n'est pas une collecte de données
+Cet enregistrement se fait dans le navigateur lui-même et non pas sur un serveur : ChatMD ne collecte aucune donnée personnelle.
+:::
+
+En dessous de chaque message généré par le chatbot, on retrouve un bouton de menu qui permet d'ouvrir une fenêtre modale avec des liens de partage. 
+
+![](img/bouton_menu.png)
+
+![](img/liens_partage_conversation.png)
+
+Si on clique sur le lien de partage de toute la conversation, ChatMD ouvre le chatbot en reproduisant l'ensemble des interactions de l'utilisateur.
+
+Comme ChatMD ne propose pas d'outil de statistiques intégré, cela vous permet d'avoir malgré tout un retour de la part de vos utilisateurs, si vous leur demandez de partager leur conversation avec vous.
+
+:::info Aspects techniques
+
+D'un point de vue technique, les actions de l'utilisateur sont enregistrées dans les paramètres de l'URL : `?actions=action1|action2|action3`.
+
+Les actions sont listées dans le paramètre `?actions` et sont séparées par le caractère `|`.
+
+L'ordre des actions reflète leur enchaînement prévu.
+
+Il y a 6 types d'action différents :
+1. Clic sur un bouton, identifié par son numéro : `c:n3`
+2. Clic sur bouton, identifié par le texte affiché de ce bouton : `c:texte` (plus précisément : ChatMD sélectionne le dernier bouton affiché qui contient ce texte)
+3. Question ou réponse de l'utilisateur envoyée au chatbot : `e:message`
+4. Question envoyée à un LLM : `llmq:message`
+6. Réponse générée par le LLM : `llmr:message`
+On peut utiliser directement ces paramètres dans l'URL si on le souhaite.
+:::
+
+### Retour au message initial
+
+Pour pouvoir revenir au message initial, on utilise un lien sans cible.
+
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe “unique”.
+
+```markdown
+# Faire un gâteau
+
+<section class="unique">
+Ce chatbot vous permet de choisir une recette. Laissez-vous guider par ce chatbot !
+</section>
+
+Quel gâteau voulez-vous faire ?
+
+<section class="unique">
+:::info
+Ce chatbot a été créé par M. Cuisine
+:::
+</section>
+
+1. [Un gâteau à la banane](Banane)
+2. [Un gâteau à la poire](Poire)
+
+## Banane
+
+La recette : …
+
+1. [Retour au menu initial]()
+
+## Poire
+
+La recette : …
+
+2. [Faire un autre gâteau !]()
+```
+
+Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Up0rojkgRaGtxolcQsbMdw).
+
+
+## Configuration avancée
+
+
+### L'en-tête YAML
+
+
+L'en-tête <abbr title="Yet Another Markup Language">YAML</abbr> est une section spéciale située tout en haut du fichier Markdown.
+
+Elle permet de définir des propriétés qui configurent le comportement du chatbot.
+
+Cet en-tête doit impérativement commencer et se terminer par une ligne contenant exactement trois tirets `---`, sans espaces avant ni après.
+
+Voici un exemple d'en-tête YAML :
+
+```yaml
+---
+gestionGrosMots: true
+---
+```
+
+Le récapitulatif de toutes les options disponibles dans le YAML est disponible dans la [documentation technique](https://chatmd.forge.apps.education.fr/docs/#technique.md)
+
+### Algorithme
+
+Pour améliorer l'algorithme de choix d'une réponse, vous pouvez utiliser ces paramètres dans l'en-tête YAML : 
+
+#### Recherche dans le contenu des réponses
+
+
+```yaml
+rechercheContenu: true
+```
+L'algorithme ne se contente pas de comparer le message de l'utilisateur avec le titre de la réponse et les déclencheurs, mais il compare aussi ce message avec le contenu entier de la réponse.
+
+
+#### Gestion des gros mots
+
+```yaml
+gestionGrosMots: true
+``` 
+Permet de détecter les gros mots et les insultes envoyés par l'utilisateur et de formuler une réponse adéquate.
+
+#### Messages qui s'affichent si aucune réponse n'est trouvée
+
+```yaml
+messageParDéfaut: ["message 1", "message 2", "message 3"]
+```
+
+Permet de modifier le message par défaut qui s'affiche aléatoirement quand le chatbot n'a pas trouvé de réponse pertinente.
+
+Cette liste écrase la [liste définie par défaut](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/blob/main/app/js/config.mjs#L10).
+
+#### Déclencheurs négatifs
+
+On peut aussi utiliser des déclencheurs négatifs afin d'indiquer des mots-clés ou des expressions qui ne doivent pas se trouver dans la question de l'utilisateur.
+
+On commence dans ce cas le mot-clé avec `! `
+
+```markdown
+## Introduction
+- intro
+- introduire
+- ! introuvable
+- ! introspection
+```
+
+### Apparence
+
+Pour personnaliser l'apparence du chatbot, vous pouvez utiliser différents paramètres dans l'en-tête YAML.
+
+#### Avatar et favicon
+
+
+Pour changer l'avatar du chatbot (il faut mettre l'url de son image à la place de `URL`) :
+
+```yaml
+avatar: URL
+```
+
+Pour que l'avatar soit en forme de cercle :
+
+```yaml
+avatarCercle: true
+```
+
+Pour changer l'icône du chatbot dans les onglets (il faut mettre l'url de son image à la place de `URL`) :
+
+```yaml
+favicon: URL
+```
+
+
+
+#### Footer
+
+Pour supprimer le pied de page :
+
+```yaml
+footer: false
+```
+
+Pour customiser ce qui apparaît dans le pied de page (il vaut mieux ne pas mettre un texte très long) :
+
+```yaml
+footer: 'Mon footer'
+```
+
+
+#### Thème
+
+Pour utiliser un thème CSS particulier :
+
+```yaml
+theme: bubbles
+```
+Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/zQTZQgJVRhy8SP0Gr1AQTQ) est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
+
+
+![](img/theme_bubbles.png)
+
+
+#### Styles CSS
+
+Vous pouvez ajouter des styles CSS personnalisés au chatbot entier, dans l'en-tête YAML :
+
+```yaml
+style: |
+    a{color:red}
+    p{text-align:center}
+```
+
+Mais vous pouvez aussi modifier le style d'un message en particulier, en ajoutant une balise HTML `<style scoped></style>` au début de votre message :
+
+```markdown
+## Message
+
+<style scoped>p{color:red}</style>
+
+Ce message s'affichera en rouge
+
+```
+
+:::warning Gestion du thème sombre
+ChatMD a un thème sombre qui s'active par défaut pour les utilisateurs qui ont la préférence du mode sombre dans leur navigateur.
+
+Si vous ajoutez des styles personnalisés, il faut donc :
+- soit désactiver le thème sombre, en ajoutant `darkmode: false` dans votre en-tête YAML,
+- soit définir des styles particuliers propres au thème sombre, en préfixant les règles que vous voulez modifier pour le thème sombre avec la classe CSS `.darkmode ` 
+:::
+
+
+Pour le CSS, le mieux est d'utiliser les outils de développement de votre navigateur, de repérer avec le sélecteur l'élément que vous voulez changer et de repérer la propriété qu'il faut modifier. Vous pouvez tester directement la modification pour voir avant de l'intégrer à votre chatbot.
+
+Pour apprendre le CSS, vous pouvez commencer par les conseils sur le [site de documentation des technologies web de Mozilla](https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content).
+
+Vous pouvez aussi demander de l'aide dans le [salon Tchap](https://tchap.gouv.fr/#/room/!BLAbHlkynUkpyIfNvT:agent.education.tchap.gouv.fr?via=agent.education.tchap.gouv.fr&via=agent.diplomatie.tchap.gouv.fr&via=agent.dev-durable.tchap.gouv.fr) ou en faisant un [ticket](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/issues/new?issuable_template=help)
+
+#### Attributs génériques (classes CSS personnalisées)
+
+Si vous ajoutez ` {.maClasse}` à la fin de la ligne, cette ligne aura la classe `.maClasse`, et vous pouvez utiliser cette classe pour personnaliser l'apparence de cette ligne.
+
+Vous pouvez bien sûr aussi utiliser du HTML dans votre Markdown, pour des mises en page plus complexe.
+Si vous souhaitez utiliser de la syntaxe Markdown dans une balise HTML, il faut ajouter l'attribut `markdown`
+
+Exemple :
+
+```html
+<div markdown class="maClasse">
+Bloc de texte **Markdown** multiligne
+</div>
+```
+
+#### Effet “machine à écrire”
+
+Par défaut l'effet “machine à écrire” est activé, sauf si vous avez désactivé les effets d'animation sur votre système (généralement dans les paramètres d'accessibilité).
+
+Pour désactiver l'effet “machine à écrire” pour tout son chatbot, on met dans le YAML :
+```yaml
+typewriter: false
+```
+
+Pour désactiver l'effet typewriter pour un passage seulement, on met `` \` `` avant et après le passage à afficher d'un coup.
+
+Exemple :
+```txt
+\`
+texte sans
+effet typewriter
+\`
+```
+
+Si on veut désactiver ou activer l'effet typewriter pour tout un message : on écrit `!Typewriter: false` ou `!Typewriter: true` dans le message (de préférence au début du message).
+
+
+De manière générale, la désactivation de l'effet machine à écrire est surtout utile :
+- quand on teste son chatbot pour éviter d'attendre l'affichage des réponses ;
+- si on n'aime pas cette animation ou bien qu'on vise un public qui pourrait ne pas apprécier un effet d'animation ;
+- si on veut, en cours ou en fin de message, afficher un point supplémentaire annexe d'un seul coup, au lieu d'attendre le temps de l'écriture avec l'effet d'animation ;
+- si on a mis dans son message du HTML un peu complexe qui doit être interprété d'un coup.
+
+#### Clavier
+
+Pour désactiver le champ d'entrée clavier (si on souhaite simplement guider l'utilisateur avec les options proposées en fin de chaque réponse), on ajoute dans le YAML :
+
+```yaml
+clavier: false
+```
+
+
+Si on veut activer ou désactiver le clavier pour un message seulement, on écrit `!Keyboard: false` ou `!Keyboard: true` dans le message (de préférence au début du message).
+
+C'est surtout utile :
+- si on a désactivé le clavier de manière générale, afin de guider l'utilisateur avec des boutons à cliquer pour faire des choix, mais qu'on veut à un moment particulier laisser l'individu pouvoir poser une question, ou bien répondre à une question (parce qu'on a fait un quiz à ce moment-là)
+- ou au contraire, si on a laissé le clavier actif de manière générale, mais qu'on veut à un moment donné contraindre l'utilisateur à faire un choix entre plusieurs boutons à cliquer.
+
+
+### Liens internes
+
+Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais qui ne sont pas à la fin du message, vous pouvez tout simplement utiliser la syntaxe d'un lien interne en Markdown, avec la cible qui commence par `#`, immédiatement suivi du titre de la réponse :
+
+```markdown
+[texte affiché](#titre de la réponse)
+```
+
+Mais si vous voulez un affichage avec des boutons comme pour les réponses en fin de message, il faut alors écrire les options avec du code HTML (voir cet [exemple](https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ))
+
+### Contenus spéciaux
+
+#### Admonitions (encadrés)
+
+Dans le contenu Markdown, vous pouvez utiliser des admonitions, c'est-à-dire des encadrés pour mettre en valeur certains contenus :
+
+```markdown
+:::info
+Bloc de texte
+en markdown
+sur plusieurs lignes
+:::
+```
+
+On peut mettre un titre
+
+```markdown
+:::warning Attention !
+Bloc de texte
+en markdown
+sur plusieurs lignes
+:::
+```
+
+Ou avoir un élément qui se déplie
+
+```markdown
+:::success collapsible En savoir plus
+Bloc de texte
+en markdown
+sur plusieurs lignes
+:::
+```
+
+
+Plusieurs types d'admonitions sont disponibles : [exemple](https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q?both) et [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/9U7L4wpOSmaRFl6aRK-J9Q)
+
+#### Iframes
+
+Vous pouvez utiliser ces iframes pour intégrer des contenus interactifs comme H5P ou des vidéos.
+
+Il est conseillé de placer les iframes en fin de réponse pour éviter les problèmes d'affichage ou bien de désactiver l'effet typewriter pour chaque message qui contient un iframe. 
+
+#### Sons
+
+Pour jouer automatiquement un son lors du déclenchement d'une réponse, utiliser la directive suivante dans votre réponse :
+
+```txt
+!Audio : URLduFichierAudio
+```
+
+Voir cet [exemple](https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg)
+
+#### Formules mathématiques (LaTeX)
+
+
+Pour utiliser LaTeX pour les mathématiques, il faut ajouter dans le YAML :
+
+```yaml
+maths: true
+```
+
+Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) ou `$$Latex$$` (pour un paragraphe à part)
+
+#### Schémas et graphiques
+
+Pour générer des schémas et graphiques, on va utiliser le plugin _Kroki_, que l'on active en ajoutant `kroki` à la liste des plugins dans le YAML :
+
+```yaml
+plugins: plugin1 plugin2 kroki
+```
+
+Vous pouvez ensuite utiliser la syntaxe des schémas Tikz, GraphViz, Mermaid, PlantUML, Excalidraw, Vega ou Vegalite dans votre chatbot.
+
+Voir cet [exemple](https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/dJpCzTg0SPyPmbj24SSKbg)
+
+#### Lightbox pour les images, les PDF et les liens
+
+:::info Qu'est-ce qu'une _lightbox_ ?
+Une _lightbox_ permet de voir en grand une image, un PDF ou de visualiser un lien externe, le tout sans quitter votre chatbot, mais en affichant ce contenu dans une fenêtre superposée qui s'ouvre au-dessus du contenu principal.
+:::
+
+Pour activer le plugin _lightbox_, on l'ajoute à la liste des plugins dans le YAML :
+
+```yaml
+plugins: plugin1 plugin2 lightbox
+```
+
+Si on veut désactiver l'effet de lightbox pour une image ou un PDF, on ajoute simplement `?nolightbox` à la fin de l'URL de l'image ou du PDF.
+
+```markdown
+Ce fichier s'affichera avec une lightbox :
+[](https://exemple.fr/monfichier.pdf)
+
+Ce fichier s'affichera sans lightbox :
+[](https://exemple.fr/monfichier.pdf?nolightbox)
+```
+
+Si on veut qu'un lien s'ouvre dans une iframe dans une lightbox, il faut que ce lien ait la classe ou soit dans un élément qui a la classe `iframe`
+
+```markdown
+Ce lien s'affichera dans une iframe dans une lightbox :
+[](https://monlien.fr) {.iframe}
+```
+
+
+
+### Chatbots très longs
+
+#### Variables fixes
+
+Pour les chatbots complexes, vous pouvez définir des variables fixes dans le YAML :
+
+```yaml
+variables:
+  maVariable1: "Ceci est ma variable 1"
+  maVariable2: "Ceci est ma variable 2"
+```
+
+On peut utiliser de l'aléatoire dans une variable fixe, en utilisant une liste de choix possibles.
+
+```yaml
+variables:
+  maVariable1: ["Première possibilité", "Deuxième possibilité", "Troisième possibilité"]
+```
+
+Dans votre contenu Markdown, utilisez-les ainsi : `@{maVariable1}`
+
+- Les variables sans préfixe `_` sont interprétées au déclenchement : si on utilise de l'aléatoire, on pourra avoir une sélection différente à chaque utilisation de la variable
+- Les variables avec préfixe `_` sont interprétées à la génération du chatbot, ce qui permet d'utiliser des variables fixes pour les menus de choix d'option en fin de message
+
+Voir cet [exemple](https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ)
+
+#### Répartition du contenu entre plusieurs fichiers
+
+Pour les chatbots avec beaucoup de contenu, vous pouvez répartir la source entre plusieurs fichiers :
+
+1. Via le YAML :
+   ```yaml
+   include: ['URL fichier 1', 'URL fichier 2']
+   ```
+
+2. Via le projet source dans les fichiers de données :
+   - Modifiez `js/data/index.md`
+   - Ajoutez des fichiers `.md` dans le dossier `data`
+   - Exécutez `npx task build` après avoir installé les dépendances
+
+3. Via le projet source avec le fichier de configuration
+    - Modifiez `js/config.mjs`
+
+#### Structuration du document
+
+Si vous souhaitez utiliser les titres 2 ou d'autres niveaux de titres pour structurer votre chatbot, et définir les identifiants de réponse avec d'autres niveaux de titre, vous pouvez indiquer dans le YAML :
+
+```yaml
+titresRéponses: ["### ", "#### "]
+```
+
+Dans cet exemple, cela signifie qu'on décide d'utiliser les titres de niveaux 3 et 4 comme définition des réponses possibles du chatbot. Cela permettra de garder les titres 2 pour structurer les différents types de réponse dans son chatbot (côté créateur du bot, car cela ne changera rien pour l'utilisateur)
+
+### Quiz
+
+Un chatbot sert souvent à répondre à des questions, mais ChatMD peut aussi être utilisé pour poser des questions.
+
+#### QCM
+
+On peut poser une question et préparer ensuite des réponses possibles : l'utilisateur doit cliquer sur la bonne réponse.
+
+```markdown
+## Question cheval blanc
+
+Quelle est la couleur du cheval blanc d'Henri IV ?
+
+1. [rouge](question cheval blanc - erreur)
+2. [bleu](question cheval blanc - erreur)
+3. [blanc](question cheval blanc - bonne réponse)
+
+## question cheval blanc - erreur
+Ce n'était pas la bonne couleur ! Essaie encore !
+
+## question cheval blanc - bonne réponse
+Bravo ! C'était la bonne réponse
+```
+
+Si on utilise cette solution, on peut voir par défaut vers quoi renvoie un bouton de réponse en survolant ce bouton avec la souris, ce qui peut donner un indice sur la bonne réponse.
+
+Si on veut éviter cela, on ajoute dans le YAML :
+
+```yaml
+obfuscate: true
+```
+
+Cela permet d'obscurcir le titre des liens afin qu'ils ne donnent pas un indice sur la bonne réponse.
+
+Voir cet [exemple](https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr#https://codimd.apps.education.fr/hWgravuHTTmfRydTUfjgWQ).
+
+On peut choisir d'utiliser aussi de l'aléatoire pour que la bonne réponse ne soit pas toujours à la même place dans l'ordre des propositions possibles (voir l'onglet sur l'aléatoire).
+
+#### Question à réponse courte
+
+On peut aussi poser une question et attendre une réponse que l'utilisateur doit taper au clavier.
+
+Dans ce cas, on utilise une directive `!Next: BonneRéponse` qui va évaluer la réponse de la personne en comparant la réponse aux déclencheurs utilisés dans `BonneRéponse`.
+
+Exemple :
+
+```markdown
+## Question 1
+Quelle est la couleur du cheval blanc d'Henri IV
+
+!Next: Réponse couleur cheval Henri IV
+
+## Réponse couleur cheval Henri IV
+- blanc
+
+Oui, le blanc est bien la couleur du cheval blanc d'Henri IV !
+```
+
+Après 3 erreurs, un bouton vers la bonne réponse s'affiche.
+Si on veut reposer la question tant que l'utilisateur n'a pas trouvé la bonne réponse, on ajoute le paramètre `!loop` après le titre de la bonne réponse.
+
+Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A).
+
+
+
+
+### Plusieurs bots
+
+Pour gérer plusieurs personnages de chatbot dans un même projet, il faut d'abord déclarer les bots dans le YAML :
+```yaml
+bots:
+   nomBot1:
+      avatar: URLimageBot1
+      cssAvatar: "CSS particulier pour l'avatar du Bot1"
+      cssMessage: "CSS particulier pour les messages du Bot1"
+   nomBot2:
+      avatar: URLimageBot2
+      cssAvatar: "CSS particulier pour l'avatar du Bot2"
+      cssMessage: "CSS particulier pour les messages du Bot2"
+```
+
+On utilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
+
+On peut avoir plusieurs bots qui se répondent dans un même message.
+
+```markdown
+!Bot: Schopenhauer  
+Le désir nous conduit inévitablement à la souffrance.
+
+!Bot: Épicure  
+Il faut différencier les désirs ! Seuls les désirs vains nous éloignent du bonheur.
+```
+
+Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both) et [chatbot](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA)
+
+
+## Contenus dynamiques
+
+
+### Introduire de l'aléatoire
+
+
+#### Choix aléatoire d'un message
+
+Pour introduire de la variété dans les messages envoyés par le chatbot, vous pouvez proposer plusieurs formulations d'un même message, séparées par `---`.
+
+```markdown
+## Proposition d'aide
+
+Bonjour ! Comment puis-je vous aider aujourd'hui ?  
+1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
+2. [J'ai un problème avec l'ordinateur](Aide ordi)
+
+---  
+
+Quel est votre problème ? 
+1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
+2. [J'ai un problème avec l'ordinateur](Aide ordi)
+```
+
+Pour éviter d'avoir à remettre à chaque fois les mêmes boutons de réponse, on peut définir de l'aléatoire dans des variables (voir l'onglet sur les variables)
+
+#### Ordre aléatoire des boutons de réponse
+
+Si vous voulez que certains boutons de réponse apparaissent dans un ordre différent à chaque affichage, utilisez `1)` au lieu de `1.` pour numéroter les éléments. 
+
+```markdown
+1. [Cette proposition s'affichera toujours en première position](prop1)
+2) [cette proposition s'affichera en 2e ou en 3e position](prop2)
+3) [cette proposition s'affichera en 2e ou en 3e position](prop3)
+```
+
+#### Tirer au hasard une ou plusieurs questions à poser à l'utilisateur, 
+
+Il est possible d'afficher aléatoirement un nombre défini de boutons cliquables en fin de message à partir d'une liste plus longue.
+
+C'est surtout utile si les boutons cliquables représentent une liste de questions possibles : cela permet de tirer au hasard une ou plusieurs questions à poser à l'utilisateur, parmi une liste de questions différentes.
+
+Pour cela, on utilise la directive `!Select: x` juste avant la liste, où `x` est le nombre de boutons que l'on souhaite afficher à chaque fois.
+
+```markdown
+## Prochain exercice
+
+Choisis un sujet de dissertation pour t'entraîner
+
+!Select: 2
+1. [Le bonheur est-il une quête de soi ?](Sujet bonheur)
+2. [La liberté consiste-t-elle à faire tout ce qui me plaît ?](Sujet liberté)
+3. [Être juste, est-ce traiter tout le monde de la même manière ?](Sujet justice)
+4. [Peut-on juger une œuvre d'art d'un point de vue moral ?](Sujet art)
+```
+
+<!-- TODO: ajouter exemple de chatbot ?
+Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)). -->
+
+#### Redirection aléatoire vers un autre message
+
+On peut créer un message qui redirige automatiquement l'utilisateur vers un autre message choisi au hasard dans une liste, ce qui permet de varier les parcours possibles de l'utilisateur.
+
+```markdown
+## Choix de l'exercice
+
+Sur quel thème veux-tu un exercice ?
+
+1. [La poésie lyrique](Exercices - poésie lyrique)
+2. [Le fantastique](Exercices - nouvelles fantastique)
+
+## Exercices - poésie lyrique
+
+!SelectNext: exo PL 1 / exo PL 2 / exo PL 1
+
+## Exercices - nouvelles fantastique
+
+!SelectNext: exo Fantastique 1 / exo Fantastique 2 / exo Fantastique 3
+```
+
+<!-- TODO: ajouter exemple de chatbot
+Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg)) -->
+
+#### Aléatoire dans les variables
+
+On peut utiliser de l'aléatoire également dans les variables fixes (voir l'onglet : “Chatbots très longs”) ou dans les variables dynamiques (voir le prochain onglet).
+
+### Utiliser des variables dynamiques
+
+Les variables dynamiques sont des variables dont la valeur peut changer au cours de la conversation avec le chatbot.
+
+Par exemple, une variable dynamique peut enregistrer le prénom de l'utilisateur, calculer un score selon ses réponses, ou mémoriser les choix qu'il a effectués précédemment.
+
+Grâce à ces variables, le chatbot peut adapter son comportement de manière plus fine et proposer des contenus plus pertinents selon le contexte, en tenant compte de l'historique de la conversation.
+
+#### Prérequis
+
+Pour utiliser des variables dynamiques, il faut d'abord ajouter dans le YAML :
+
+```yaml
+variablesDynamiques: true
+```
+
+#### Définir la valeur d'une variable
+
+On peut définir la valeur d'une variable de deux manières.
+
+##### À l'intérieur d'un message prévu du chatbot
+
+On utilise un bloc code, avec la syntaxe suivante : `@nomVariable = valeur de la variable`
+
+```markdown
+## Question 1 Réponse 3
+`@pointQ1 = 3`
+Oui, c'était bien la bonne réponse !
+```
+
+##### Dans un bouton cliquable
+
+```markdown
+Que préférez-vous manger ?
+1. [Des légumes @choixAliments=légumes](Analyse régime)
+2. [Des hamburgers @choixAliments=hamburgers](Analyse régime)
+```
+
+##### Utilisation de l'aléatoire
+
+On peut utiliser de l'aléatoire en donnant une liste de choix possibles pour définir la valeur d'une variable.
+
+ChatMD choisira au hasard une de ces possibilités.
+
+```markdown
+`@messageAccueil = Bonjour ! /// Salut ! /// Bienvenue !`
+```
+
+#### Laisser l'utilisateur définir la valeur d'une variable avec un formulaire
+
+##### Élément `<select>` pour proposer un choix dans une liste déroulante
+
+On peut proposer à l'utilisateur un choix dans une liste déroulante afin de définir la valeur d'une variable dynamique.
+
+Pour cela, on utilise dans un message un élément HTML `<select>`.
+
+Lorsque l'utilisateur fait un choix, la valeur sélectionnée est enregistrée automatiquement dans la variable associée.
+
+Cette variable peut ensuite être utilisée pour afficher du contenu différent selon le choix effectué.
+
+Exemple : 
+
+```html
+<label for="niveau">Vous enseignez dans</label> <select name="niveau" id="niveau" data-selected="`@niveau`">
+   <option value="">À sélectionner</option>
+   <option value="1D">une école</option>
+   <option value="2D collège">un collège</option>
+   <option value="2D lycée">un lycée</option>
+</select>
+```
+
+##### Élément `<input>` pour laisser l'utilisateur écrire une réponse dans un petit champ texte
+
+On peut proposer à l'utilisateur de saisir librement du texte afin de définir la valeur d'une variable dynamique.
+
+Pour cela, on utilise dans un message un élément HTML `<input>` avec l'attribut type="text".
+
+Lorsque l'utilisateur saisit du texte et appuie sur la touche "Enter", il est automatiquement enregistré dans la variable associée.
+
+Cette variable peut ensuite être utilisée pour personnaliser les messages ou adapter la logique du chatbot en fonction de la réponse de l'utilisateur.
+
+```html
+Quel est votre nom ?
+<input type="text" id="nom" name="nom" value="`@nom`" placeholder="Entrez votre nom ici"  />
+```
+
+On peut utiliser les blocs conditionnels pour créer des questions avant de faire apparaître un commentaire ou bien la suite du chatbot.
+
+Exemple ([voir le chatbot correspondant](http://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/iRuaXoI0Q0-qQuk2lxIBqQ))
+
+```markdown
+Quel est le code secret ?
+
+`if !@codeSecret || @codeSecret != 42`
+
+<input type="text" id="codeSecret" name="codeSecret" value="`@codeSecret`" />
+
+`endif`
+
+`if @codeSecret == 42`
+
+``@codeSecret``
+Bravo tu as bien trouvé le code secret !
+
+1. [voir la suite](suite)
+
+`endif`
+
+## suite
+
+Suite du chatbot
+```
+
+
+
+
+
+
+#### Variables dynamiques complexes
+
+Vous pouvez aussi définir la valeur d'une variable dynamique à partir de la valeur d'autres variables dynamiques.
+
+Pour cela, il faut utiliser `calc()` et mettre dans la parenthèse une opération de calcul.
+
+```markdown
+`@mavariable = calc(@score+1)`
+```
+
+Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow)
+
+
+:::info Par défaut, seules certaines opérations sont autorisées
+
+- Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
+- Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
+- Opérateurs logiques : `&&`, `||`, `!`,
+- Parenthèses : `(`, `)`,
+- Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `toUpperCase()`, `.trim()`, `encodeURI()`
+:::
+
+Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
+
+
+#### Traitement séquentiel des variables dynamiques
+
+La valeur d'une variable dynamique peut changer au cours d'un message lui-même, et pas seulement d'un message à un autre. Plus précisément, le chatbot évalue et met à jour les variables dans l'ordre dans lequel les opérations sont définies à l'intérieur d'un message.
+
+Exemple : 
+
+```markdown
+Le score était de `@score`.
+
+Vous avez gagné 2 points !
+
+`@score=calc(@score+2)`
+
+Le nouveau score est de : `@score`
+```
+
+Lorsqu'une variable est définie dans un bloc conditionnel (voir ci-dessous), sa valeur n'est mise à jour que si la condition associée est remplie. Si la condition n'est pas vérifiée, la variable conserve sa valeur précédente (ou reste vide si elle n'a jamais été initialisée).
+
+#### Bloc conditionnel
+
+Un bloc conditionnel vous permet d'afficher un contenu seulement si une condition est remplie.
+
+:::info Structure
+1. On commence un bloc conditionnel par `` `if CONDITION` ``
+2. On écrit ensuite le contenu qui doit être affiché si la condition est vérifiée
+3. On termine le bloc conditionnel par `` `endif` ``
+:::
+
+Exemple :
+
+```markdown
+`if @score>=10`
+Bravo, vous avez atteint le niveau expert !
+`endif`
+```
+On peut mettre plusieurs blocs conditionnels, et ils peuvent être imbriqués si on le souhaite.
+
+On peut écrire des conditions complexes en utilisant des opérateurs.
+
+La liste des opérateurs autorisés est la même que celle pour les variables dynamiques complexes ci-dessus.
+
+
+#### Variables prédéfinies
+
+##### Pour récupérer ce qu'a tapé un utilisateur
+
+La variable dynamique `@INPUT` contient toujours la dernière réponse de l'utilisateur.
+
+On peut donc l'utiliser soit pour l'afficher directement dans un message, soit pour l'assigner à une autre variable avec `@mavariable = calc(@INPUT)`.
+
+Pour poser une question à l'utilisateur, récupérer le contenu de sa réponse, puis aller directement à un autre message dans lequel on va utiliser sa réponse, on procède ainsi, avec la directive `!Next`
+
+```markdown
+Bonjour ! Quel est ton nom ?
+
+!Next: accueil
+
+## accueil
+`@nom = calc(@INPUT)`
+Bonjour `@nom`
+Bienvenue ici !
+```
+
+:::precision collapsible Cas où le message contient des déclencheurs
+Si le message cible contient des déclencheurs, ces déclencheurs fonctionneront comme des conditions pour accéder au message : il faudra que la réponse de l'utilisateur soit similaire à l'un de ces déclencheurs. Pour les désactiver et ne pas faire cette vérification, on peut écrire `!Next: message suviant / ignoreKeywords`.
+:::
+
+:::precision collapsible Ancienne syntaxe `@mavariable = @INPUT : message suivant`
+L'ancienne syntaxe est toujours possible.
+
+On peut utiliser la syntaxe suivante : `` `@mavariable = @INPUT : message suivant` ``, qui signifie qu'on va enregistrer le futur message de l'utilisateur dans `@mavariable` puis aller vers `message suivant`.
+
+Par exemple :
+
+```markdown
+Bonjour ! Quel est ton nom ?
+`@nom = @INPUT : accueil`
+
+## accueil
+Bonjour `@nom`
+Bienvenue ici !
+```
+
+:::
+
+
+<!-- TODO: ajouter exemple de chatbot
+Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw)) -->
+
+
+##### Pour récupérer les paramètres dans l'URL
+
+La valeur des paramètres dans l'URL est disponible avec `@GETnomduparamètre`
+
+Si on utilise un lien qui contient le paramètre `?departement=69`, on pourra utiliser la variable `@GETdepartement` dans son chatbot.
+
+
+##### Pour utiliser la géolocalisation
+
+On peut récupérer la latitude, la longitude et le degré de précision de la position, afin de pouvoir afficher des messages différents selon le lieu de l'utilisateur.
+
+Pour cela, il faut écrire dans le yaml :
+
+```yaml
+geolocation: true
+variablesDynamiques: true
+```
+
+On pourra ensuite utiliser les variables suivantes : `@LATITUDE` `@LONGITUDE` `@POSITION_ACCURACY`.
+
+
+```markdown
+`if @LATITUDE>41.0 && @LATITUDE<51.5 && @LONGITUDE>-5.0 && @LONGITUDE<9.5`
+Vous êtes probablement en France métropolitaine !
+`endif`
+
+`if Math.abs(@LATITUDE - 45.7640)<0.5 && Math.abs(@LONGITUDE - 4.8357)<0.5`
+Vous habitez probablement près de : Lyon !
+`endif`
+
+`if @LATITUDE==undefined`
+La géolocalisation n'a malheureusement pas fonctionné.
+Vous pouvez cliquer à nouveau sur le bouton qui vous a mené ici, ou reposer votre question.
+Si cela ne marche pas, essayez de réactualiser la page.
+`endif`
+```
+
+### Intégrer des données externes <aside>avec le plugin readCsv</aside>
+
+ChatMD peut lire des données à la volée (au format CSV, TSV ou JSON), ce qui vous permet de les intégrer dans votre chatbot et de les filtrer au cours de la conversation.
+
+Un exemple ici qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
+
+#### Syntaxe générale
+
+Pour activer ce plugin, il faut d'abord l'ajouter dans l'en-tête YAML :
+
+```yaml
+---
+plugins: readcsv
+---
+```
+
+Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
+
+````markdown
+```readcsv URL_DES_DONNÉES
+condition: FORMULE_DE_FILTRE (optionnel)
+sort: FORMULE_DE_TRI (optionnel)
+
+TEMPLATE_EN_MARKDOWN
+(éventuellement sur plusieurs lignes)
+
+```
+````
+
+
+#### Formule de filtre
+
+La formule de filtre permet de sélectionner uniquement certaines lignes dans les données, selon une condition.
+
+Dans l'expression, utilisez `$1`, `$2`, `$3`... pour désigner les colonnes (la première colonne est `$1` …).
+
+Pour la condition, vous pouvez utiliser les mêmes opérateurs que ceux disponibles pour le calcul des variables dynamiques complexes.
+
+Exemples :
+- `condition: $3 > 100` → garde les lignes où la colonne 3 est supérieure à 100
+- `condition: $2 == "Lycée"` → garde les lignes où la colonne 2 est "Lycée"
+- `condition: $3 > 50 && $4.includes("public")` → combine plusieurs conditions
+
+
+#### Formule de tri
+
+La formule de tri permet de trier les résultats filtrés pour pouvoir les afficher dans l'ordre que l'on souhaite.
+
+La syntaxe est la suivante : `sort: $<colonne> [ordre] [type]`
+
+- ordre : `asc` (croissant, par défaut) ou `desc` (décroissant)
+- type : `alph` (alphabétique, par défaut), `num` (numérique) ou `date`
+
+Exemples :
+- `sort: $1` → tri alphabétique sur la colonne 1
+- `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
+- `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
+
+#### Template en Markdown
+
+Le template définit comment afficher chaque ligne du CSV.
+
+Utilisez `$1`, `$2`, `$3`… pour insérer les valeurs des colonnes.
+
+Par exemple, imaginons une liste de lycées et collèges, avec le nom dans la colonne 1, l'UAI dans la colonne 2, "public" ou "privé" dans la colonne 3, et "lycée" ou "collège" dans la colonne 4. On pourrait avoir le template suivant :
+
+```markdown
+Nom de l'établissement : $1
+UAI : $2
+Il s'agit d'un $4 $3
+```
+
+
+
+#### Combinaison avec les variables dynamiques
+
+On peut utiliser des variables dynamiques, soit pour utiliser le plugin readCsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
+
+Ce dernier cas peut être très utile si on peut accéder à une API qui permet de récupérer des données spécifiques en fonction de paramètres dans l'URL elle-même.
+
+Vous pouvez consulter cet exemple qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
+
+Voir la source : https://drane-lyon.forge.apps.education.fr/chatbot/uai.md
+
+
+## Utilisation de l'IA
+
+### Principe général
+
+ChatMD peut se connecter à un LLM en ligne ou en local.
+
+L'intérêt est que l'on peut alors utiliser l'IA de manière sobre et ciblée, au sein d'un parcours scénarisé dont on garde le contrôle.
+
+De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à votre chatbot : il faudra simplement lui communiquer un mot de passe.
+
+<!-- TODO: ajouter exemples de chatbots avec IA 
+Notamment : utilisation de questions en variables avec de l'aléatoire ? -->
+
+#### Appel à une IA : après un clic sur un bouton de réponse
+
+On peut faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
+
+Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'on a prévue, on utilise la directive `!useLLM` suivie de la question que l'on pose au LLM.
+
+```markdown
+1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
+```
+
+Par défaut, si on a configuré l'utilisation d'un LLM, ChatMD ajoute automatiquement un bouton qui propose de poser sa question au LLM quand le chatbot n'a pas trouvé de réponse pertinente dans les réponses prédéfinies.
+
+#### Appel à une IA : par l'utilisateur dans son message
+
+L'utilisateur lui-même peut faire appel à une IA en commençant sa question par `!useLLM`.
+
+Cette fonctionnalité est surtout utile si on a activé le RAG et défini une base de connaissances que l'utilisateur peut alors interroger de cette manière.
+
+#### Appel à une IA : dans un message du chatbot
+
+Il est également possible d'insérer, dans un message du chatbot, du contenu généré dynamiquement par l'IA.
+
+Pour cela, on écrit un bloc avec un prompt qui sera remplacé, au moment de l'affichage, par la réponse du LLM.
+
+
+:::info Structure d'un bloc prompt
+Le bloc prompt doit être écrit de la manière suivante :
+1. On commence le bloc par `` `!useLLM` ``
+2. On écrit son prompt
+3. On termine son bloc par `` `END !useLLM` ``
+:::
+
+```markdown
+## Dictée niveau quatrième
+Voici une dictée générée automatiquement  :
+
+`!useLLM`
+Rédige une dictée d'environ 80 à 100 mots, destinée à des élèves de quatrième.  
+Le texte doit être rédigé au passé simple et à l'imparfait, contenir au moins trois adjectifs accordés en genre et en nombre, ainsi qu'une proposition subordonnée relative.  
+Le vocabulaire doit rester accessible pour ce niveau, et le ton peut être narratif ou descriptif.
+`END !useLLM`
+
+📝 Conseil : lis d'abord la dictée une première fois en entier, puis fais-la à l'écrit sans te précipiter. Pense à bien accorder les adjectifs et les verbes, surtout à l'imparfait !
+```
+
+
+##### Combiner variables dynamiques et appel à une IA
+
+On peut générer un prompt qui utilise le contenu de certaines variables dynamiques, ce qui permet d'adapter le prompt à la situation spécifique de l'utilisateur.
+
+:::warning Attention
+Si vous voulez utiliser les variables dynamiques, il faut avoir activé cette fonctionnalité dans le YAML
+:::
+
+```yaml
+variablesDynamiques: true
+```
+
+Imaginons par exemple qu'on a demandé auparavant à l'utilisateur sa discipline, le niveau de ses élèves et le sujet précis actuellement étudié, on pourrait alors faire un prompt de création d'un exercice qui utilise les variables qui ont récupéré les informations en question.
+
+```markdown
+## Création d'un quiz
+Voici un exercice généré automatiquement par l'IA :
+
+`!useLLM`
+Tu es un enseignant en : `@discipline`
+Tes élèves sont en : `@niveauEleves`
+
+Crée un quiz sur ce sujet : `@sujetActuel`
+
+Ton quiz doit comporter trois questions de type QCM avec à chaque fois des distracteurs pertinents.
+`END !useLLM`
+```
+
+##### Évaluer la réponse de l'utilisateur par l'IA
+
+Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une question à l'utilisateur, de récupérer sa réponse dans une variable dynamique et de demander à un LLM d'évaluer sa réponse d'après des critères qu'on définit dans le prompt.
+
+:::warning Attention
+Cet usage suppose aussi d'avoir au préalable activé les variables dynamiques dans le YAML.
+:::
+
+```markdown
+## Question sur les trois types de roche
+Quels sont les trois grands types de roche ?
+
+`@réponseTypesDeRoches = @INPUT : Réponse à la question sur les trois types de roche`
+
+## Réponse à la question sur les trois types de roche
+
+:::warning Attention
+La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critique !
+:::
+
+`!useLLM`
+J'ai pose à un élève la question suivante : quels sont les trois grands types de roche ?
+
+Voici la réponse de l'élève : `@réponseTypesDeRoches`
+
+Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
+
+Évalue la réponse de l'élève en lui donnant des conseils pour s'améliorer.
+`END !useLLM`
+
+**Fin de la réponse générée par l'IA**
+
+1. [Question numéro 2](Composition du granite)
+
+```
+
+:::info Réponse sur plusieurs lignes possible
+Dans le cas où on demande une réponse qu'on fait évaluer par un LLM, l'utilisateur peut faire un message plus long et l'écrire sur plusieurs lignes en utilisant `Shift+Enter` pour aller à la ligne.
+:::
+
+
+
+
+
+### Configuration initiale
+
+#### LLM en ligne
+
+Pour pouvoir accéder aux fonctionnalités IA, il faut avoir une clé API chez un fournisseur de LLM.
+
+:::info Comment créer une clé API ?
+Si vous visez un public réduit ou un usage peu intensif et expérimental, certains fournisseurs proposent des plans gratuits qui peuvent être suffisants.
+
+Voir par exemple cette liste : https://github.com/cheahjs/free-llm-api-resources
+:::
+
+On va ensuite chiffrer sa clé API afin d'éviter qu'elle soit diffusée publiquement dans le fichier source de son chatbot.
+
+<iframe src="https://chatmd.forge.apps.education.fr/docs/encrypt_api_key.html" style="border:0; width:100%; height:325px"></iframe>
+
+On pourra alors configurer l'accès au LLM dans le YAML, en ajoutant :
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+```
+
+:::warning Attention !
+Le fait de chiffrer la clé API empêche seulement que la clé soit récupérée par quelqu'un qui n'a pas le mot de passe.
+
+Mais une personne qui a le mot de passe et un peu de connaissances techniques pourrait récupérer la clé API. Ce n'est donc pas une solution parfaite et il faut donc vérifier les usages de sa clé, et la réinitialiser en cas de problème.
+:::
+
+#### Utiliser un serveur intermédiaire pour sécuriser la clé API
+
+Une autre approche, plus sécurisée, consiste à ne pas exposer directement la clé API du LLM dans votre application, même sous forme chiffrée.
+
+Vous pouvez pour cela utiliser un serveur intermédiaire (par exemple via un outil d'automatisation comme n8n) qui se chargera de faire l'appel au modèle de langage et de renvoyer la réponse.
+
+Les avantages :
+1. la clé API reste totalement cachée ;
+2. vous pouvez appliquer des filtres, des quotas ou des règles d'accès ;
+3. cela facilite la supervision et le changement de fournisseur si nécessaire.
+
+L'inconvénient est qu'il faut mettre en place ce serveur, ce qui suppose des connaissances techniques et l'accès à un serveur.
+
+:::warning
+Attention, selon la solution choisie, le serveur permettra ou non de renvoyer une réponse "streamée". Il faudra donc adapter la valeur du paramètre `stream` (voir les options plus en détails, ci-dessous).
+:::
+
+
+#### LLM en local
+
+Plusieurs logiciels permettent de faire tourner un LLM en local et d'avoir une clé API qui va permettre à ChatMD d'envoyer un prompt au LLM et d'obtenir une réponse.
+
+:::info Quel logiciel utiliser ?
+Voici quelques solutions possibles :
+- [Jan.ai](https://jan.ai/docs/api-server)
+- [Ollama](https://github.com/ollama/ollama)
+- [LLM Studio](https://lmstudio.ai/docs/app/api)
+:::
+
+Dans ce cas, on a simplement besoin d'indiquer dans le YAML l'URL du serveur local et le nom du modèle.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+```
+
+#### Options possibles
+
+```yaml
+useLLM:
+   maxTokens: nombre_maximum_de_tokens
+   systemPrompt: "Prompt système général"
+   preprompt: "Pré prompt, avant la demande"
+   postprompt: "Post prompt, après la demande"
+   maxProcessingTime: temps_d_attente_maximum
+   always: false
+   stream: true
+   simulateStream: true
+```
+
+Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
+
+On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors mettre le paramètre `always: true` dans l'en-tête YAML. Dans ce cas, les réponses prévues dans le chatbot servent simplement de support pour la génération d'une réponse par le LLM.
+
+On peut demander à obtenir la réponse du LLM d'un coup, sans "streaming" de la réponse, avec le paramètre `stream: false`.
+
+Si on utilise un outil, comme n8n, pour cacher sa clé API, alors le streaming de la réponse n'est pas possible, il faut donc mettre le paramètre `stream: false`, mais on peut utiliser le paramètre `simulateStream: true` pour afficher la réponse petit à petit, comme si elle était "streamée".
+
+
+### RAG
+
+:::info Qu'est-ce que le RAG ?
+Le RAG (_Retrieval-Augmented Generation_) consiste à demander à une IA générative de répondre, non pas seulement à partir des informations issues de son entraînement, mais à partir d'une base de connaissances qu'on lui a fournie.
+
+On pourrait par exemple fournir une liste de définitions, de méthodes, de textes propres à sa discipline et son approche pédagogique.
+
+Le but est d'améliorer la pertinence du contenu généré et de forcer l'IA à répondre d'après le cadre qu'on lui donne.
+:::
+
+#### Configuration initiale du RAG
+
+Pour ajouter une base de connaissances qui sera utilisée par le LLM pour produire sa réponse, on ajoute dans le YAML :
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: "URL_base_de_connaissance"
+```
+
+On peut mettre plusieurs URLs à récupérer pour constituer sa base de connaissance.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: ["URL1", "URL2", "URL3"]
+```
+
+La base de connaissance doit être constituée de fichiers texte.
+
+On peut éventuellement mettre directement du texte, si la base de connaissances est très succincte.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: |
+      hédonisme : défense de la valeur du plaisir ; thèse selon laquelle le plaisir est un bien qu'il faut rechercher
+      aponie : absence de souffrance dans le corps
+      ataraxie: absence de trouble dans l'âme
+```
+
+Si on a récupéré les sources de ChatMD, on peut utiliser le fichier `app/js/ai/rag/sources.mjs` pour définir un fichier RAG local et l'intégrer automatiquement à son chatbot au moment de la compilation de ChatMD. Dans ce cas, il faut mettre `RAGinformations: useFile` comme paramètre.
+
+
+#### Utilisation du RAG dans un bloc prompt au sein d'un message
+
+Si on utilise un bloc prompt dans un message avec la directive `!useLLM`, alors on peut ajouter une base de connaissances à son prompt.
+
+Cette base de connaissance pourra être spécifique à chaque prompt (alors que la base de connaissances définie dans le RAG est générale).
+
+Pour cela, on utilise la syntaxe suivante : `!RAG: {question posée au LLM} {url:urlFichierRAG1 url:urlFichierRAG2}`
+
+ChatMD transformera alors cette ligne par une sélection des informations les plus pertinentes dans la base de connaissances (en fonction de la question posée), et un message indiquant de répondre à partir de ces informations.
+
+Voici un exemple :
+
+```markdown
+## question sur les programmes
+Quelle est votre question sur les programmes ?
+
+`@questionProgramme = @INPUT : traitement question programmes`
+
+## traitement question programmes
+
+`!useLLM`
+Tu es un expert en didactique des mathématiques.
+
+Un professeur a posé la question suivante : `@questionProgramme`
+
+!RAG: {`@questionProgramme`} {url:"URL_fichier_texte_du_programme"}
+`END !useLLM`
+
+```
+
+On peut aussi configurer le RAG avec certaines options :
+- `maxResults:` pour définir le nombre de résultats maximum à intégrer dans le RAG
+- `separator:` : pour définir le séparateur des différents segments de la base de connaissance
+- `prompt:` : pour définir le message qui précise comment on doit utiliser les informations issues de la base de connaissance (vous pouvez consulter ci-dessous, dans les options de configuration, le prompt par défaut).
+
+Par exemple :
+`!RAG: {Question posée au LLM} {url:"URL" maxResults:5 separator:"---"}`
+
+
+#### Fonctionnement du RAG
+
+ChatMD utilise un système de RAG simplifié qui fonctionne ainsi :
+
+1. **Préparation de la base de connaissances :** ChatMD découpe en segments (_chunks_) la base de connaissances.
+2. **Recherche des passages pertinents lors d'une requête :** quand une question est posée, ChatMD fait un calcul de similarité entre la question et ces différents segments, afin d'identifier les passages les plus pertinents.
+3. **Construction du prompt enrichi :** ChatMD ajoute les passages les plus pertinents au prompt et demande au LLM de répondre en prenant en compte ces passages.
+
+:::info collapsible Aspects techniques
+Contrairement aux systèmes RAG classiques, ChatMD ne repose pas sur une vectorisation sémantique des documents à l'aide d'_embeddings_ stockés dans une base vectorielle.
+
+À la place, ChatMD effectue une vectorisation lexicale légère : les documents sont représentés sous forme de tokens, et la similarité entre une question et les documents est calculée à l'aide de méthodes classiques (similarité cosinus, calcul de distance lexicale, prise en compte de la taille et de la position des tokens …).
+
+Ce choix vise à :
+1. favoriser un usage sobre de l'intelligence artificielle, en évitant les appels à des services d'API pour la vectorisation ;
+2. simplifier le déploiement en supprimant la dépendance à une base de données externe ou à un moteur de recherche sémantique.
+
+Par ailleurs le parti-pris est que dans les cadres d'usages de ChatMD, notamment institutionnels ou pédagogiques, les documents utilisés pour la base de connaissance intègrent suffisamment de mots-clés pour pouvoir se passer de la vectorisation sémantique.
+:::
+
+#### Options de configuration
+
+Chaque phase du RAG dans ChatMD peut être configurée à l'aide de différents paramètres :
+
+1. **Préparation de la base de connaissances :** il est possible de définir la méthode de découpage des documents en segments (_chunks_). Par défaut, la séparation se fait ligne par ligne, mais d'autres options sont disponibles : découpage par paragraphe, par un séparateur personnalisé (comme `---`), ou tous les _n_ caractères.
+2. **Recherche des passages pertinents lors d'une requête :** on peut choisir le nombre de segments à inclure dans la requête. Par défaut, ChatMD sélectionne les 3 passages les plus pertinents.
+3. **Construction du prompt enrichi :** on peut changer le message qui précise la manière d'utiliser les informations fournies.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   RAGinformations: "URL_base_de_connaissance"
+   RAGseparator: "\n"
+   RAGmaxTopElements: 3
+   RAGprompt: |
+      Voici ci-dessous le contexte à partir duquel tu dois prioritairement partir pour construire ta réponse, tu dois sélectionner dans ce contexte l'information qui est en lien avec la question et ne pas parler du reste. Si l'information n'est pas dans le contexte, indique-le et essaie de répondre malgré tout."
+```
+
+Voici un exemple de message pour le paramètre `RAGprompt` afin que l'IA réponde uniquement sur la base des documents disponibles, sans extrapolation.
+
+```yaml
+useLLM:
+   RAGprompt: |
+      Voici ci-dessous le contexte à partir duquel tu dois construire ta réponse, tu dois sélectionner dans ce contexte l'information pertinente et ne pas parler du reste. Si la réponse à la question n'est pas dans le contexte, tu ne dois pas répondre et dire : je ne sais pas.
+      CONTEXTE : 
+
+```
+
+
+## Intégration dans un site web
+
+### Iframe
+
+Une _iframe_ permet d'intégrer directement votre chatbot dans une page web à l'aide d'une balise HTML.
+
+Cela affiche l'interface du chatbot dans un cadre intégré à votre site.
+
+```html
+<iframe src="https://chatmd.forge.apps.education.fr/#URLDEVOTRECHATBOT" style="border:0; width:100%; height:700px"></iframe>
+```
+
+:::info Explications
+- `src` : remplacez URLDEVOTRECHATBOT par l'URL de la source du chatbot que vous souhaitez intégrer.
+- `border:0` : pas de bordure autour de l'_iframe_.
+- `width:100%` : largeur de l'_iframe_ égale à 100% pour que l'_iframe_ prenne toute la largeur de son conteneur.
+- `height:700px` : hauteur fixe de 700px de l'_iframe_ (vous pouvez l'ajuster selon vos besoins)
+:::
+
+### Widget
+
+Le widget permet d'ajouter un bouton flottant en bas à droite de la page.
+
+Lorsqu'on clique sur le bouton, le chatbot s'ouvre dans une fenêtre superposée juste au-dessus du bouton.
+
+#### Code à insérer
+
+Placez ce script, de préférence en bas de page, dans l'élément `body` :
+
+```html
+<script id="chatmdWidgetScript" src="https://chatmd.forge.apps.education.fr/widget.min.js" data-chatbot="URL_SOURCE_CHATBOT"></script>
+```
+
+:::info Explications
+- `id` : ne changez pas l'identifiant sinon le widget ne marchera pas
+- `src` : ne changez pas cette URL qui correspond à l'adresse du script qui permet d'afficher le widget
+- `data-chatbot` : remplacez `URL_SOURCE_CHATBOT` par l'URL directe de votre fichier Markdown (par exemple, un lien vers votre CodiMD).
+:::
+
+:::warning Attention
+`URL_SOURCE_CHATBOT` doit correspondre à l'URL directe de votre fichier source.
+
+Il est important de ne pas utiliser l'URL complète du chatbot lui-même, mais bien celle de votre source en Markdown.
+:::
+
+#### Personnalisation de l'image du widget
+
+Pour customiser l'image du widget, ajoutez `data-image="URL_IMAGE"` comme paramètre.
+
+```html
+<script
+  id="chatmdWidgetScript"
+  src="https://chatmd.forge.apps.education.fr/widget.min.js"
+  data-chatbot="URL_SOURCE_CHATBOT"
+  data-image="URL_IMAGE"
+></script>
+```
+
+Remplacez `URL_IMAGE` par le lien direct vers l'image que vous souhaitez utiliser (par exemple, un logo personnalisé).
+
+L'image doit idéalement être de petite taille pour un bon rendu.
+
+#### Exemples d'utilisation de ChatMD en widget
+
+- [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
+
+
+### URL personnalisée <aside>sur la Forge des communs numériques éducatifs</aside>
+
+
+Vous pouvez créer votre propre dépôt sur la [Forge des communs numériques éducatifs](http://forge.apps.education.fr/), afin d'avoir une URL personnalisée pour votre chatbot.
+
+Attention à choisir un nom bien spécifique à votre projet !
+
+Pour créer votre chatbot sur la Forge, il suffit de bifurquer le [modèle de déploiement avec ChatMD](https://forge.apps.education.fr/docs/modeles/modele-chatmd).
+
+Pour comprendre comment bifurquer un projet et choisir votre URL, vous pouvez suivre ce tutoriel : https://avoir-un-super-chemin-d-acces-sur-la.forge.apps.education.fr/
+
+### Export SCORM pour Moodle :<aside>intégration dans _Magistère_ ou _Éléa_</aside>
+
+L'export SCORM permet d'intégrer votre chatbot dans les plateformes de type _Moodle_ comme _Magistère_ et _Éléa_.
+
+:::info Intégrer ChatMD en tant que module SCORM présente deux avantages importants
+1. Pouvoir **calculer un score ou un statut de réussite** dans ChatMD et l'envoyer ensuite dans Moodle pour qu'il soit récupéré en tant que note ou condition d'achèvement du parcours
+2. Pouvoir **enregistrer les interactions de l'utilisateur avec le chatbot** afin que la personne qui a conçu le parcours puisse voir ce que les participants ont fait avec le chatbot
+:::
+
+
+#### Configurer son chatbot pour l'utiliser avec Moodle
+
+Pour activer l'intégration de votre chatbot avec Moodle, il faut ajouter la propriété `scorm: true` dans l'en-tête YAML.
+
+L'enregistrement des interactions de l'utilisateur avec le chatbot sera alors automatique.
+
+Mais si vous souhaitez faire remonter un score ou bien un statut de réussite, il faut activer les variables dynamiques dans le YAML et utiliser les variables suivantes :
+- `scormScore` pour définir un nombre de points
+- `scormScoreMax` pour définir le nombre de points maximal possible
+- `scormSuccess` pour définir un statut de réussite, qui est soit `true`, soit `false`, soit `undefined` par défaut.
+
+Vous pouvez aussi faire remonter d'autres informations, en utilisant la variable `scormComment`.
+
+Enfin, vous pouvez utiliser dans votre chatbot le nom de l'utilisateur Moodle avec la variable `@GETscormName`.
+
+#### Exporter son chatbot en tant que module SCORM
+
+Utilisez l'outil ci-dessous pour créer le package SCORM (fichier zip) à intégrer ensuite comme activité dans Moodle.
+
+<iframe src="https://chatmd.forge.apps.education.fr/docs/create_scorm_package.html" style="border:0; width:100%; height:200px"></iframe>
+
+
+#### Récupérer les informations dans Moodle
+
+Pour pouvoir voir les informations envoyées par ChatMD vers Moodle, il faut aller dans les rapports du module SCORM et cliquer sur la tentative de l'utilisateur.
+
+Si vous avez calculé un score ou un statut de réussite, il sera déjà affiché et vous aurez aussi accès au temps passé sur le chatbot.
+
+Pour pouvoir voir la conversation de l'utilisateur, il faut cliquer sur les détails du parcours, vous pouvez alors utiliser le bookmarklet suivant pour pouvoir afficher automatiquement dans une nouvelle fenêtre la conversation de l'utilisateur.
+
+Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détails d'un parcours d'utilisateur.
+
+<a href="javascript:(function(){const script=document.createElement('script');script.src='https://chatmd.forge.apps.education.fr/docs/js/open_chatbot_from_moodle_report.js';document.body.appendChild(script);})();">Voir la conversation</a>
+</doc></documentation><examples><doc title="Simple Chatbot Example" desc="A basic example demonstrating the creation of a simple chatbot."># Chatbot de bienvenue
+
+Bonjour ! Je suis ton assistant ChatMD. Que veux-tu faire ?
+
+1. [Découvrir ChatMD](découverte ChatMD)
+2. [Voir un exemple](exemple de chatbot)
+
+## découverte ChatMD
+ChatMD te permet de créer des chatbots en écrivant simplement du Markdown. Pas besoin de coder !
+
+1. [Voir un exemple](exemple de chatbot)
+
+## exemple de chatbot
+- exemple
+- concret
+- concrètement
+- syntaxe à respecter
+- le code
+
+Regarde le code de cet exemple !</doc></examples></project>
