@@ -6,7 +6,7 @@
 - Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
 - Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
 - Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
-- LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).<documentation><doc title="Formal Example" desc="Reference implementation showing correct ChatMD basic syntax."># Titre du chatbot
+- LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).<examples><doc title="Formal Example" desc="Reference implementation showing correct ChatMD basic syntax."># Titre du chatbot
 
 Message initial
 
@@ -31,7 +31,26 @@ Texte
 
 ## cible bouton 2
 
-Texte</doc><doc title="Full documentation" desc="Complete guide covering all ChatMD features, advanced configurations, and integrations.">
+Texte</doc><doc title="Simple Chatbot Example" desc="A basic example demonstrating the creation of a simple chatbot."># Chatbot de bienvenue
+
+Bonjour ! Je suis ton assistant ChatMD. Que veux-tu faire ?
+
+1. [Découvrir ChatMD](découverte ChatMD)
+2. [Voir un exemple](exemple de chatbot)
+
+## découverte ChatMD
+ChatMD te permet de créer des chatbots en écrivant simplement du Markdown. Pas besoin de coder !
+
+1. [Voir un exemple](exemple de chatbot)
+
+## exemple de chatbot
+- exemple
+- concret
+- concrètement
+- syntaxe à respecter
+- le code
+
+Regarde le code de cet exemple !</doc></examples><documentation><doc title="Basic Syntax">
 ## Syntaxe de base
 
 ### Structure générale d'un chatbot
@@ -219,8 +238,7 @@ La recette : …
 ```
 
 Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Up0rojkgRaGtxolcQsbMdw).
-
-
+</doc><doc title="Advanced Configuration">
 ## Configuration avancée
 
 
@@ -348,8 +366,8 @@ Vous pouvez ajouter des styles CSS personnalisés au chatbot entier, dans l'en-t
 
 ```yaml
 style: |
-    a{color:red}
-    p{text-align:center}
+	 a{color:red}
+	 p{text-align:center}
 ```
 
 Mais vous pouvez aussi modifier le style d'un message en particulier, en ajoutant une balise HTML `<style scoped></style>` au début de votre message :
@@ -585,17 +603,17 @@ Voir cet [exemple](https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ?both)
 Pour les chatbots avec beaucoup de contenu, vous pouvez répartir la source entre plusieurs fichiers :
 
 1. Via le YAML :
-   ```yaml
-   include: ['URL fichier 1', 'URL fichier 2']
-   ```
+	```yaml
+	include: ['URL fichier 1', 'URL fichier 2']
+	```
 
 2. Via le projet source dans les fichiers de données :
-   - Modifiez `js/data/index.md`
-   - Ajoutez des fichiers `.md` dans le dossier `data`
-   - Exécutez `npx task build` après avoir installé les dépendances
+	- Modifiez `js/data/index.md`
+	- Ajoutez des fichiers `.md` dans le dossier `data`
+	- Exécutez `npx task build` après avoir installé les dépendances
 
 3. Via le projet source avec le fichier de configuration
-    - Modifiez `js/config.mjs`
+	 - Modifiez `js/config.mjs`
 
 #### Structuration du document
 
@@ -678,14 +696,14 @@ Voir cet [exemple](https://codimd.apps.education.fr/sp8dwq5rQGq3pIj2DPBD0A?both)
 Pour gérer plusieurs personnages de chatbot dans un même projet, il faut d'abord déclarer les bots dans le YAML :
 ```yaml
 bots:
-   nomBot1:
-      avatar: URLimageBot1
-      cssAvatar: "CSS particulier pour l'avatar du Bot1"
-      cssMessage: "CSS particulier pour les messages du Bot1"
-   nomBot2:
-      avatar: URLimageBot2
-      cssAvatar: "CSS particulier pour l'avatar du Bot2"
-      cssMessage: "CSS particulier pour les messages du Bot2"
+	nomBot1:
+		avatar: URLimageBot1
+		cssAvatar: "CSS particulier pour l'avatar du Bot1"
+		cssMessage: "CSS particulier pour les messages du Bot1"
+	nomBot2:
+		avatar: URLimageBot2
+		cssAvatar: "CSS particulier pour l'avatar du Bot2"
+		cssMessage: "CSS particulier pour les messages du Bot2"
 ```
 
 On utilise ensuite la directive `!Bot: botName` pour changer de bot dans les réponses.
@@ -701,8 +719,7 @@ Il faut différencier les désirs ! Seuls les désirs vains nous éloignent du b
 ```
 
 Exemple : [source](https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA?both) et [chatbot](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/pKXavCOeTfityYVTTS6aMA)
-
-
+</doc><doc title="Dynamic Content">
 ## Contenus dynamiques
 
 
@@ -1143,8 +1160,7 @@ Ce dernier cas peut être très utile si on peut accéder à une API qui permet 
 Vous pouvez consulter cet exemple qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
 
 Voir la source : https://drane-lyon.forge.apps.education.fr/chatbot/uai.md
-
-
+</doc><doc title="AI Usage">
 ## Utilisation de l'IA
 
 ### Principe général
@@ -1504,10 +1520,7 @@ useLLM:
       Voici ci-dessous le contexte à partir duquel tu dois construire ta réponse, tu dois sélectionner dans ce contexte l'information pertinente et ne pas parler du reste. Si la réponse à la question n'est pas dans le contexte, tu ne dois pas répondre et dire : je ne sais pas.
       CONTEXTE : 
 
-```
-
-
-## Intégration dans un site web
+```</doc><doc title="Web Integration">## Intégration dans un site web
 
 ### Iframe
 
@@ -1628,23 +1641,4 @@ Pour pouvoir voir la conversation de l'utilisateur, il faut cliquer sur les dét
 Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détails d'un parcours d'utilisateur.
 
 <a href="javascript:(function(){const script=document.createElement('script');script.src='https://chatmd.forge.apps.education.fr/docs/js/open_chatbot_from_moodle_report.js';document.body.appendChild(script);})();">Voir la conversation</a>
-</doc></documentation><examples><doc title="Simple Chatbot Example" desc="A basic example demonstrating the creation of a simple chatbot."># Chatbot de bienvenue
-
-Bonjour ! Je suis ton assistant ChatMD. Que veux-tu faire ?
-
-1. [Découvrir ChatMD](découverte ChatMD)
-2. [Voir un exemple](exemple de chatbot)
-
-## découverte ChatMD
-ChatMD te permet de créer des chatbots en écrivant simplement du Markdown. Pas besoin de coder !
-
-1. [Voir un exemple](exemple de chatbot)
-
-## exemple de chatbot
-- exemple
-- concret
-- concrètement
-- syntaxe à respecter
-- le code
-
-Regarde le code de cet exemple !</doc></examples></project>
+</doc></documentation></project>
