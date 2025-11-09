@@ -8,7 +8,7 @@ Bonjour ! Je suis ton assistant ChatMD. Que veux-tu faire ?
 ## découverte ChatMD
 ChatMD te permet de créer des chatbots en écrivant simplement du Markdown. Pas besoin de coder !
 
-1. [Voir un exemple](exemple)
+1. [Voir un exemple](exemple de chatbot)
 
 ## exemple de chatbot
 - exemple
