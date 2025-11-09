@@ -7,8 +7,13 @@
 		".gitlab-ci.yml",
 		"create_scorm_package.html",
 		"encrypt_api_key.html",
+		"index.md",
 		"README.md",
-		"Taskfile.yml"
+		"Taskfile.yml",
+		"sections/1-principe-general.md",
+		"sections/2-exemples.md",
+		"sections/3-le-markdown.md",
+		"sections/9-a-propos.md"
 	],
 	"rules": [
 		"Use ChatMD syntax for creating chatbots with Markdown",
