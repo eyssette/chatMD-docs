@@ -1,0 +1,26 @@
+# ChatMD
+
+> A tool to create chatbots easily from a simple Markdown file.
+
+Important notes:
+
+- Core principle: Use ChatMD syntax for creating chatbots with Markdown.
+- Syntax Fidelity: ChatMD uses a specific Markdown-based syntax. Follow documented examples closely. Ensure generated responses adhere to ChatMD syntax.
+- No Assumptions: Never create or assume undocumented ChatMD directives or YAML options. If something isn't in the documentation, it doesn't exist.
+- Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
+- Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
+- Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
+- LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).
+
+## Documentation
+
+- [Formal Example](exemples/syntaxe_de_base/exemple_formel.md): Reference implementation showing correct ChatMD basic syntax.
+- [Full documentation](index.md): Complete guide covering all ChatMD features, advanced configurations, and integrations.
+
+## Examples
+
+- [Simple Chatbot Example](exemples/syntaxe_de_base/exemple_minimal.md): A basic example demonstrating the creation of a simple chatbot.
+
+## Optional
+
+- [Technical Options Reference](technique.md): Complete catalog of YAML options and directives.
