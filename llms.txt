@@ -14,13 +14,13 @@ Important notes:
 
 ## Documentation
 
-- [Formal Example](exemples/syntaxe_de_base/exemple_formel.md): Reference implementation showing correct ChatMD basic syntax.
-- [Full documentation](index.md): Complete guide covering all ChatMD features, advanced configurations, and integrations.
+- [Formal Example](https://chatmd.forge.apps.education.fr/docs/exemples/syntaxe_de_base/exemple_formel.md): Reference implementation showing correct ChatMD basic syntax.
+- [Full documentation](https://chatmd.forge.apps.education.fr/docs/index.md): Complete guide covering all ChatMD features, advanced configurations, and integrations.
 
 ## Examples
 
-- [Simple Chatbot Example](exemples/syntaxe_de_base/exemple_minimal.md): A basic example demonstrating the creation of a simple chatbot.
+- [Simple Chatbot Example](https://chatmd.forge.apps.education.fr/docs/exemples/syntaxe_de_base/exemple_minimal.md): A basic example demonstrating the creation of a simple chatbot.
 
 ## Optional
 
-- [Technical Options Reference](technique.md): Complete catalog of YAML options and directives.
+- [Technical Options Reference](https://chatmd.forge.apps.education.fr/docs/technique.md): Complete catalog of YAML options and directives.
