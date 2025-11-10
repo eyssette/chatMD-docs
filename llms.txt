@@ -20,6 +20,9 @@ Important notes:
 ## Documentation
 
 - [Basic Syntax](https://chatmd.forge.apps.education.fr/docs/sections/4-syntaxe-de-base.md) : Understand and follow the core ChatMD syntax rules. This syntax is essential and must be strictly respected for ChatMD to work correctly.
+
+## Optional
+
 - [Advanced Configuration](https://chatmd.forge.apps.education.fr/docs/sections/5-configuration-avancee.md) : Configure advanced options to customize ChatMD behavior, but use them only when necessary or when they add clear value.
 - [Dynamic Content](https://chatmd.forge.apps.education.fr/docs/sections/6-contenus-dynamiques.md) : Learn how to use random values, dynamic variables that can change during the conversation, conditional blocks and external data, but use them only when necessary or when they add clear value.
 - [AI Usage](https://chatmd.forge.apps.education.fr/docs/sections/7-utilisation-ia.md) : Learn how to invoke AI in a targeted way within ChatMD to generate, transform, or enrich specific parts of your content, but use AI when necessary or when it adds clear value.

@@ -1,0 +1,238 @@
+<project title="ChatMD" summary="A tool to create chatbots easily from a simple Markdown file.">Important notes:
+
+- Core principle: Use ChatMD syntax for creating chatbots with Markdown.
+- Syntax Fidelity: ChatMD uses a specific Markdown-based syntax. Follow documented examples closely. Ensure generated responses adhere to ChatMD syntax.
+- No Assumptions: Never create or assume undocumented ChatMD directives or YAML options. If something isn't in the documentation, it doesn't exist.
+- Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.<examples><doc title="Formal Example" desc="Reference implementation showing correct ChatMD basic syntax."># Titre du chatbot
+
+Message initial
+
+1. [Premier choix](choix 1)
+2. [Deuxième choix](choix 2)
+
+## choix 1
+Message pour le choix 1
+
+## choix 2
+- déclencheur 1
+- déclencheur 2
+
+Message pour le choix 2
+
+1. [Bouton cliquable 1](cible bouton 1)
+2. [Bouton cliquable 2](cible bouton 2)
+
+## cible bouton 1
+
+Texte
+
+## cible bouton 2
+
+Texte</doc><doc title="Simple Chatbot Example" desc="A basic example demonstrating the creation of a simple chatbot."># Chatbot de bienvenue
+
+Bonjour ! Je suis ton assistant ChatMD. Que veux-tu faire ?
+
+1. [Découvrir ChatMD](découverte ChatMD)
+2. [Voir un exemple](exemple de chatbot)
+
+## découverte ChatMD
+ChatMD te permet de créer des chatbots en écrivant simplement du Markdown. Pas besoin de coder !
+
+1. [Voir un exemple](exemple de chatbot)
+
+## exemple de chatbot
+- exemple
+- concret
+- concrètement
+- syntaxe à respecter
+- le code
+
+Regarde le code de cet exemple !</doc></examples><documentation><doc title="Basic Syntax">
+## Syntaxe de base
+
+### Structure générale d'un chatbot
+
+Pour faire un chatbot avec [ChatMD](https://chatmd.forge.apps.education.fr/), il faut l'écrire en Markdown avec une structure simple :
+
+```markdown
+# Titre du chatbot
+
+Message initial
+
+1. [Premier choix](choix 1)
+2. [Deuxième choix](choix 2)
+
+## choix 1
+Message pour le choix 1
+
+## choix 2
+- déclencheur 1
+- déclencheur 2
+
+Message pour le choix 2
+
+1. [Bouton cliquable 1](cible bouton 1)
+2. [Bouton cliquable 2](cible bouton 2)
+```
+
+:::info Points clés
+- Le message initial et le contenu des réponses peuvent inclure toute la syntaxe Markdown : images, vidéos, iframes, HTML, etc.
+- Les titres de niveau 2 (`## `) désignent les réponses possibles.
+- Pour chaque réponse, on peut associer des déclencheurs
+- À la fin de chaque message, on peut mettre des boutons cliquables
+:::
+
+
+:::warning Attention
+Pour qu'un lien vers une réponse fonctionne, il faut que la cible du lien soit exactement identique au texte de la réponse.
+
+Il est donc conseillé de faire des copier-coller pour être sûr de ne pas faire d'erreurs.
+:::
+
+Voici un [modèle à récupérer](https://codimd.apps.education.fr/mBGbHStJSVOSrlGfGb981A?both) si vous voulez construire votre premier chatbot !
+
+
+### Interaction <span>(1)</span> <aside>clics sur un bouton de réponse</aside>
+
+Si l'utilisateur clique sur un bouton de réponse, ChatMD cherche la réponse qui correspond à ce bouton et l'affiche.
+
+Pour créer des boutons qui déclenchent des réponses quand on clique dessus, il faut utiliser cette syntaxe :
+
+```markdown
+## Choix pilule
+
+Prenez-vous la pilule rouge ou la pilule bleue ?
+
+1. [La rouge](choix pilule rouge)
+2. [La bleue](choix pilule bleue)
+
+## choix pilule rouge
+Vous avez choisi la pilule rouge.
+
+## choix pilule bleue
+Vous avez choisi la pilule bleue.
+```
+
+On utilise donc une liste ordonnée avec pour chaque ligne :
+- un nombre
+- un point
+- une espace
+- entre crochets : le texte qui s'affiche
+- entre parenthèses : le nom de la réponse vers laquelle ChatMD va aller si on clique sur le bouton
+
+:::warning Attention à la syntaxe !
+Il faut respecter strictement la syntaxe.
+- Il ne faut pas mettre d'espace avant le nombre au début
+- Il ne faut pas oublier l'espace après le point avant les crochets
+- Il ne faut pas mettre d'espace entre les crochets et les parenthèses
+- Le texte de la cible du lien doit être exactement identique au titre de niveau 2 qui correspond à cette cible (en faisant aussi attention aux majuscules et minuscules) : il vaut mieux faire un copier-coller pour éviter les erreurs
+:::
+
+### Interaction <span>(2)</span> <aside>saisie libre de l'utilisateur au clavier</aside>
+
+Si on a laissé le clavier disponible, l'utilisateur peut écrire librement sa question.
+
+ChatMD va alors chercher la réponse la plus pertinente.
+
+Pour permettre à ChatMD de renvoyer la réponse la plus adéquate, on indique sous le titre de chaque réponse des déclencheurs (mots clés ou expressions) qui vont renforcer le choix de cette réponse.
+
+On utilise une liste non ordonnée en Markdown, qui suit immédiatement le titre de la réponse (sans ligne vide entre le titre et la liste)
+
+```markdown
+## Hors sujet
+- éviter le hors sujet
+- faire du hors sujet
+- rester dans le sujet
+- ne pas s'éloigner du sujet
+- ne pas s'éloigner de la question
+
+Pour éviter le hors-sujet dans une dissertation philosophique, il faut bien analyser le sujet lors du travail au brouillon et toujours vérifier le lien avec la question posée quand on rédige.
+
+1. [Comment bien analyser le sujet ?](Analyser le sujet)
+2. [Comment on rédige ?](Rédiger)
+```
+
+Si on laisse la possibilité de poser des questions libres, c'est tout de même recommandé de faire des propositions avec des boutons à cliquer pour guider plus facilement l'utilisateur.
+
+##### Fonctionnement de l'algorithme de recherche
+
+Si on utilise des déclencheurs, ChatMD calcule la réponse la plus adéquate.
+
+Ce n'est pas une simple recherche d'occurrences : le calcul intègre une décomposition en tokens et un calcul de distance lexicale.
+
+La décomposition en tokens permet de retrouver des racines communes et la distance lexicale permet de trouver une réponse malgré des fautes d'orthographe.
+
+### Historique des interactions et partage d'une conversation
+
+ChatMD enregistre toutes les interactions de l'utilisateur avec le chatbot afin de permettre le partage de l'historique de la conversation ou d'une réponse spécifique.
+
+:::info Ce n'est pas une collecte de données
+Cet enregistrement se fait dans le navigateur lui-même et non pas sur un serveur : ChatMD ne collecte aucune donnée personnelle.
+:::
+
+En dessous de chaque message généré par le chatbot, on retrouve un bouton de menu qui permet d'ouvrir une fenêtre modale avec des liens de partage. 
+
+![](img/bouton_menu.png)
+
+![](img/liens_partage_conversation.png)
+
+Si on clique sur le lien de partage de toute la conversation, ChatMD ouvre le chatbot en reproduisant l'ensemble des interactions de l'utilisateur.
+
+Comme ChatMD ne propose pas d'outil de statistiques intégré, cela vous permet d'avoir malgré tout un retour de la part de vos utilisateurs, si vous leur demandez de partager leur conversation avec vous.
+
+:::info Aspects techniques
+
+D'un point de vue technique, les actions de l'utilisateur sont enregistrées dans les paramètres de l'URL : `?actions=action1|action2|action3`.
+
+Les actions sont listées dans le paramètre `?actions` et sont séparées par le caractère `|`.
+
+L'ordre des actions reflète leur enchaînement prévu.
+
+Il y a 6 types d'action différents :
+1. Clic sur un bouton, identifié par son numéro : `c:n3`
+2. Clic sur bouton, identifié par le texte affiché de ce bouton : `c:texte` (plus précisément : ChatMD sélectionne le dernier bouton affiché qui contient ce texte)
+3. Question ou réponse de l'utilisateur envoyée au chatbot : `e:message`
+4. Question envoyée à un LLM : `llmq:message`
+6. Réponse générée par le LLM : `llmr:message`
+On peut utiliser directement ces paramètres dans l'URL si on le souhaite.
+:::
+
+### Retour au message initial
+
+Pour pouvoir revenir au message initial, on utilise un lien sans cible.
+
+Si on veut éviter la répétition de certains passages dans le message initial quand il réapparaît, on les met dans une section avec la classe “unique”.
+
+```markdown
+# Faire un gâteau
+
+<section class="unique">
+Ce chatbot vous permet de choisir une recette. Laissez-vous guider par ce chatbot !
+</section>
+
+Quel gâteau voulez-vous faire ?
+
+<section class="unique">
+:::info
+Ce chatbot a été créé par M. Cuisine
+:::
+</section>
+
+1. [Un gâteau à la banane](Banane)
+2. [Un gâteau à la poire](Poire)
+
+## Banane
+
+La recette : …
+
+1. [Retour au menu initial]()
+
+## Poire
+
+La recette : …
+
+2. [Faire un autre gâteau !]()
+```
+
+Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Up0rojkgRaGtxolcQsbMdw).
+</doc></documentation></project>
