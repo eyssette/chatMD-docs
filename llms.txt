@@ -12,6 +12,10 @@ Important notes:
 - Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
 - LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).
 
+## Rules
+
+- [Critical rules to follow](https://chatmd.forge.apps.education.fr/docs/llm-rules.md)
+
 ## Examples
 
 - [Formal Example](https://chatmd.forge.apps.education.fr/docs/exemples/syntaxe_de_base/exemple_formel.md): Reference implementation showing correct ChatMD basic syntax.
