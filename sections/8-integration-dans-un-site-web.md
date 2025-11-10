@@ -62,6 +62,7 @@ L'image doit idéalement être de petite taille pour un bon rendu.
 
 #### Exemples d'utilisation de ChatMD en widget
 
+- [PabloBot : chatbot du collège Pablo Picasso dans l'académie de Versailles](https://clg-picasso-saulx.ac-versailles.fr/)
 - [Sandbot : chatbot du lycée Georges Sand - Domont dans l'académie de Versailles](https://www.lyc-sand-domont.fr/)
 
 

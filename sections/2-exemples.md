@@ -50,6 +50,15 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Aide à la mise en œuvre d'un projet EMI autour de la webradio](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11266070/es/assistant-virtuel-emi-et-webradio)
 - [EvalBot, assistant pour mieux évaluer en Physique-Chimie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/JI9QV_KWQOOMm-wFN_d9ow?both)
 
+#### Assistant pour la compréhension d'un texte
+
+##### Assistant pour la compréhension d'un texte officiel
+- [Assistant CECRL - Cadre Européen Commun de Référence pour les Langues](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/gXdpOKKiRy2VAyyBvHTEYg)
+- [chatbot interactif sur le Cadre d'usage de l'intelligence artificielle en éducation](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/kYTWDnExSiKZFhRt97-BFw?both)
+
+##### Assistant pour l'étude d'un texte avec les élèves
+- [To Kill a Mockingbird - Interactive Study Guide](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/a5G1qnn7SLu831dVjTMgMw)
+
 #### Outil d'aide à la décision ou à la création
 - [BTK-Bot : un assistant pour aider à trouver sa future formation après un BAC STL Biotechnologie](https://chatmd.forge.apps.education.fr/#https://biomicrobio.fr/images/BOT/BTKBot.md)
 - [Pas à pas pour la création de ”prompts” efficaces afin de créer des activités sur Moodle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/5HamcDX2f)
