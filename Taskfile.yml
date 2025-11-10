@@ -15,3 +15,8 @@ tasks:
     cmds:
       - for: { var: GIT_REPO_NAMES }
         cmd:  git push {{.ITEM}} && git push {{.ITEM}} --tags
+
+  llms:
+    cmds:
+      - llms_txt2ctx llms.txt > llms-small.txt
+      - llms_txt2ctx llms.txt > llms-full.txt --optional True

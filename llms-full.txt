@@ -238,7 +238,7 @@ La recette : …
 ```
 
 Voici le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Up0rojkgRaGtxolcQsbMdw).
-</doc><doc title="Advanced Configuration">
+</doc></documentation><optional><doc title="Advanced Configuration">
 ## Configuration avancée
 
 
@@ -1641,4 +1641,7 @@ Pour pouvoir voir la conversation de l'utilisateur, il faut cliquer sur les dét
 Enregistrez ce bookmarklet en le glissant-déposant dans vos favoris et cliquez dessus quand vous êtes sur les détails d'un parcours d'utilisateur.
 
 <a href="javascript:(function(){const script=document.createElement('script');script.src='https://chatmd.forge.apps.education.fr/docs/js/open_chatbot_from_moodle_report.js';document.body.appendChild(script);})();">Voir la conversation</a>
-</doc></documentation></project>
+
+<!-- TODO: ajouter autres possibilités d'intégration dans un site web
+Ajouter : déploiement sur une forge + déploiement sur un serveur local + intégration dans une application web avec source en base64
+--></doc></optional></project>
