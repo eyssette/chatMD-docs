@@ -5,10 +5,17 @@
 Important notes:
 
 - Core principle: Use ChatMD syntax for creating chatbots with Markdown.
-- Syntax Fidelity: ChatMD uses a specific Markdown-based syntax. Follow documented examples closely. Ensure generated responses adhere to ChatMD syntax.
+- Syntax Fidelity: ChatMD follows a strict Markdown-based format. Follow documented examples closely. Ensure generated responses adhere to ChatMD syntax.
+- Define the chatbot’s main title using a single level-1 Markdown heading placed at the start of the file (or immediately after YAML front matter if present)
+- Write the chatbot’s initial message in Markdown.
+- The initial message and each response block may end with a numbered list of clickable choices
+- Clickable choice format: `1. [Display Text](target_block_id)`
+- The `target_block_id` must match exactly a `## target_block_id` heading (case-sensitive, space-sensitive)
+- Define each response block with a level-2 markdown heading. Use the heading text as a case- and space-sensitive identifier for linking choices.
+- Optionally, list triggers as an unordered markdown list immediately after the level-2 heading. Triggers are keywords/phrases that can activate this response.
 - No Assumptions: Never create or assume undocumented ChatMD directives or YAML options. If something isn't in the documentation, it doesn't exist.
-- Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
 - Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
+- Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
 - Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
 - LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).
 
