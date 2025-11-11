@@ -16,6 +16,13 @@ tasks:
       - for: { var: GIT_REPO_NAMES }
         cmd:  git push {{.ITEM}} && git push {{.ITEM}} --tags
 
+  venv:install:
+    cmds:
+      - python3 -m venv myenv
+  venv:activate:
+    cmds:
+      - bash -c "source myenv/bin/activate && exec bash"
+
   llms:
     cmds:
       - llms_txt2ctx llms.txt > llms-small.txt
