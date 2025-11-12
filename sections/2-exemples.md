@@ -22,7 +22,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 
 #### Guide d'utilisation d'un outil
 - [Utilisation d'un microscope](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/xGNHIJSeTVCk6FHas-_71g)
-- [Utilisation de la perceuse à colonne dans un atelier Métallerie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/j2c6hkpCRuua0almpXIMdA?both)
+- [Utilisation de la perceuse à colonne dans un atelier Métallerie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/j2c6hkpCRuua0almpXIMdA)
 
 #### FAQ
 - [Présentation du dispositif TED-i](https://drne.region-academique-bourgogne-franche-comte.fr/presentation-ted-i/)
@@ -30,7 +30,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Gestion des avis sur une fiche établissement de Google Map](https://drane.ac-lyon.fr/spip/gestion-avis-google-map)
 - [Trouver la bonne plateforme d'assistance](https://drane.ac-lyon.fr/spip/Assistance)
 - [EnKbot : une aide associée à l'utilisation du site internet « L'EnK », le restaurant d'application du lycée Louis-Bascan](https://chatmd.forge.apps.education.fr/#https://raw.githubusercontent.com/Moniliformopse/chatbots/main/EnKbot.md)
-- [Foire Aux Questions pour les Directeurs en début d'année](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bGuIqvyBT1iTQnnFFhI5VQ?both)
+- [Foire Aux Questions pour les Directeurs en début d'année](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/bGuIqvyBT1iTQnnFFhI5VQ)
 - [Num44Bot : un chatbot créé par une équipe numérique pour répondre aux questions courantes](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/FziWeluESheEBLZFXBrIvw)
 
 #### Guide pour les élèves, parents ou collègues d'un établissement
@@ -48,13 +48,13 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Scénariser sa formation avec la méthode ABC Learning Design](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/VmyzDYolTauP9wRwLnK84g)
 - [Chatbot pour accompagner les personnes formées au programme pHARe dans le milieu scolaire.](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/s/HE5zk4vIE)
 - [Aide à la mise en œuvre d'un projet EMI autour de la webradio](https://www.pedagogie.ac-aix-marseille.fr/jcms/c_11266070/es/assistant-virtuel-emi-et-webradio)
-- [EvalBot, assistant pour mieux évaluer en Physique-Chimie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/JI9QV_KWQOOMm-wFN_d9ow?both)
+- [EvalBot, assistant pour mieux évaluer en Physique-Chimie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/JI9QV_KWQOOMm-wFN_d9ow)
 
 #### Assistant pour la compréhension d'un texte
 
 ##### Assistant pour la compréhension d'un texte officiel
 - [Assistant CECRL - Cadre Européen Commun de Référence pour les Langues](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/gXdpOKKiRy2VAyyBvHTEYg)
-- [chatbot interactif sur le Cadre d'usage de l'intelligence artificielle en éducation](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/kYTWDnExSiKZFhRt97-BFw?both)
+- [chatbot interactif sur le Cadre d'usage de l'intelligence artificielle en éducation](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/kYTWDnExSiKZFhRt97-BFw)
 
 ##### Assistant pour l'étude d'un texte avec les élèves
 - [To Kill a Mockingbird - Interactive Study Guide](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/a5G1qnn7SLu831dVjTMgMw)
@@ -80,6 +80,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Créer des chatbots de révisions sur les modes et temps dans le cadre de la préparation au DNB](https://pedagogie.ac-orleans-tours.fr/spip.php?article3029)
 - [BioALc : un guide pour deux épreuves du BTS Bioanalyses en Laboratoire de contrôle](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/2KwANarURoWcq3gGDXKObg)
 - [Memory, compagnon pour apprendre à apprendre](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/jfKO7VdaS_SWBi5JxFmrmw)
+- [MusIA : pour réviser un cours sur la poésie et les figures de style](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/DyJ3Rs80TYu110CCTKmy8g?view)
 
 #### Guide de découverte ou d'exploration d'un sujet
 
@@ -91,7 +92,9 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 #### Escape Game, aventure, enquête
 - [Cyber-3000 : un escape-game sous forme de chatbot](https://ww2.ac-poitiers.fr/srane/spip.php?article1125)
 - [ Le chat enquêteur (ionBOT) : une enquête fictive visant à identifier un suspect à partir d'indices chimiques retrouvés sur une scène de crime](https://pedagogie.ac-lille.fr/physique/traam-2024-2025-ionbot-lille/)
-- [Amybot et le complot des pixels : une enquête en SNT autour des enjeux de la photographie numérique](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/4znvEQq_TmOkr4hVgbOQlg?both)
+- [Amybot et le complot des pixels : une enquête en SNT autour des enjeux de la photographie numérique](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/4znvEQq_TmOkr4hVgbOQlg)
+- [Le miroir aux images : une aventure pour résoudre des énigmes autour de la poésie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/nLMGlPJtRLWaAnDKPbjkRw?view)
+
 
 #### Discussion avec un personnage historique
 - [Lucie Aubrac](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/6b4axSK3QNOLu69IzBlkjg)
