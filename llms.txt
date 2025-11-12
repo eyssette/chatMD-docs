@@ -13,7 +13,7 @@ Important notes:
 - The `target block id` must match exactly a `## target block id` heading (case-sensitive and space-sensitive)
 - To link back to the initial message, leave the target block id empty `1. [Back to initial message]()`
 - Define each response block with a level-2 markdown heading. Spaces are allowed in the heading. Use the heading text as a case- and space-sensitive identifier for linking choices.
-- Optionally, list triggers as an unordered markdown list immediately after the level-2 heading. Triggers are keywords/phrases that can activate this response.
+- Optionally use a Markdown unordered list (`- keyword`) immediately after the level-2 heading to define triggers. Triggers are keywords/phrases that can activate this response.
 - No Assumptions: Never create or assume undocumented ChatMD directives or YAML options. If something isn't in the documentation, it doesn't exist.
 - Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
 - Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
