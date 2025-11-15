@@ -434,12 +434,13 @@ footer: 'Mon footer'
 Pour utiliser un thème CSS particulier :
 
 ```yaml
-theme: bubbles
+theme: sms
 ```
-Pour le moment, seul le [thème _bubbles_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/zQTZQgJVRhy8SP0Gr1AQTQ) est disponible. Il permet d'avoir une conversation qui s'affiche à la manière d'un échange de SMS.
 
-
-![](img/theme_bubbles.png)
+Les thèmes disponibles pour le moment sont :
+1. Le [thème _sms_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/zQTZQgJVRhy8SP0Gr1AQTQ) pour avoir une conversation qui s'affiche à la manière d'un échange de SMS.
+2. Le [thème _DSFR_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/sOP4v0AuQNaKn4WjPsV1Yw?both), réservé aux sites qui ont le droit d'utiliser le système de design de l'État.
+3. Le [thème _light_](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/5n3vewQlTYKh2pS_z8xlhw) pour avoir une interface plus claire et épurée.
 
 
 #### Styles CSS
