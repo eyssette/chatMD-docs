@@ -15,7 +15,7 @@ avatarCercle: true
 favicon: URL
 footer: false
 footer: 'Mon footer'
-theme: bubbles
+theme: sms
 style: |
    a{color:red}
    p{text-align:center}
