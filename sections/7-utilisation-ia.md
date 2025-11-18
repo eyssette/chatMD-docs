@@ -88,19 +88,26 @@ Ton quiz doit comporter trois questions de type QCM avec à chaque fois des dist
 
 ##### Évaluer la réponse de l'utilisateur par l'IA
 
-Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une question à l'utilisateur, de récupérer sa réponse dans une variable dynamique et de demander à un LLM d'évaluer sa réponse d'après des critères qu'on définit dans le prompt.
+Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une question à l'utilisateur et de demander à un LLM d'évaluer sa réponse d'après des critères qu'on définit dans le prompt.
 
 :::warning Attention
-Cet usage suppose aussi d'avoir au préalable activé les variables dynamiques dans le YAML.
+Cet usage suppose d'avoir au préalable activé les variables dynamiques dans le YAML.
 :::
+
+```
+variablesDynamiques: true
+```
+
+On utilise la directive `!Next` pour poser une question à l'utilisateur, puis aller directement à un autre message dans lequel on va utiliser sa réponse.
+
 
 ```markdown
 ## Question sur les trois types de roche
 Quels sont les trois grands types de roche ?
 
-`@réponseTypesDeRoches = @INPUT : Réponse à la question sur les trois types de roche`
+`!Next: Réponse - question sur les trois types de roche`
 
-## Réponse à la question sur les trois types de roche
+## Réponse - question sur les trois types de roche
 
 :::warning Attention
 La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critique !
@@ -109,7 +116,7 @@ La réponse ci-dessous est générée par l'IA : gardez toujours l'esprit critiq
 `!useLLM`
 J'ai pose à un élève la question suivante : quels sont les trois grands types de roche ?
 
-Voici la réponse de l'élève : `@réponseTypesDeRoches`
+Voici la réponse de l'élève : `@INPUT`
 
 Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches sédimentaires, roches magmatiques et roches métamorphiques.
 

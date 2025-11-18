@@ -279,7 +279,7 @@ La variable dynamique `@INPUT` contient toujours la dernière réponse de l'util
 
 On peut donc l'utiliser soit pour l'afficher directement dans un message, soit pour l'assigner à une autre variable avec `@mavariable = calc(@INPUT)`.
 
-Pour poser une question à l'utilisateur, récupérer le contenu de sa réponse, puis aller directement à un autre message dans lequel on va utiliser sa réponse, on procède ainsi, avec la directive `!Next`
+Pour poser une question à l'utilisateur, puis aller directement à un autre message dans lequel on va utiliser sa réponse, on procède ainsi, avec la directive `!Next`.
 
 ```markdown
 Bonjour ! Quel est ton nom ?
@@ -287,8 +287,7 @@ Bonjour ! Quel est ton nom ?
 !Next: accueil
 
 ## accueil
-`@nom = calc(@INPUT)`
-Bonjour `@nom`
+Bonjour `@INPUT`
 Bienvenue ici !
 ```
 
