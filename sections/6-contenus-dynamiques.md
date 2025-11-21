@@ -12,18 +12,17 @@ Pour introduire de la variété dans les messages envoyés par le chatbot, vous 
 ```markdown
 ## Proposition d'aide
 
-Bonjour ! Comment puis-je vous aider aujourd'hui ?  
-1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
-2. [J'ai un problème avec l'ordinateur](Aide ordi)
-
----  
-
+Bonjour ! Comment puis-je vous aider aujourd'hui ?
+---
 Quel est votre problème ? 
+
 1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
 2. [J'ai un problème avec l'ordinateur](Aide ordi)
 ```
 
-Pour éviter d'avoir à remettre à chaque fois les mêmes boutons de réponse, on peut définir de l'aléatoire dans des variables (voir l'onglet sur les variables)
+ChatMD choisira au hasard une des propositions à chaque fois que le message sera affiché.
+Les boutons cliquables restent les mêmes dans tous les cas.
+
 
 #### Ordre aléatoire des boutons de réponse
 

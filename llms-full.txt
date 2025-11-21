@@ -1256,27 +1256,19 @@ De plus, l'utilisateur n'aura pas besoin de créer un compte pour accéder à vo
 <!-- TODO: ajouter exemples de chatbots avec IA 
 Notamment : utilisation de questions en variables avec de l'aléatoire ? -->
 
-#### Appel à une IA : après un clic sur un bouton de réponse
-
-On peut faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
-
-Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'on a prévue, on utilise la directive `!useLLM` suivie de la question que l'on pose au LLM.
-
-```markdown
-1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
-```
-
-Par défaut, si on a configuré l'utilisation d'un LLM, ChatMD ajoute automatiquement un bouton qui propose de poser sa question au LLM quand le chatbot n'a pas trouvé de réponse pertinente dans les réponses prédéfinies.
 
 #### Appel à une IA : par l'utilisateur dans son message
 
 L'utilisateur lui-même peut faire appel à une IA en commençant sa question par `!useLLM`.
 
-Cette fonctionnalité est surtout utile si on a activé le RAG et défini une base de connaissances que l'utilisateur peut alors interroger de cette manière.
+Cette fonctionnalité est surtout utile pour faire des tests quand on crée son chatbot, ou si on veut donner la possibilité à l'utilisateur de faire des appels, quand il le souhaite, à l'IA, notamment pour lui permettre d'interroger une base de connaissances qu'on a configuré avec du RAG (voir plus loin les explications sur le RAG).
+
+Il vaut mieux sinon désactiver cette fonctionnalité dans la configuration initiale (voir plus bas les explications à propos de `userCanCallLLM` dans les paramètres LLM du YAML).
+
 
 #### Appel à une IA : dans un message du chatbot
 
-Il est également possible d'insérer, dans un message du chatbot, du contenu généré dynamiquement par l'IA.
+On peut insérer, dans un message du chatbot, du contenu généré dynamiquement par l'IA.
 
 Pour cela, on écrit un bloc avec un prompt qui sera remplacé, au moment de l'affichage, par la réponse du LLM.
 
@@ -1287,6 +1279,15 @@ Le bloc prompt doit être écrit de la manière suivante :
 2. On écrit son prompt
 3. On termine son bloc par `` `END !useLLM` ``
 :::
+
+```markdown
+`!useLLM`
+Prompt
+`END !useLLM`
+```
+
+
+Exemple :
 
 ```markdown
 ## Dictée niveau quatrième
@@ -1338,7 +1339,7 @@ Un des usages les plus intéressants d'un LLM dans ChatMD est de poser une quest
 Cet usage suppose d'avoir au préalable activé les variables dynamiques dans le YAML.
 :::
 
-```
+```yaml
 variablesDynamiques: true
 ```
 
@@ -1377,7 +1378,184 @@ Dans la réponse de l'élève, il doit y avoir ces trois catégories : roches s�
 Dans le cas où on demande une réponse qu'on fait évaluer par un LLM, l'utilisateur peut faire un message plus long et l'écrire sur plusieurs lignes en utilisant `Shift+Enter` pour aller à la ligne.
 :::
 
+##### Permettre un échange prolongé avec l'IA, en utilisant l'historique de la conversation
 
+Par défaut, l'appel à une IA est un appel unique :
+- on ne peut pas continuer la conversation avec l'IA,
+- l'IA n'a pas accès à l'historique de la conversation.
+
+Si on veut autoriser l'utilisateur à poursuivre une discussion en utilisant l'historique de la conversation, on procède ainsi :
+
+Dans le bloc `!useLLM`, on ajoute au début dans son prompt `!useHistory`.
+
+
+###### Utiliser l'historique pour un seul message
+
+Activer l'historique de la conversation peut être utile par exemple dans cette situation :
+- l'IA crée un exercice,
+- l'utilisateur répond à l'exercice,
+- l'IA évalue la réponse.
+
+```markdown
+## Exo addition
+
+`!useLLM`
+Propose un exercice d'addition
+`END !useLLM`
+
+!Next: Evaluation addition
+
+## Evaluation addition
+
+`!useLLM`
+!useHistory
+
+Voici ma réponse : `@INPUT`.
+Cette réponse est-elle correcte ?
+
+`END !useLLM`
+```
+
+Tant que l'on utilise le paramètre `!useHistory` l'IA conserve l'historique de la conversation. Mais dès qu'on ne l'utilise plus, l'IA remet à zéro l'historique.
+
+###### Autoriser une conversation continue avec l'IA
+
+Avec la méthode précédente, on pourrait déjà faire une conversation continue en renvoyant à chaque fois à un nouveau message avec un prompt qui utilise l'historique.
+
+Mais c'est parfois plus simple de faire une boucle qui permet à l'utilisateur de prolonger la discussion.
+
+:::warning Attention !
+Dans ce cas, il faut penser à deux points importants :
+1. Il est préférable d'encadrer la discussion en rappelant des consignes pour que la conversation ne dérive pas vers du hors sujet ou pire …
+1. Quand on fait une boucle, la conversation continuera toujours avec le LLM. Donc si on veut emmener l'utilisateur ailleurs dans son chatbot, il faut donner un moyen de sortir de la boucle (voir plus bas).
+:::
+
+```markdown
+
+## Exercice explication
+
+`!useLLM`
+J'ai demandé à un élève d'expliquer POINT_À_EXPLIQUER
+
+Voici sa réponse : `@INPUT`
+
+CONSIGNES_EVALUATION
+
+Ne donne pas la bonne réponse.
+Donne des conseils pour améliorer sa définition.
+`END !useLLM`
+
+!Next: Amélioration Exercice explication
+
+## Amélioration Exercice explication
+
+`!useLLM`
+!useHistory
+`@INPUT`
+
+Attention, la discussion doit rester centrée sur POINT_À_EXPLIQUER.
+
+`END !useLLM`
+
+!Next: Amélioration Exercice explication
+
+```
+
+###### Gérer la sortie de la conversation avec l'IA
+
+Si on utilise une boucle, la conversation va continuer avec l'IA. Pour sortir de cette conversation avec l'IA et aller ailleurs dans le chatbot, il y a plusieurs possibilités :
+
+**1/ Gérer la sortie de la conversation IA avec un bouton à cliquer pour aller ailleurs**
+
+
+```markdown
+## Suite discussion avec Epicure
+
+`!useLLM`
+!useHistory
+`@INPUT`
+
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+
+`END !useLLM`
+
+!Next: Suite discussion avec Epicure
+
+1. [Je veux maintenant parler avec Platon](Discussion avec Platon)
+
+```
+
+Par défaut le bouton à cliquer s'affichera à chaque fois en fin de message, mais on peut aussi le mettre dans un bloc conditionnel pour l'afficher seulement dans certains cas (voir ci-dessous)
+
+**2/ Utiliser une autre directive !Next pour indiquer qu'on ira ailleurs**
+
+```markdown
+## Suite discussion avec Epicure
+
+`!useLLM`
+!useHistory
+`@INPUT`
+
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+
+`END !useLLM`
+
+`if CONDITION_POUR_POURSUIVRE_CETTE_DISCUSSION_IA`
+!Next: Suite discussion avec Epicure
+`endif`
+
+`if CONDITION_POUR_SORTIR_DE_CETTE_DISCUSSION_IA`
+!Next: Suite du chatbot
+`endif`
+
+```
+
+**Utiliser un bloc conditionnel pour le bouton de sortie ou la directive !Next**
+
+Le bouton de sortie donne une possibilité de redirection tandis que la directive `!Next` force la redirection.
+
+Si on utilise un bouton de sortie, on peut le mettre dans un bloc conditionnel.
+Si on utilise une directive `!Next`, il faut utiliser un bloc conditionnel (pour faire le choix entre la boucle vers le même message qui continue la conversation ou la redirection vers un autre message qui nous en fait sortir).
+
+On peut utiliser plusieurs types de conditions :
+1. À partir d'un certain nombre de messages
+2. Pour les boutons de sortie seulement : de manière répétée tous les X messages
+2. Présence d'un mot clé dans l'input de l'utilisateur (il faut évidemment ne pas oublier de communiquer ce mot clé pour sortir de la conversation)
+
+<!--
+3. On peut demander au LLM d'évaluer le message de l'utilisateur pour voir s'il veut sortir de la conversation et lui dire de mettre un mot clé, qu'on va ensuite détecter
+-->
+
+
+
+###### Gérer la taille de l'historique
+
+Par défaut l'historique de la conversation est limité à 2000 tokens (estimés d'après le nombre de mots), mais on peut changer ce paramètre dans le YAML en ajoutant le paramètre `maxTokensInHistory` dans la configuration du LLM. Il faut que cette valeur soit cohérente avec les limites du modèles de langage que vous utilisez.
+
+```yaml
+---
+useLLM:
+   maxTokensInHistory: nombre_maximum_de_tokens_dans_l_historique
+---
+```
+
+
+
+
+
+#### Appel à une IA : après un clic sur un bouton de réponse
+
+On peut aussi faire un appel à un LLM dans un bouton de réponse. Quand l'utilisateur cliquera sur ce bouton, cela déclenchera un appel à l'IA qui répondra à la question qu'on a intégré dans le bouton.
+
+Dans ce cas, au lieu de mettre dans la cible du lien le titre d'une réponse qu'on a prévue, on utilise la directive `!useLLM` suivie de la question que l'on pose au LLM.
+
+```markdown
+1. [Peux-tu m'expliquer autrement ?](!useLLM explique l'intérêt des licences libres de manière simple et claire)
+```
+
+Par défaut, si on a configuré l'utilisation d'un LLM, ChatMD ajoute automatiquement un bouton qui propose de poser sa question au LLM quand le chatbot n'a pas trouvé de réponse pertinente dans les réponses prédéfinies.
+
+On peut désactiver ce bouton avec le paramètre `userCanCallLLM: false` dans les paramètres LLM du YAML (voir plus bas). Ce paramètre désactive aussi l'utilisation directe de `!useLLM` dans les messages de l'utilisateur.
 
 
 
@@ -1453,7 +1631,9 @@ useLLM:
 
 ```yaml
 useLLM:
+   userCanCallLLM: false
    maxTokens: nombre_maximum_de_tokens
+   maxTokensInHistory: nombre_maximum_de_tokens_dans_l_historique
    systemPrompt: "Prompt système général"
    preprompt: "Pré prompt, avant la demande"
    postprompt: "Post prompt, après la demande"
@@ -1462,6 +1642,8 @@ useLLM:
    stream: true
    simulateStream: true
 ```
+
+Si on utilise `userCanCallLLM: false`, alors l'utilisateur ne peut pas mettre `!useLLM` dans son message pour interroger comme il le souhaite l'IA, et il n'y aura pas de bouton automatiquement ajouté pour répondre avec l'IA en cas de réponse non trouvée. Il vaut mieux utiliser ce paramètre pour éviter des usages non contrôlés de l'IA par les utilisateurs.
 
 Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
 
