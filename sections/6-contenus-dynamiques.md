@@ -439,3 +439,19 @@ Vous pouvez consulter cet exemple qui reprend les données ouvertes de data.educ
 
 Voir la source : https://drane-lyon.forge.apps.education.fr/chatbot/uai.md
 
+
+#### Préchargement des données
+
+Par défaut, les données externes sont chargées uniquement lorsque le message contenant le bloc `readcsv` est affiché.
+
+Si vos données sont volumineuses, cela peut être intéressant de précharger les données au moment du démarrage du chatbot, afin d'améliorer les performances.
+
+Pour cela, ajoutez dans le YAML le paramètre `preload` avec la liste des URL des données à précharger :
+
+```yaml
+---
+preload:
+   - URL_DES_DONNÉES_1
+   - URL_DES_DONNÉES_2
+---
+```

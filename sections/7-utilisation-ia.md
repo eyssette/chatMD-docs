@@ -366,3 +366,20 @@ useLLM:
       CONTEXTE : 
 
 ```
+
+
+#### Préchargement de la base de connaissances
+
+Par défaut, les données utilisées pour le RAG sont chargées uniquement lorsque le LLM est sollicité.
+
+Si la base de connaissances est volumineuse, cela peut être intéressant de précharger les données au moment du démarrage du chatbot, afin d'améliorer les performances.
+
+Pour cela, ajoutez dans le YAML le paramètre `preload` avec la liste des URLs à précharger.
+
+```yaml
+---
+preload:
+   - URL_DES_DONNÉES_1
+   - URL_DES_DONNÉES_2
+---
+```
