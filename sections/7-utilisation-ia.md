@@ -260,7 +260,7 @@ useLLM:
    RAGinformations: ["URL1", "URL2", "URL3"]
 ```
 
-La base de connaissance doit être constituée de fichiers texte.
+La base de connaissance doit être constituée de fichiers texte. On ne peut pas utiliser des fichiers PDF.
 
 On peut éventuellement mettre directement du texte, si la base de connaissances est très succincte.
 
