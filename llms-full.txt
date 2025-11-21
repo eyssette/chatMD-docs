@@ -816,18 +816,17 @@ Pour introduire de la variété dans les messages envoyés par le chatbot, vous 
 ```markdown
 ## Proposition d'aide
 
-Bonjour ! Comment puis-je vous aider aujourd'hui ?  
-1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
-2. [J'ai un problème avec l'ordinateur](Aide ordi)
-
----  
-
+Bonjour ! Comment puis-je vous aider aujourd'hui ?
+---
 Quel est votre problème ? 
+
 1. [J'ai un problème avec le vidéoprojecteur](Aide vidéoproj)
 2. [J'ai un problème avec l'ordinateur](Aide ordi)
 ```
 
-Pour éviter d'avoir à remettre à chaque fois les mêmes boutons de réponse, on peut définir de l'aléatoire dans des variables (voir l'onglet sur les variables)
+ChatMD choisira au hasard une des propositions à chaque fois que le message sera affiché.
+Les boutons cliquables restent les mêmes dans tous les cas.
+
 
 #### Ordre aléatoire des boutons de réponse
 
@@ -1242,7 +1241,23 @@ Ce dernier cas peut être très utile si on peut accéder à une API qui permet 
 Vous pouvez consulter cet exemple qui reprend les données ouvertes de data.education.gouv.fr pour permettre de retrouver un établissement à partir de son identifiant (UAI), de son nom ou de la ville : https://drane-lyon.forge.apps.education.fr/chatbot/#uai
 
 Voir la source : https://drane-lyon.forge.apps.education.fr/chatbot/uai.md
-</doc><doc title="AI Usage">
+
+
+#### Préchargement des données
+
+Par défaut, les données externes sont chargées uniquement lorsque le message contenant le bloc `readcsv` est affiché.
+
+Si vos données sont volumineuses, cela peut être intéressant de précharger les données au moment du démarrage du chatbot, afin d'améliorer les performances.
+
+Pour cela, ajoutez dans le YAML le paramètre `preload` avec la liste des URL des données à précharger :
+
+```yaml
+---
+preload:
+   - URL_DES_DONNÉES_1
+   - URL_DES_DONNÉES_2
+---
+```</doc><doc title="AI Usage">
 ## Utilisation de l'IA
 
 ### Principe général
@@ -1686,7 +1701,7 @@ useLLM:
    RAGinformations: ["URL1", "URL2", "URL3"]
 ```
 
-La base de connaissance doit être constituée de fichiers texte.
+La base de connaissance doit être constituée de fichiers texte. On ne peut pas utiliser des fichiers PDF.
 
 On peut éventuellement mettre directement du texte, si la base de connaissances est très succincte.
 
@@ -1791,6 +1806,23 @@ useLLM:
       Voici ci-dessous le contexte à partir duquel tu dois construire ta réponse, tu dois sélectionner dans ce contexte l'information pertinente et ne pas parler du reste. Si la réponse à la question n'est pas dans le contexte, tu ne dois pas répondre et dire : je ne sais pas.
       CONTEXTE : 
 
+```
+
+
+#### Préchargement de la base de connaissances
+
+Par défaut, les données utilisées pour le RAG sont chargées uniquement lorsque le LLM est sollicité.
+
+Si la base de connaissances est volumineuse, cela peut être intéressant de précharger les données au moment du démarrage du chatbot, afin d'améliorer les performances.
+
+Pour cela, ajoutez dans le YAML le paramètre `preload` avec la liste des URLs à précharger.
+
+```yaml
+---
+preload:
+   - URL_DES_DONNÉES_1
+   - URL_DES_DONNÉES_2
+---
 ```</doc><doc title="Web Integration">## Intégration dans un site web
 
 ### Iframe
