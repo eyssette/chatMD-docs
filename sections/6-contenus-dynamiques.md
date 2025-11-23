@@ -354,7 +354,7 @@ Si cela ne marche pas, essayez de réactualiser la page.
 `endif`
 ```
 
-### Intégrer des données externes <aside>avec le plugin readCsv</aside>
+### Intégrer des données externes <aside>avec le plugin readcsv</aside>
 
 ChatMD peut lire des données à la volée (au format CSV, TSV ou JSON), ce qui vous permet de les intégrer dans votre chatbot et de les filtrer au cours de la conversation.
 
@@ -430,7 +430,7 @@ Il s'agit d'un $4 $3
 
 #### Combinaison avec les variables dynamiques
 
-On peut utiliser des variables dynamiques, soit pour utiliser le plugin readCsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
+On peut utiliser des variables dynamiques, soit pour utiliser le plugin readcsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
 
 Ce dernier cas peut être très utile si on peut accéder à une API qui permet de récupérer des données spécifiques en fonction de paramètres dans l'URL elle-même.
 
