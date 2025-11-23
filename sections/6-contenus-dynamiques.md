@@ -376,6 +376,7 @@ Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
 ```readcsv URL_DES_DONNÉES
 condition: FORMULE_DE_FILTRE (optionnel)
 sort: FORMULE_DE_TRI (optionnel)
+maxResults: N (optionnel)
 
 TEMPLATE_EN_MARKDOWN
 (éventuellement sur plusieurs lignes)
@@ -411,6 +412,12 @@ Exemples :
 - `sort: $1` → tri alphabétique sur la colonne 1
 - `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
 - `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
+
+#### Maximum de résultats affichés
+
+Par défaut, toutes les lignes qui correspondent aux critères de filtre sont affichées.
+
+Pour limiter le nombre de résultats affichés, il faut ajouter la ligne `maxResults: N` où _N_ est le nombre maximum de résultats à afficher.
 
 #### Template en Markdown
 
