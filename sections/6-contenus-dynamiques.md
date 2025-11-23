@@ -323,6 +323,24 @@ La valeur des paramètres dans l'URL est disponible avec `@GETnomduparamètre`
 
 Si on utilise un lien qui contient le paramètre `?departement=69`, on pourra utiliser la variable `@GETdepartement` dans son chatbot.
 
+##### Pour récupérer le contenu d'un élément HTML déjà affiché
+_
+On peut récupérer le contenu texte d'un élément HTML déjà affiché dans le chatbot.
+
+On utilise pour cela la variable dynamique `@SELECTOR["cssSelector"]`, où `cssSelector` est un sélecteur CSS qui permet de cibler l'élément HTML dont on veut récupérer le contenu. Si on utilise une classe CSS, c'est le dernier élément dans la page qui sera pris en compte.
+
+Il faut que l'élément HTML soit déjà affiché dans le chatbot au moment où on utilise cette variable dynamique.
+
+Cette variable dynamique peut être utile notamment dans un bloc conditionnel pour récupérer le contenu d'un élément HTML qui contient du texte généré par un LLM, afin de vérifier si ce texte contient un mot clé particulier.
+
+On peut ainsi adapter le comportement du chatbot en fonction de la réponse générée par l'IA.
+
+```markdown
+`if @SELECTOR[".reponse-ia"].toLowerCase().includes("mot clé")`
+Le texte généré par l'IA contient le mot clé !
+`endif`
+```
+
 
 ##### Pour utiliser la géolocalisation
 
