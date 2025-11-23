@@ -274,13 +274,91 @@ Si on utilise un bouton de sortie, on peut le mettre dans un bloc conditionnel.
 Si on utilise une directive `!Next`, il faut utiliser un bloc conditionnel (pour faire le choix entre la boucle vers le même message qui continue la conversation ou la redirection vers un autre message qui nous en fait sortir).
 
 On peut utiliser plusieurs types de conditions :
-1. À partir d'un certain nombre de messages
-2. Pour les boutons de sortie seulement : de manière répétée tous les X messages
+1. À partir d'un certain nombre de messages (ou pour les boutons de sortie seulement : de manière répétée tous les X messages)
 2. Présence d'un mot clé dans l'input de l'utilisateur (il faut évidemment ne pas oublier de communiquer ce mot clé pour sortir de la conversation)
-
-<!--
 3. On peut demander au LLM d'évaluer le message de l'utilisateur pour voir s'il veut sortir de la conversation et lui dire de mettre un mot clé, qu'on va ensuite détecter
--->
+
+
+:::precisions collapsible Exemple 1 : sortie après un certain nombre de messages
+
+```markdown
+## Suite discussion avec Epicure
+`@NUMBER_OF_MESSAGES=calc(@NUMBER_OF_MESSAGES>0?@NUMBER_OF_MESSAGES+1:1)`
+`!useLLM`
+!useHistory
+`@INPUT`
+
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+
+`END !useLLM`
+
+!Next: Suite discussion avec Epicure
+
+<!-- Affichage à partir de 3 messages -->
+`if @NUMBER_OF_MESSAGES >= 3`
+1. [Je veux maintenant parler avec Platon](Discussion avec Platon)
+`endif`
+
+<!-- Affichage tous les 3 messages  -->
+`if @NUMBER_OF_MESSAGES % 3 == 0`
+1. [Je veux maintenant parler avec Platon](Discussion avec Platon)
+`endif`
+
+```
+:::
+
+:::precisions collapsible Exemple 2 : sortie si mot clé détecté dans l'input
+
+```markdown
+## Suite discussion avec Epicure 
+`!useLLM`
+!useHistory
+`@INPUT`
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+`END !useLLM`
+
+`if @INPUT.includes("stop")`
+!Next: Suite du chatbot
+`endif`
+`if !@INPUT.includes("stop")`
+!Next: Suite discussion avec Epicure
+`endif`
+```
+:::
+
+:::precisions collapsible Exemple 3 : sortie si mot clé détecté par l'IA
+
+```markdown
+## Suite discussion avec Epicure
+`!useLLM`
+!useHistory
+`@INPUT`
+`END !useLLM`
+
+
+<div class="sortirDiscussionEpicure hidden">
+
+`!useLLM`
+!useHistory
+Analyse cette conversation jusqu'à maintenant.
+L'utilisateur a-t-il exprimé dans son dernier message qu'il veut sortir de cette discussion avec Epicure et passer à autre chose dans le chatbot ?    
+Si oui, écris simplement "SORTIE DISCUSSION" en majuscule et rien d'autre. Sinon écris OK.
+`END !useLLM`
+
+</div>
+
+`if @SELECTOR[".sortirDiscussionEpicure"].includes("SORTIE DISCUSSION")`
+Suite du chatbot
+!Next: Suite du chatbot
+`endif`
+
+`if !@SELECTOR[".sortirDiscussionEpicure"].includes("SORTIE DISCUSSION")`
+Suite discussion avec Epicure
+!Next: Suite discussion avec Epicure
+`endif`
+
+```
+:::
 
 
 
@@ -588,3 +666,4 @@ $4 : $2 pour l'épreuve $8
 
 `END !useLLM`
 ````
+
