@@ -565,3 +565,26 @@ preload:
    - URL_DES_DONNÉES_2
 ---
 ```
+
+#### Intégration de données externes de manière dynamique dans la base de connaissances
+
+On peut utiliser le plugin `readcsv` pour lire des données externes (au format csv, tsv ou json) et intégrer ces données dans le prompt.
+
+Il suffit pour cela d'utiliser le plugin `readcsv` (voir la partie “Contenus dynamiques”) et d'insérer le bloc `readcsv` dans le prompt du bloc `!useLLM`.
+
+Exemple :
+
+````markdown
+`!useLLM`
+
+Voici le nombre de médailles d'or gagnées en France en natation aux JO en 2024.
+Fais une phrase pour féliciter cette personne, en précisant les épreuves gagnées
+
+```readcsv https://codimd.apps.education.fr/OKNRFBnnS1ucVdjSLq6OIA/download
+condition: $6=="Swimming" && $2==1 && $11=="France"
+sort: $2 date desc
+$4 : $2 pour l'épreuve $8
+```
+
+`END !useLLM`
+````
