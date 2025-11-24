@@ -330,34 +330,37 @@ Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
 ```
 :::
 
-:::precisions collapsible Exemple 3 : sortie si mot clé détecté par l'IA
+:::precisions collapsible Exemple 3 : sortie suite à l'analyse de la conversation par l'IA
 
 ```markdown
-## Suite discussion avec Epicure
+## Suite discussion avec Epicure 
+
 `!useLLM`
 !useHistory
 `@INPUT`
+La discussion doit rester centrée sur Epicure.
+Si l'utilisateur veut sortir de la discussion, réponds-lui gentiment que ce n'est pas un problème.
 `END !useLLM`
 
 
-<div class="sortirDiscussionEpicure hidden">
+<div class="analyse-discussion-epicure hidden">
 
 `!useLLM`
 !useHistory
+!noStream
+
 Analyse cette conversation jusqu'à maintenant.
-L'utilisateur a-t-il exprimé dans son dernier message qu'il veut sortir de cette discussion avec Epicure et passer à autre chose dans le chatbot ?    
-Si oui, écris simplement "SORTIE DISCUSSION" en majuscule et rien d'autre. Sinon écris OK.
+L'utilisateur a-t-il exprimé dans son dernier message qu'il veut sortir de cette discussion avec Epicure et passer à autre chose dans le chatbot ?
+Si oui, écris simplement "<code>SORTIE DISCUSSION</code>" en majuscule et rien d'autre. Sinon écris OK.
 `END !useLLM`
 
 </div>
 
-`if @SELECTOR[".sortirDiscussionEpicure"].includes("SORTIE DISCUSSION")`
-Suite du chatbot
-!Next: Suite du chatbot
+`if @SELECTOR[".analyse-discussion-epicure"].includes("SORTIE DISCUSSION")`
+1. [Discussion avec Platon](Discussion avec Platon)
 `endif`
 
-`if !@SELECTOR[".sortirDiscussionEpicure"].includes("SORTIE DISCUSSION")`
-Suite discussion avec Epicure
+`if !@SELECTOR[".analyse-discussion-epicure"].includes("SORTIE DISCUSSION")`
 !Next: Suite discussion avec Epicure
 `endif`
 
