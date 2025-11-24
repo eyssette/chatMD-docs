@@ -1127,6 +1127,24 @@ La valeur des paramètres dans l'URL est disponible avec `@GETnomduparamètre`
 
 Si on utilise un lien qui contient le paramètre `?departement=69`, on pourra utiliser la variable `@GETdepartement` dans son chatbot.
 
+##### Pour récupérer le contenu d'un élément HTML déjà affiché
+_
+On peut récupérer le contenu texte d'un élément HTML déjà affiché dans le chatbot.
+
+On utilise pour cela la variable dynamique `@SELECTOR["cssSelector"]`, où `cssSelector` est un sélecteur CSS qui permet de cibler l'élément HTML dont on veut récupérer le contenu. Si on utilise une classe CSS, c'est le dernier élément dans la page qui sera pris en compte.
+
+Il faut que l'élément HTML soit déjà affiché dans le chatbot au moment où on utilise cette variable dynamique.
+
+Cette variable dynamique peut être utile notamment dans un bloc conditionnel pour récupérer le contenu d'un élément HTML qui contient du texte généré par un LLM, afin de vérifier si ce texte contient un mot clé particulier.
+
+On peut ainsi adapter le comportement du chatbot en fonction de la réponse générée par l'IA.
+
+```markdown
+`if @SELECTOR[".reponse-ia"].toLowerCase().includes("mot clé")`
+Le texte généré par l'IA contient le mot clé !
+`endif`
+```
+
 
 ##### Pour utiliser la géolocalisation
 
@@ -1158,7 +1176,7 @@ Si cela ne marche pas, essayez de réactualiser la page.
 `endif`
 ```
 
-### Intégrer des données externes <aside>avec le plugin readCsv</aside>
+### Intégrer des données externes <aside>avec le plugin readcsv</aside>
 
 ChatMD peut lire des données à la volée (au format CSV, TSV ou JSON), ce qui vous permet de les intégrer dans votre chatbot et de les filtrer au cours de la conversation.
 
@@ -1180,6 +1198,7 @@ Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
 ```readcsv URL_DES_DONNÉES
 condition: FORMULE_DE_FILTRE (optionnel)
 sort: FORMULE_DE_TRI (optionnel)
+maxResults: N (optionnel)
 
 TEMPLATE_EN_MARKDOWN
 (éventuellement sur plusieurs lignes)
@@ -1216,6 +1235,12 @@ Exemples :
 - `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
 - `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
 
+#### Maximum de résultats affichés
+
+Par défaut, toutes les lignes qui correspondent aux critères de filtre sont affichées.
+
+Pour limiter le nombre de résultats affichés, il faut ajouter la ligne `maxResults: N` où _N_ est le nombre maximum de résultats à afficher.
+
 #### Template en Markdown
 
 Le template définit comment afficher chaque ligne du CSV.
@@ -1234,7 +1259,7 @@ Il s'agit d'un $4 $3
 
 #### Combinaison avec les variables dynamiques
 
-On peut utiliser des variables dynamiques, soit pour utiliser le plugin readCsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
+On peut utiliser des variables dynamiques, soit pour utiliser le plugin readcsv dans des blocs conditionnels, soit pour intégrer ces variables dans l'URL de la source de données. 
 
 Ce dernier cas peut être très utile si on peut accéder à une API qui permet de récupérer des données spécifiques en fonction de paramètres dans l'URL elle-même.
 
@@ -1533,13 +1558,96 @@ Si on utilise un bouton de sortie, on peut le mettre dans un bloc conditionnel.
 Si on utilise une directive `!Next`, il faut utiliser un bloc conditionnel (pour faire le choix entre la boucle vers le même message qui continue la conversation ou la redirection vers un autre message qui nous en fait sortir).
 
 On peut utiliser plusieurs types de conditions :
-1. À partir d'un certain nombre de messages
-2. Pour les boutons de sortie seulement : de manière répétée tous les X messages
+1. À partir d'un certain nombre de messages (ou pour les boutons de sortie seulement : de manière répétée tous les X messages)
 2. Présence d'un mot clé dans l'input de l'utilisateur (il faut évidemment ne pas oublier de communiquer ce mot clé pour sortir de la conversation)
-
-<!--
 3. On peut demander au LLM d'évaluer le message de l'utilisateur pour voir s'il veut sortir de la conversation et lui dire de mettre un mot clé, qu'on va ensuite détecter
--->
+
+
+:::precisions collapsible Exemple 1 : sortie après un certain nombre de messages
+
+```markdown
+## Suite discussion avec Epicure
+`@NUMBER_OF_MESSAGES=calc(@NUMBER_OF_MESSAGES>0?@NUMBER_OF_MESSAGES+1:1)`
+`!useLLM`
+!useHistory
+`@INPUT`
+
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+
+`END !useLLM`
+
+!Next: Suite discussion avec Epicure
+
+`if @NUMBER_OF_MESSAGES >= 3`
+1. [Je veux maintenant parler avec Platon](Discussion avec Platon)
+`endif`
+
+`if @NUMBER_OF_MESSAGES % 3 == 0`
+1. [Je veux maintenant parler avec Platon](Discussion avec Platon)
+`endif`
+
+```
+:::
+
+:::precisions collapsible Exemple 2 : sortie si mot clé détecté dans l'input
+
+```markdown
+## Suite discussion avec Epicure 
+
+`if @INPUT.includes("stop")`
+D'accord, passons à un autre sujet !
+1. [Discuter avec Platon](Discussions avec Platon)
+`endif`
+
+`if !@INPUT.includes("stop")`
+
+`!useLLM`
+!useHistory
+`@INPUT`
+Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
+`END !useLLM`
+
+!Next: Suite discussion avec Epicure
+`endif`
+```
+:::
+
+:::precisions collapsible Exemple 3 : sortie suite à l'analyse de la conversation par l'IA
+
+```markdown
+## Suite discussion avec Epicure 
+
+`!useLLM`
+!useHistory
+`@INPUT`
+La discussion doit rester centrée sur Epicure.
+Si l'utilisateur veut sortir de la discussion, réponds-lui gentiment que ce n'est pas un problème.
+`END !useLLM`
+
+
+<div class="analyse-discussion-epicure hidden">
+
+`!useLLM`
+!useHistory
+!noStream
+
+Analyse cette conversation jusqu'à maintenant.
+L'utilisateur a-t-il exprimé dans son dernier message qu'il veut sortir de cette discussion avec Epicure et passer à autre chose dans le chatbot ?
+Si oui, écris simplement "<code>SORTIE DISCUSSION</code>" en majuscule et rien d'autre. Sinon écris OK.
+`END !useLLM`
+
+</div>
+
+`if @SELECTOR[".analyse-discussion-epicure"].includes("SORTIE DISCUSSION")`
+1. [Discussion avec Platon](Discussion avec Platon)
+`endif`
+
+`if !@SELECTOR[".analyse-discussion-epicure"].includes("SORTIE DISCUSSION")`
+!Next: Suite discussion avec Epicure
+`endif`
+
+```
+:::
 
 
 
@@ -1554,6 +1662,67 @@ useLLM:
 ---
 ```
 
+
+###### Afficher la réponse de l'IA d'un coup plutôt qu'en streaming
+
+Par défaut, ChatMD affiche la réponse du LLM petit à petit, en "streaming". Si on préfère afficher la réponse d'un coup, on peut ajouter dans le YAML le paramètre `stream: false` dans la configuration du LLM. Mais on peut aussi le faire pour un seul message en ajoutant `!noStream` au début du prompt.
+
+```markdown
+`!useLLM`
+!noStream
+Prompt
+`END !useLLM`
+```
+
+###### Utiliser une réponse IA cachée pour de l'analyse plus complexe d'un message de l'utilisateur
+
+On peut créer un bloc `!useLLM` pour analyser ce que dit l'utilisateur, sans afficher la réponse de l'IA à l'utilisateur. Cette analyse sera simplement utilisée en interne pour faire des choix dans le chatbot.
+
+Pour cela, on met le bloc `!useLLM` dans une div avec la classe `hidden` et une autre classe spécifique pour pouvoir sélectionner cette réponse ensuite.
+
+```markdown
+<div class="analyse-prompt hidden"> 
+
+`!useLLM`
+Prompt
+`END !useLLM`
+</div>
+```
+
+On peut ensuite utiliser la réponse de l'IA dans un bloc conditionnel en utilisant le sélecteur `@SELECTOR[".analyse-prompt"]`.
+
+Exemple :
+
+```markdown
+## Question satisfaction
+
+Êtes-vous satisfait ?
+
+!Next: Analyse satisfaction
+
+## Analyse satisfaction
+
+<div class="analyse-satisfaction hidden">
+
+`!useLLM`
+!noStream
+
+Analyse cette réponse : `@INPUT`
+Si l'utilisateur semble satisfait de l'aide apportée, réponds simplement "<code>satisfait</code>".
+Si l'utilisateur semble insatisfait, réponds simplement "<code>insatisfait</code>".
+
+`END !useLLM`
+
+</div>
+
+`if @SELECTOR[".analyse-satisfaction"].includes("insatisfait")`
+L'utilisateur est insatisfait.
+`endif`
+`if !@SELECTOR[".analyse-satisfaction"].includes("insatisfait")`
+L'utilisateur est satisfait.
+`endif`
+
+```
 
 
 
@@ -1823,7 +1992,31 @@ preload:
    - URL_DES_DONNÉES_1
    - URL_DES_DONNÉES_2
 ---
-```</doc><doc title="Web Integration">## Intégration dans un site web
+```
+
+#### Intégration de données externes de manière dynamique dans la base de connaissances
+
+On peut utiliser le plugin `readcsv` pour lire des données externes (au format csv, tsv ou json) et intégrer ces données dans le prompt.
+
+Il suffit pour cela d'utiliser le plugin `readcsv` (voir la partie “Contenus dynamiques”) et d'insérer le bloc `readcsv` dans le prompt du bloc `!useLLM`.
+
+Exemple :
+
+````markdown
+`!useLLM`
+
+Voici le nombre de médailles d'or gagnées en France en natation aux JO en 2024.
+Fais une phrase pour féliciter cette personne, en précisant les épreuves gagnées
+
+```readcsv https://codimd.apps.education.fr/OKNRFBnnS1ucVdjSLq6OIA/download
+condition: $6=="Swimming" && $2==1 && $11=="France"
+sort: $2 date desc
+$4 : $2 pour l'épreuve $8
+```
+
+`END !useLLM`
+````
+</doc><doc title="Web Integration">## Intégration dans un site web
 
 ### Iframe
 
