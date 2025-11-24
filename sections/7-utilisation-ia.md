@@ -311,16 +311,20 @@ Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
 
 ```markdown
 ## Suite discussion avec Epicure 
+
+`if @INPUT.includes("stop")`
+D'accord, passons à un autre sujet !
+1. [Discuter avec Platon](Discussions avec Platon)
+`endif`
+
+`if !@INPUT.includes("stop")`
+
 `!useLLM`
 !useHistory
 `@INPUT`
 Attention, la discussion doit rester centrée sur Epicure et sa philosophie.
 `END !useLLM`
 
-`if @INPUT.includes("stop")`
-!Next: Suite du chatbot
-`endif`
-`if !@INPUT.includes("stop")`
 !Next: Suite discussion avec Epicure
 `endif`
 ```
