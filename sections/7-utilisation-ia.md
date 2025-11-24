@@ -412,6 +412,14 @@ On peut ensuite utiliser la réponse de l'IA dans un bloc conditionnel en utilis
 Exemple :
 
 ```markdown
+## Question satisfaction
+
+Êtes-vous satisfait ?
+
+!Next: Analyse satisfaction
+
+## Analyse satisfaction
+
 <div class="analyse-satisfaction hidden">
 
 `!useLLM`
@@ -425,11 +433,11 @@ Si l'utilisateur semble insatisfait, réponds simplement "<code>insatisfait</cod
 
 </div>
 
-`if @SELECTOR[".analyse-satisfaction"].includes("satisfait")`
-L'utilisateur est satisfait.
-`endif`
 `if @SELECTOR[".analyse-satisfaction"].includes("insatisfait")`
 L'utilisateur est insatisfait.
+`endif`
+`if !@SELECTOR[".analyse-satisfaction"].includes("insatisfait")`
+L'utilisateur est satisfait.
 `endif`
 
 ```
