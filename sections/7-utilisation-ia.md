@@ -394,7 +394,7 @@ Prompt
 
 ###### Utiliser une réponse IA cachée pour de l'analyse plus complexe d'un message de l'utilisateur
 
-On peut créer un bloc `!useLLM` simplement pour analyser ce que dit l'utilisateur, sans afficher la réponse de l'IA à l'utilisateur. Cette analyse sera simplement utilisée en interne pour faire des choix dans le chatbot.
+On peut créer un bloc `!useLLM` pour analyser ce que dit l'utilisateur, sans afficher la réponse de l'IA à l'utilisateur. Cette analyse sera simplement utilisée en interne pour faire des choix dans le chatbot.
 
 Pour cela, on met le bloc `!useLLM` dans une div avec la classe `hidden` et une autre classe spécifique pour pouvoir sélectionner cette réponse ensuite.
 
