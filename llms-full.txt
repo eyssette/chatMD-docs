@@ -1663,7 +1663,7 @@ useLLM:
 ```
 
 
-###### Afficher la réponse de l'IA d'un coup plutôt qu'en streaming
+##### Afficher la réponse de l'IA d'un coup plutôt qu'en streaming
 
 Par défaut, ChatMD affiche la réponse du LLM petit à petit, en "streaming". Si on préfère afficher la réponse d'un coup, on peut ajouter dans le YAML le paramètre `stream: false` dans la configuration du LLM. Mais on peut aussi le faire pour un seul message en ajoutant `!noStream` au début du prompt.
 
@@ -1674,11 +1674,13 @@ Prompt
 `END !useLLM`
 ```
 
-###### Utiliser une réponse IA cachée pour de l'analyse plus complexe d'un message de l'utilisateur
+##### Utiliser une réponse IA cachée pour analyser un message de l'utilisateur et extraire des informations
 
-On peut créer un bloc `!useLLM` pour analyser ce que dit l'utilisateur, sans afficher la réponse de l'IA à l'utilisateur. Cette analyse sera simplement utilisée en interne pour faire des choix dans le chatbot.
+On peut créer un bloc `!useLLM` pour analyser ce que dit l'utilisateur, sans afficher la réponse de l'IA à l'utilisateur. Cette analyse sera simplement utilisée en interne pour extraire des informations, qui permettront de faire des redirections dans le chatbot ou de définir des variables dynamiques.
 
 Pour cela, on met le bloc `!useLLM` dans une div avec la classe `hidden` et une autre classe spécifique pour pouvoir sélectionner cette réponse ensuite.
+
+###### Exemple 1 : détection par une IA de la satisfaction de l'utilisateur
 
 ```markdown
 <div class="analyse-prompt hidden"> 
@@ -1724,6 +1726,33 @@ L'utilisateur est satisfait.
 
 ```
 
+###### Exemple 2 : extraction du nom d'une ville dans la réponse de l'utilisateur
+
+```markdown
+## Question ville
+Dans quelle ville vis-tu ?
+
+!Next: Extraction ville
+
+## Extraction ville
+
+<div class="extraction-ville hidden"> 
+
+`!useLLM`
+!noStream
+Analyse cette réponse : `@INPUT`
+Extrait le nom de la ville mentionné par l'utilisateur
+Réponds simplement par le nom de la ville, sans autre texte, dans ce format :
+<code>Nom de la ville</code>
+N'ajoute rien avant ou après.
+`END !useLLM`
+</div>
+
+`@ville = calc(@SELECTOR[".extraction-ville"])`
+
+La ville extraite est : `@ville`
+
+```
 
 
 
