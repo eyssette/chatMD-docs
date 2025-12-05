@@ -676,8 +676,8 @@ variables:
 
 Dans votre contenu Markdown, utilisez-les ainsi : `@{maVariable1}`
 
-- Les variables sans préfixe `_` sont interprétées au déclenchement : si on utilise de l'aléatoire, on pourra avoir une sélection différente à chaque utilisation de la variable
-- Les variables avec préfixe `_` sont interprétées à la génération du chatbot, ce qui permet d'utiliser des variables fixes pour les menus de choix d'option en fin de message
+- Les variables sans préfixe `_` sont interprétées au moment de l'affichage d'un message : si on utilise de l'aléatoire, on pourra avoir une sélection différente à chaque affichage du même message
+- Les variables avec préfixe `_` sont interprétées au tout début, avant même l'affichage du chatbot, ce qui permet d'utiliser des variables fixes qui contiennent des options en fin de message, des déclencheurs, etc.
 
 Voir cet [exemple](https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/WySjMI5iQKOtTSJ3XhCZBQ)
 
