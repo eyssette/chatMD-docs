@@ -41,15 +41,59 @@ gestionGrosMots: true
 ``` 
 Permet de détecter les gros mots et les insultes envoyés par l'utilisateur et de formuler une réponse adéquate.
 
-#### Messages qui s'affichent si aucune réponse n'est trouvée
+#### Messages par défaut si aucune réponse pertinente n'est trouvée
+
+On peut personnaliser la liste des messages par défaut qui s'affichent quand le chatbot n'a pas trouvé de réponse pertinente.
 
 ```yaml
-messageParDéfaut: ["message 1", "message 2", "message 3"]
+messageParDéfaut:
+	- message 1
+	- message 2
+```
+Cette liste écrase la [liste définie par défaut](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/blob/main/app/js/config.mjs#L10).
+
+Exemple :
+
+```markdown
+---
+messageParDéfaut:
+	- Désolé, je n'ai pas compris votre question.
+	- Pouvez-vous reformuler ?
+	- Je ne sais pas répondre à cela pour le moment.
+---
+# Chatbot sans réponse pertinente
+Bienvenue sur ce chatbot. Posez-moi une question !
 ```
 
-Permet de modifier le message par défaut qui s'affiche aléatoirement quand le chatbot n'a pas trouvé de réponse pertinente.
+On peut aussi rediriger vers une réponse particulière en cas d'absence de réponse pertinente, en utilisant la propriété `fallback`dans le YAML :
 
-Cette liste écrase la [liste définie par défaut](https://forge.apps.education.fr/chatMD/chatMD.forge.apps.education.fr/-/blob/main/app/js/config.mjs#L10).
+```yaml
+fallback: "Titre exact de la réponse de secours"
+```
+Exemple :
+
+```markdown
+---
+fallback: "Réponse de secours"
+---
+
+# Chatbot sans réponse pertinente
+Bienvenue sur ce chatbot. Posez-moi une question !
+
+## Réponse de secours
+
+Ce chatbot n'a malheureusement pas pu répondre à votre question. Veuillez reformuler.
+Sinon, voici quelques sujets sur lesquels je peux vous aider :
+
+1. [Sujet 1](Sujet 1)
+2. [Sujet 2](Sujet 2)
+
+## Sujet 1
+Voici des informations sur le sujet 1.
+
+## Sujet 2
+Voici des informations sur le sujet 2.
+```
 
 #### Déclencheurs négatifs
 
