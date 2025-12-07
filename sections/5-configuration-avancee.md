@@ -109,6 +109,62 @@ On commence dans ce cas le mot-clé avec `! `
 - ! introspection
 ```
 
+#### Gestion des synonymes
+
+On peut définir des synonymes dans le YAML, afin que l'algorithme puisse mieux comprendre les questions de l'utilisateur.
+Il suffit de définir une liste de listes de synonymes, comme ceci :
+
+```yaml
+synonymes:
+	- synonyme A1, synonyme A2, synonyme A3
+	- synonyme B1, synonyme B2
+```
+
+Chaque ligne définit un groupe de termes qui sont synonymes.
+
+Exemple : 
+
+```markdown
+---
+synonymes:
+   - ordinateur, ordi, PC
+   - chatbot, agent conversationnel
+---
+
+# Chatbot avec synonymes
+Bienvenue sur ce chatbot. Posez-moi une question !
+
+## Qu'est-ce qu'un ordinateur ?
+- ordinateur
+Un ordinateur est une machine électronique capable de traiter des données.
+
+## Qu'est-ce qu'un chatbot ?
+- chatbot
+Un chatbot est un programme informatique conçu pour simuler une conversation avec des utilisateurs humains.
+```
+
+Si on a beaucoup de synonymes, on peut aussi les définir dans un fichier externe, et indiquer le chemin vers ce fichier dans le YAML :
+
+```yaml
+synonymes: URL
+```
+
+Le fichier externe doit être au format texte, avec un groupe de synonymes par ligne, les synonymes étant séparés par des virgules.
+
+Exemple : 
+
+```
+ordinateur, ordi, PC
+chatbot, agent conversationnel
+```
+
+
+
+
+Dans cet exemple :
+- les questions « Qu'est-ce qu'un PC ? » renverra à la réponse sur les ordinateurs
+- la question "Qu'est-ce qu'un agent conversationnel ?" renverra à la réponse sur les chatbots
+
 ### Apparence
 
 Pour personnaliser l'apparence du chatbot, vous pouvez utiliser différents paramètres dans l'en-tête YAML.
