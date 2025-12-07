@@ -457,11 +457,9 @@ synonymes:
 Bienvenue sur ce chatbot. Posez-moi une question !
 
 ## Qu'est-ce qu'un ordinateur ?
-- ordinateur
 Un ordinateur est une machine électronique capable de traiter des données.
 
 ## Qu'est-ce qu'un chatbot ?
-- chatbot
 Un chatbot est un programme informatique conçu pour simuler une conversation avec des utilisateurs humains.
 ```
 
