@@ -457,7 +457,15 @@ UAI : $2
 Il s'agit d'un $4 $3
 ```
 
+On peut aussi utiliser `$i` pour insérer le numéro de la ligne dans les résultats affichés (à partir de 1).
 
+Par exemple, imaginons qu'on récupère des données sur le dernier championnat de blocs d'escalade, avec le nom de la grimpeuse dans la colonne 1, son pays dans la colonne 2, et son score dans la colonne 3. On pourrait avoir le template suivant :
+
+```markdown
+$i. $1 ($2) a obtenu un score de $3.
+```
+
+Ce template affichera le classement des grimpeuses, avec leur position dans le classement grâce à `$i`.
 
 #### Combinaison avec les variables dynamiques
 
