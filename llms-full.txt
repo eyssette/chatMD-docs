@@ -1120,11 +1120,12 @@ Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both)
 
 :::info Par défaut, seules certaines opérations sont autorisées
 
-- Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
+- Calcul mathématique : `+`, `-`, `*`, `/`, `%` , `Math.abs`, `Math.min`, `Math.max`, `Math.round`
 - Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
-- Opérateurs logiques : `&&`, `||`, `!`,
-- Parenthèses : `(`, `)`,
+- Opérateurs logiques : `&&`, `||`, `!`, `?`, `:`, `true`, `false`
+- Parenthèses : `(`, `)`, `[`, `]`,
 - Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `toUpperCase()`, `.trim()`, `encodeURI()`
+- NLP (Traitement du langage naturel) : `mainTopic("texte")` (extrait le sujet principal d'une phrase courte)c
 :::
 
 Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
@@ -1296,6 +1297,7 @@ Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
 ```readcsv URL_DES_DONNÉES
 condition: FORMULE_DE_FILTRE (optionnel)
 sort: FORMULE_DE_TRI (optionnel)
+random: true (optionnel)
 maxResults: N (optionnel)
 
 TEMPLATE_EN_MARKDOWN
@@ -1333,6 +1335,10 @@ Exemples :
 - `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
 - `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
 
+#### Affichage aléatoire des résultats
+
+Pour afficher les résultats dans un ordre aléatoire, on ajoute la ligne `random: true`.
+
 #### Maximum de résultats affichés
 
 Par défaut, toutes les lignes qui correspondent aux critères de filtre sont affichées.
@@ -1353,7 +1359,15 @@ UAI : $2
 Il s'agit d'un $4 $3
 ```
 
+On peut aussi utiliser `$i` pour insérer le numéro de la ligne dans les résultats affichés (à partir de 1).
 
+Par exemple, imaginons qu'on récupère des données sur le dernier championnat de blocs d'escalade, avec le nom de la grimpeuse dans la colonne 1, son pays dans la colonne 2, et son score dans la colonne 3. On pourrait avoir le template suivant :
+
+```markdown
+$i. $1 ($2) a obtenu un score de $3.
+```
+
+Ce template affichera le classement des grimpeuses, avec leur position dans le classement grâce à `$i`.
 
 #### Combinaison avec les variables dynamiques
 
