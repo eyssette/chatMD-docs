@@ -395,6 +395,7 @@ Pour utiliser ce plugin, on utilise un bloc code avec la syntaxe suivante :
 ```readcsv URL_DES_DONNÉES
 condition: FORMULE_DE_FILTRE (optionnel)
 sort: FORMULE_DE_TRI (optionnel)
+random: true (optionnel)
 maxResults: N (optionnel)
 
 TEMPLATE_EN_MARKDOWN
@@ -431,6 +432,10 @@ Exemples :
 - `sort: $1` → tri alphabétique sur la colonne 1
 - `sort: $3 desc num` → tri numérique décroissant sur la colonne 3
 - `sort: $2 date, $3 desc num` → tri croissant sur la colonne 2 par date, puis décroissant sur la colonne 3 en cas d'égalité
+
+#### Affichage aléatoire des résultats
+
+Pour afficher les résultats dans un ordre aléatoire, on ajoute la ligne `random: true`.
 
 #### Maximum de résultats affichés
 
