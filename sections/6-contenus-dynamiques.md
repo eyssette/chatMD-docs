@@ -423,7 +423,7 @@ Exemples :
 - `condition: $3 > 100` → garde les lignes où la colonne 3 est supérieure à 100
 - `condition: $2 == "Lycée"` → garde les lignes où la colonne 2 est "Lycée"
 - `condition: $3 > 50 && $4.includes("public")` → combine plusieurs conditions
-
+- `condition: $5.includes(mainTopic("@INPUT"))` → si on a préalablement demandé à l'utilisateur le sujet qui l'intéresse, on peut filtrer les lignes qui contiennent ce sujet (ici dans la colonne 5)
 
 #### Formule de tri
 
