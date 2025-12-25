@@ -218,11 +218,12 @@ Voir cet [exemple](https://codimd.apps.education.fr/6ZFeM407RbyCPxpAxKU8ow?both)
 
 :::info Par défaut, seules certaines opérations sont autorisées
 
-- Calcul mathématique : `+`, `-`, `*`, `/`, `Math.abs`, `Math.min`, `Math.max`, `Math.round`
+- Calcul mathématique : `+`, `-`, `*`, `/`, `%` , `Math.abs`, `Math.min`, `Math.max`, `Math.round`
 - Comparaison : `<=`, `>=`, `<`, `>`, `==`, `!=`,
-- Opérateurs logiques : `&&`, `||`, `!`,
-- Parenthèses : `(`, `)`,
+- Opérateurs logiques : `&&`, `||`, `!`, `?`, `:`, `true`, `false`
+- Parenthèses : `(`, `)`, `[`, `]`,
 - Chaîne de caractères : `.length()`, `.includes()`, `.startsWith()`, `.endsWith()`, `.toLowerCase()`, `toUpperCase()`, `.trim()`, `encodeURI()`
+- NLP (Traitement du langage naturel) : `mainTopic("texte")` (extrait le sujet principal d'une phrase courte)c
 :::
 
 Si vous modifiez le code de ChatMD, vous pouvez dans le fichier `app/js/config.mjs` utiliser un mode sécurisé qui n'affichera que les fichiers sources que vous avez autorisés et qui permettra alors d'utiliser toutes les opérations que vous souhaitez (attention : cela peut conduire à des failles de sécurité)
