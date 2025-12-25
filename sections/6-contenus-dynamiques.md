@@ -54,8 +54,6 @@ Choisis un sujet de dissertation pour t'entraîner
 4. [Peut-on juger une œuvre d'art d'un point de vue moral ?](Sujet art)
 ```
 
-<!-- TODO: ajouter exemple de chatbot ?
-Sélection aléatoire de propositions : ajoutez `!Select: x` avant la liste (voir cet [exemple](https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/f6QP57QNT2S-crAjOwdahg)). -->
 
 #### Redirection aléatoire vers un autre message
 
@@ -78,8 +76,6 @@ Sur quel thème veux-tu un exercice ?
 !SelectNext: exo Fantastique 1 / exo Fantastique 2 / exo Fantastique 3
 ```
 
-<!-- TODO: ajouter exemple de chatbot
-Redirection aléatoire : utilisez `!SelectNext: titre1 / titre2 / titre3` (voir cet [exemple](https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/Yvq5u2btTOmrTFCFoXGTwg)) -->
 
 #### Aléatoire dans les variables
 
@@ -291,6 +287,20 @@ Bonjour `@INPUT`
 Bienvenue ici !
 ```
 
+On peut aussi enregistrer la réponse de l'utilisateur dans une variable spécifique.
+
+Par exemple, si on veut récupérer le nom de l'utilisateur dans une variable `@nom`, on peut procéder ainsi :
+
+```markdown
+Bonjour ! Quel est ton nom ? 
+
+!Next: accueil
+
+## accueil
+`@nom = calc(@INPUT)`
+Bienvenue `@nom` !
+```
+
 :::precision collapsible Cas où le message contient des déclencheurs
 Si le message cible contient des déclencheurs, ces déclencheurs fonctionneront comme des conditions pour accéder au message : il faudra que la réponse de l'utilisateur soit similaire à l'un de ces déclencheurs. Pour les désactiver et ne pas faire cette vérification, on peut écrire `!Next: message suviant / ignoreKeywords`.
 :::
@@ -312,10 +322,6 @@ Bienvenue ici !
 ```
 
 :::
-
-
-<!-- TODO: ajouter exemple de chatbot
-Récupération du message utilisateur : `` `@mavariable = @INPUT : Titre réponse` `` (voir cet [exemple](https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/_2I1TWwBT22IML7BsR7sWw)) -->
 
 
 ##### Pour récupérer les paramètres dans l'URL
