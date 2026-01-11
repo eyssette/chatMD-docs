@@ -1859,7 +1859,7 @@ Dans quelle ville vis-tu ?
 `!useLLM`
 !noStream
 Analyse cette réponse : `@INPUT`
-Extrait le nom de la ville mentionné par l'utilisateur
+Extrait le nom de la ville mentionnée par l'utilisateur
 Réponds simplement par le nom de la ville, sans autre texte, dans ce format :
 <code>Nom de la ville</code>
 N'ajoute rien avant ou après.
@@ -1871,7 +1871,52 @@ N'ajoute rien avant ou après.
 La ville extraite est : `@ville`
 
 ```
+###### Exemple 3 : extractions d'informations multiples dans la réponse de l'utilisateur
 
+On peut aussi demander à l'IA d'extraire plusieurs informations dans la réponse de l'utilisateur, en les formatant au format JSON, ce qui facilite ensuite la récupération des différentes informations.
+
+```markdown
+## Question informations personnelles
+Peux-tu me donner ton prénom, ton âge et ta ville de résidence ?
+!Next: Extraction informations personnelles
+
+## Extraction informations personnelles
+<div class="extraction-infos hidden"> 
+
+`!useLLM`
+!noStream
+Analyse cette réponse : `@INPUT`
+Extrait les informations suivantes : prénom, âge, ville de résidence.
+
+Renvoie uniquement un texte au format JSON, sur une seule ligne, sans texte supplémentaire et avec le format suivant : <code>JSON_RESULT</code>
+
+Format JSON à respecter :
+{
+  "prenom": "Jean",
+  "age": 25,
+  "ville": "Lyon"
+}
+`END !useLLM`
+</div>
+
+
+`@json = calc(@SELECTOR[".extraction-infos"])`
+`@infos = calc(JSON.parse(@json))`
+
+`@prenom = calc(@infos.prenom)`
+`@age = calc(@infos.age)`
+`@ville = calc(@infos.ville)`
+
+`if !@prenom || !@age || !@ville`
+Il manque des informations. Peux-tu me redonner ton prénom, ton âge et ta ville de résidence ?
+!Next: Extraction informations personnelles
+`endif`
+
+`if @prenom.length>0 && @age>0 && @ville.length>0`
+Bonjour `@prenom`, tu as `@age` ans et tu habites à `@ville` !
+`endif`
+
+```
 
 
 #### Appel à une IA : après un clic sur un bouton de réponse
