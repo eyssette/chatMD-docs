@@ -386,7 +386,7 @@ Pour utiliser LaTeX pour les mathématiques, il faut ajouter dans le YAML :
 maths: true
 ```
 
-Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur un paragraphe) ou `$$Latex$$` (pour un paragraphe à part)
+Vous pouvez alors utilisez la syntaxe `$Latex$` (à l'intérieur d'un paragraphe) ou `$$Latex$$` (pour un paragraphe à part)
 
 #### Schémas et graphiques
 
