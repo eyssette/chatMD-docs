@@ -25,7 +25,7 @@ N'hésitez pas à partager vous aussi vos exemples de chatbot :
 - [Utilisation de la perceuse à colonne dans un atelier Métallerie](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/j2c6hkpCRuua0almpXIMdA)
 
 #### FAQ
-- [Présentation du dispositif TED-i](https://drne.region-academique-bourgogne-franche-comte.fr/presentation-ted-i/)
+- [Présentation du dispositif TED-i](https://drne.region-academique-bourgogne-franche-comte.fr/accompagnement-ted-i/)
 - [Besoin d'aide sur le GAR ?](https://drane.ac-lyon.fr/spip/GAR-Besoin-d-aide-utiliser-le)
 - [Gestion des avis sur une fiche établissement de Google Map](https://drane.ac-lyon.fr/spip/gestion-avis-google-map)
 - [Trouver la bonne plateforme d'assistance](https://drane.ac-lyon.fr/spip/Assistance)
