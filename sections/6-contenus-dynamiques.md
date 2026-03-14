@@ -425,6 +425,22 @@ Exemples :
 - `condition: $3 > 50 && $4.includes("public")` → combine plusieurs conditions
 - `condition: $5.includes(mainTopic("@INPUT"))` → si on a préalablement demandé à l'utilisateur le sujet qui l'intéresse, on peut filtrer les lignes qui contiennent ce sujet (ici dans la colonne 5)
 
+:::precision collapsible Recherche de mots clés dans les colonnes avec `searchScore`
+Si vous voulez faire une recherche dans les colonnes des lignes qui correspondent à la question de l'utilisateur, vous pouvez utiliser la fonction ``searchScore($i,"`@INPUT`")``, avec `$i` qui correspond à la colonne dans laquelle vous voulez faire la recherche. 
+
+Cette fonction va attribuer un score à chaque ligne en fonction de la pertinence de la correspondance entre le contenu de la colonne et les mots clés présents dans la question de l'utilisateur.
+
+Vous pouvez aussi choisir de _booster_ l'importance de certains mots clés : si ces mots clés sont présents dans la colonne, cela va augmenter le score de la ligne correspondante.
+
+Exemple : `searchScore($2,"`@INPUT`", {boostWords: ["maths", "math", "mathématiques"]}))` va donner plus de poids aux lignes qui contiennent les mots "maths", "math" ou "mathématiques" dans la colonne 2.
+
+Vous pouvez utiliser le score de recherche dans la formule de filtre pour n'obtenir que les résultats les plus pertinents, qui dépassent un certain score.
+
+Par exemple : `condition: searchScore($2,"`@INPUT`")>1`
+
+Il faut ajuster le seuil de score en faisant des tests pour trouver le bon paramètre selon les données que vous avez et les questions possibles de l'utilisateur.
+:::
+
 #### Formule de tri
 
 La formule de tri permet de trier les résultats filtrés pour pouvoir les afficher dans l'ordre que l'on souhaite.
