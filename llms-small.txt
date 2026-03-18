@@ -15,7 +15,7 @@
 - Code Block Preservation: Fenced code blocks in documentation contain working examples - preserve them exactly as written.
 - Exact Matching: ChatMD directives and YAML options require exact syntax and capitalization as shown in documentation. A mismatch will cause the chatbot to fail.
 - Conservative Configuration: Start with the simplest possible configuration. Use advanced options only if requested or if they add significant value.
-- LLM Integration Guidelines: Use LLM configuration ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).<rules><doc title="Critical rules to follow"># CHATMD RULES
+- LLM Integration Guidelines: Use LLM configuration and RAG ONLY when explicitly requested. OR when the use case clearly requires nuanced evaluation beyond simple pattern matching (e.g., evaluating open-ended answers, analyzing semantic meaning).<rules><doc title="Critical rules to follow"># CHATMD RULES
 
 ChatMD uses a **strict Markdown structure**. Follow these rules exactly.
 
