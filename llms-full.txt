@@ -636,7 +636,9 @@ C'est surtout utile :
 - ou au contraire, si on a laissé le clavier actif de manière générale, mais qu'on veut à un moment donné contraindre l'utilisateur à faire un choix entre plusieurs boutons à cliquer.
 
 
-### Liens internes
+### Liens internes et liens externes
+
+#### Liens internes
 
 Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais qui ne sont pas à la fin du message, vous pouvez tout simplement utiliser la syntaxe d'un lien interne en Markdown, avec la cible qui commence par `#`, immédiatement suivi du titre de la réponse :
 
@@ -645,6 +647,17 @@ Si vous souhaitez ajouter des liens internes vers des réponses du chatbot, mais
 ```
 
 Mais si vous voulez un affichage avec des boutons comme pour les réponses en fin de message, il faut alors écrire les options avec du code HTML (voir cet [exemple](https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/NJs77ZWnQgalVyA6nfuDLQ))
+
+#### Liens externes
+
+Vous pouvez ajouter des liens externes dans votre chatbot en utilisant la syntaxe Markdown habituelle pour les liens, mais si vous voulez qu'un bouton de réponse mène vers un lien externe, il faut préfixer ce lien avec `link:`
+
+```markdown
+1. [Bouton de réponse ordinaire : lien vers une réponse du chatbot](#titre de la réponse)
+2. [Lien vers une URL externe](link:https://exemple.fr)
+```
+
+Les liens externes sont affichés dans un nouvel onglet. Les boutons de réponse avec des liens externes ont une icône de lien pour les différencier des boutons ordinaires qui mènent vers des réponses du chatbot.
 
 ### Contenus spéciaux
 
