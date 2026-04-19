@@ -699,6 +699,14 @@ Pour jouer automatiquement un son lors du déclenchement d'une réponse, utilise
 
 Voir cet [exemple](https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg?both) et le [chatbot correspondant](https://chatmd.forge.apps.education.fr/#https://codimd.apps.education.fr/24OabQgvQ_yPd2WE3DrIEg)
 
+On peut aussi utiliser la balise HTML `<audio>` pour intégrer un lecteur audio dans le message.
+
+```html
+<audio controls>
+  <source src="URLduFichierAudio">
+</audio>
+```
+
 #### Formules mathématiques (LaTeX)
 
 
