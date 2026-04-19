@@ -620,8 +620,8 @@ useLLM:
 
 ```yaml
 useLLM:
-   userCanCallLLM: false
    maxTokens: nombre_maximum_de_tokens
+   userCanCallLLM: false
    maxTokensInHistory: nombre_maximum_de_tokens_dans_l_historique
    systemPrompt: "Prompt système général"
    preprompt: "Pré prompt, avant la demande"
@@ -633,7 +633,15 @@ useLLM:
    useHistory: false
 ```
 
+Par défaut le nombre maximum de tokens pour la réponse est de 300, mais on peut le changer avec le paramètre `maxTokens`, et on peut même mettre `maxTokens: false` pour ne pas mettre de limites (ce qui permet de ne pas avoir de réponse tronquée avec certains LLMs, qui ne gèrent pas bien les réponses avec des limites de tokens). Dans ce cas, on peut penser à indiquer tout de même dans le prompt, ou le system prompt, que la réponse doit être concise pour éviter d'avoir des réponses trop longues.
+
 Si on utilise `userCanCallLLM: false`, alors l'utilisateur ne peut pas mettre `!useLLM` dans son message pour interroger comme il le souhaite l'IA, et il n'y aura pas de bouton automatiquement ajouté pour répondre avec l'IA en cas de réponse non trouvée. Il vaut mieux utiliser ce paramètre pour éviter des usages non contrôlés de l'IA par les utilisateurs.
+
+Le `systemPrompt` est un message qui définit les règles générales d'utilisation du LLM, son rôle, sa personnalité, les consignes à respecter pour répondre… C'est un message qui est envoyé à chaque fois qu'une conversation avec un LLM commence, et qui sert de cadre général pour toutes les réponses du LLM.
+Si on demande au LLM de produire un message avec des formules mathématiques en Latex, il faut penser à lui indiquer la syntaxe utilisée par ChatMD, par exemple avec `Pour les formules mathématiques, utilise la syntaxe suivante : $formule$ pour les formules en ligne et $$formule$$ pour les formules sur une ligne à part.`
+
+Le `preprompt` est un message qui est ajouté avant chaque message envoyé au LLM, et le `postprompt` est un message qui est ajouté après chaque message envoyé au LLM.
+On peut par exemple utiliser le `preprompt` pour indiquer à chaque fois les consignes à respecter pour répondre, et le `postprompt` pour indiquer le ton à adopter pour répondre.
 
 Si on utilise `maxProcessingTime`, le temps d'attente maximum de la réponse du LLM doit être exprimé en millisecondes.
 
