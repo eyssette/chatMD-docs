@@ -144,6 +144,19 @@ Si on veut autoriser l'utilisateur à poursuivre une discussion en utilisant l'h
 
 Dans le bloc `!useLLM`, on ajoute au début dans son prompt `!useHistory`.
 
+###### Utiliser l'historique pour tous les appels à l'IA
+
+Si on veut que l'historique de la conversation soit pris en compte à chaque fois que l'on fait un appel à l'IA, on peut ajouter le paramètre `useHistory: true` dans la configuration du LLM dans le YAML.
+
+```yaml
+useLLM:
+   url: URL_API
+   model: nom_du_modèle_de_langage
+   encryptedAPIkey: clé_chiffrée
+   useHistory: true
+```
+
+Cela peut faciliter la création pour certains chatbots, mais c'est souvent plus intéressant de pouvoir choisir à quel moment on veut que l'IA prenne en compte l'historique de la conversation.
 
 ###### Utiliser l'historique pour un seul message
 
@@ -617,6 +630,7 @@ useLLM:
    always: false
    stream: true
    simulateStream: true
+   useHistory: false
 ```
 
 Si on utilise `userCanCallLLM: false`, alors l'utilisateur ne peut pas mettre `!useLLM` dans son message pour interroger comme il le souhaite l'IA, et il n'y aura pas de bouton automatiquement ajouté pour répondre avec l'IA en cas de réponse non trouvée. Il vaut mieux utiliser ce paramètre pour éviter des usages non contrôlés de l'IA par les utilisateurs.
@@ -628,6 +642,8 @@ On peut configurer le chatbot pour qu'il utilise toujours le LLM. Il faut alors 
 On peut demander à obtenir la réponse du LLM d'un coup, sans "streaming" de la réponse, avec le paramètre `stream: false`.
 
 Si on utilise un outil, comme n8n, pour cacher sa clé API, alors le streaming de la réponse n'est pas possible, il faut donc mettre le paramètre `stream: false`, mais on peut utiliser le paramètre `simulateStream: true` pour afficher la réponse petit à petit, comme si elle était "streamée".
+
+Si on utilise `useHistory: true`, alors l'historique de la conversation est automatiquement pris en compte à chaque fois que le LLM est sollicité. Sinon, il faut ajouter `!useHistory` dans les prompts pour que l'historique soit pris en compte.
 
 
 ### RAG
